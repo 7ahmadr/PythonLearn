@@ -1,0 +1,160 @@
+﻿<head>
+    <title>ورود به برنامه</title>
+    <!--===============================================================================================-->
+</head>
+<div class="WaitingDiv" ng-show="loading"></div>
+
+<div class="row w-100 d-flex pyLg_MainDiv">
+    <div ng-show="ForgotPassword==false" class="col-xl-6 col-lg-6 col-md-12">
+        <div class="pyLg_VerticalCenter pyLg_MainDivBody w-50 ">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label class="pyLg_Title">ورود</label>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label class="p-l-30 pyLg_TitleDesc">حسابی ندارید؟ <a class="text-primary" ng-click="GoToSignUp()" href="#">ثبت نام</a></label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="pyLg_Label" for="InputEmail1">ایمیل</label>
+                <input id="InputEmail1" type="text" ng-model="Username" class="form-control pyLg_Txt" aria-describedby="emailHelp" placeholder="ایمیل">
+                <small ng-show="ValidateEMail(Username)==false && Username!==''" id="emailHelp" class="form-text text-danger pyLg_Small">ایمیل وارد شده معتبر نمی باشد</small>
+            </div>
+
+            <div class="form-group">
+                <label class="pyLg_Label" for="InputPass1">رمز عبور</label>
+                <input id="InputPass1" type="password" ng-model="Password" class="form-control pyLg_Txt" aria-describedby="PassHelp" placeholder="رمز عبور">
+                <small>
+                    <a href="#" ng-click="NeedNewPassword()" class="text-primary pyLg_Small">
+                        رمز عبور را فراموش کردم
+                    </a>
+                </small>
+            </div>
+
+            <div class="form-group">
+                <button ng-disabled="CheckValidation()==false" type="submit" class="btn btn-primary w-100 pyLg_BtnLogin" ng-click="Login()" href="#">
+                    ورود
+                </button>
+            </div>
+
+            <div class="form-group">
+                <small class="form-text text-muted w-100 text-center pyLg_Small">یا از طریق گوگل وارد شوید</small>
+                <button type="button" class="btn btn-default  w-100 text-center pyLg_BtnGoogle" href="#" onclick="window.open('/api/user/GetExternalLogin/Google','_self')">
+                    <img src="/Template/images/GoogleLogo.png" class="pyLg_BtnIcon">
+                    ورود با گوگل
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div ng-show="ForgotPassword" class="col-xl-6 col-lg-6 col-md-12">
+        <div class="pyLg_VerticalCenter pyLg_MainDivBody w-50 ">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label class="pyLg_TitleChP">تغییر رمز عبور</label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="pyLg_Label" for="InputRepEmail1">ایمیل</label>
+                <input id="InputRepEmail1" type="text" ng-model="Username" class="form-control pyLg_Txt" aria-describedby="emailHelp" placeholder="نام کاربری">
+                <small ng-show="ValidateEMail(Username)==false && Username!==''" id="emailHelp" class="form-text text-danger">ایمیل وارد شده معتبر نمی باشد</small>
+            </div>
+
+
+            <div class="form-group">
+                <button ng-disabled="ValidateEMail(Username)==false" type="submit" class="btn btn-primary w-100 pyLg_BtnLogin" ng-click="SendNewPasswordMail()" href="#">
+                    تغییر رمز عبور
+                </button>
+                <small>
+                    <a href="#" ng-click="BackToLogin()" class="text-primary">
+                        رمز عبور خود را می دانید؟
+                    </a>
+                </small>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-xl-6 col-lg-6 pyLg_LeftDiv d-none d-xl-block d-lg-block">
+
+    </div>
+</div>
+
+
+
+
+
+
+<!--<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+
+            <form ng-show="ForgotPassword==false" class="login100-form validate-form">
+                <div>
+                    <span class="label-input100">ایمیل</span><span class="label-input100 required"> * </span>
+                    <span ng-show="ValidateEMail(Username)==false" ng-class="'pyVeryWeak'"> <i class="zmdi zmdi-block"></i></span>
+                    <input ng-model="Username" class="input100" type="text" name="username" placeholder="نام کاربری">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div>
+                    <span class="label-input100">رمز عبور</span><span class="label-input100 required"> * </span>
+                    <input ng-model="Password" class="input100" type="password" name="pass" placeholder="رمز عبور">
+                    <span class="focus-input100"></span>
+                </div>
+
+
+                <div style="margin-top:10px">
+                    <a href="#" ng-click="NeedNewPassword()" class="txt1" style="font-family:IRANSans">
+                        رمز عبور را فراموش کردم
+                    </a>
+                    <br />
+                    <a ng-click="GoToSignUp()" href="#" style="font-family:IRANSans">
+                        ثبت نام
+                    </a>
+                </div>
+
+
+                <div style="margin-top:10px" class="container-login100-form-btn">
+                    <button ng-disabled="CheckValidation()==false" type="submit" class="login100-form-btn" ng-click="Login()" href="#">
+                        ورود
+                    </button>
+
+                    <button type="button" style="background-color:darkred;  margin-right:5px" class="login100-form-btn" href="#" onclick="window.open('/api/user/GetExternalLogin/Google','_self')">
+                        <i class="zmdi zmdi-google"></i>
+                        ورود با گوگل
+                    </button>
+                </div>
+            </form>
+
+
+            <form ng-show="ForgotPassword" class="login100-form validate-form">
+                <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                    <input ng-model="Username" class="input100" type="text" name="username" placeholder="ایمیل خود را وارد کنید">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div style="margin-top:10px" class="container-login100-form-btn">
+                    <button ng-disabled="ValidateEMail(Username)==false" type="submit" class="login100-form-btn" ng-click="SendNewPasswordMail()" href="#">
+                        ارسال ایمیل
+                    </button>
+                    <a ng-click="BackToLogin()" style="background-color:orangered; margin-right:5px" class="login100-form-btn" href="#">
+                        بازگشت
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>-->

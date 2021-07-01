@@ -1,0 +1,848 @@
+@font-face {
+    font-family: IranSANS;
+    font-style: normal;
+    src: url('../fonts/IranSANS.ttf');
+}
+
+@font-face {
+    font-family: Yekan;
+    font-style: normal;
+    src: url('../fonts/Yekan.ttf');
+}
+
+body {
+    background-color: #fff !important;
+}
+
+/*br {
+	margin-bottom:20px;
+}*/
+
+
+.card-text:last-child {
+    margin-bottom: 60px;
+	-webkit-user-select: text; /* Safari */
+  	-ms-user-select: text; /* IE 10 and IE 11 */
+ 	user-select: text; /* Standard syntax */
+	height: max-content;
+
+	
+}
+
+
+pre {
+font-size:100% !important;	
+}
+
+.card-header {
+    padding: 0.75rem 0.30rem;
+}
+/*
+@media (max-width: 701px) {
+
+    .pyMobileHide {
+        visibility: hidden;
+        display: none;
+    }
+
+    .hpTitle {
+        font-size: 30px
+    }
+
+    .hpSubTitle {
+        font-size: 20px
+    }
+}
+
+@media (min-width: 601px) {
+    .pyMenuItem {
+        font-size: 18px;
+    }
+
+    .hpTitle {
+        font-size: 50px
+    }
+
+    .hpSubTitle {
+        font-size: 30px
+    }
+}
+*/
+.card-title {
+    margin-right: 10px;
+}
+
+.card {
+    border-radius: 0px !important;
+    background-color: #fff;
+}
+
+.card-body {
+    padding: 0;
+}
+
+.card-footer-danger {
+    color: #dc3545 !important;
+    font-size: 14px;
+}
+
+.border_dark {
+    border-color: #343a40 !important
+}
+
+.border_danger {
+    border-color: #dc3545 !important
+}
+
+.text_danger {
+    color: #dc3545 !important
+}
+
+.pyHidden {
+    display: none !important;
+}
+
+.pyShow {
+    display: block;
+}
+
+.pyHelpMenu {
+    font-family: IRANSans !important;
+    font-size: 14px
+}
+
+.pyDivBlue .CodeMirror {
+	height: max-content !important;
+	background-color: #f1f4f8 !important;
+}
+
+.pyTitle {
+    font-size: 24px !important;
+    font-weight: bold !important;
+}
+
+
+
+.lesPageNum {
+    color: #3676ab;
+}
+
+.page-link {
+    border-radius: 0px !important
+}
+
+.progress.active .progress-bar {
+    -webkit-transition: none !important;
+    transition: none !important;
+}
+
+.pyCenter {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
+    background-color: inherit;
+}
+
+.pyBtnSP {
+    border-radius: 0px
+}
+
+.NoRadius {
+    border-radius: 0px !important
+}
+
+.pyNav {
+    border-bottom: 2px solid #ffd147;
+    border-radius: 0px !important;
+    background-color: #f4f6fb;
+    padding-top: 0px !important;
+    padding-right: 0px !important;
+    padding-bottom: 2px !important;
+    padding-top: 2px !important
+}
+
+
+.pyStyle {
+    background-color: #3676ab !important;
+    color: #ffd147 !important;
+}
+
+.pyColor1 {
+    color: #3676ab;
+}
+
+.pyColor2 {
+    color: #ffd147;
+}
+
+.pyBackColor1 {
+    background-color: #3676ab;
+}
+
+.pyBackColor2 {
+    background-color: #ffd147;
+}
+
+
+.table-condensed {
+    font-size: 12px !important
+}
+
+
+    .table-condensed > thead {
+        background-color: #343a40 !important;
+        color: white !important;
+    }
+
+        .table-condensed > thead > tr > th, .table-condensed > tbody > tr > td {
+            padding: 5px 10px 5px 10px !important;
+        }
+
+
+.lesPagination {
+    /*margin: auto;*/
+    width: 50%;
+    margin-bottom: 0.5%;
+}
+
+
+.lesCardHeader {
+    padding-top: 7px;
+    height: 35px !important;
+    font-family: IRANSans;
+    font-weight: bold;
+    font-size: 13px
+}
+
+.lesTitle {
+    font-family: IRANSans;
+    font-size: 16px;
+}
+
+
+
+.csProgress {
+    height: 5px;
+    margin-top: 4%;
+}
+
+.hpCourseBtn {
+    margin-top: 3%;
+    margin-right: 40%;
+    width: 20%;
+    font-size: 15px
+}
+
+.hpColor {
+    color: #06345b
+}
+
+
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.WaitingDiv {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba( 255, 255, 255, .8 ) url('../Template/images/WaitingGif.svg') 50% 50% no-repeat;
+}
+
+
+.CodeMirror {
+    direction: ltr !important;
+    text-align: left !important;
+    font-size: 14px !important;
+    height: 55% !important;
+    max-height: 80% !important;
+    width: 100% !important;
+}
+
+
+
+.pyBtnActive {
+    background-color: black !important
+}
+
+.pyBtnDeactive {
+    background-color: steelblue !important
+}
+
+.pyInvisible {
+    visibility: hidden !important;
+	margin:0px !important;
+}
+
+.pyLesHelp {
+    border-radius: 50% !important;
+    background-color: inherit !important;
+    border: none !important;
+}
+
+
+.pyTableDiv {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    overflow-x: auto;
+    direction: ltr;
+}
+
+.pyTable {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-left: auto;
+    margin-right: auto; /*width:100% !important;
+    max-width:100% !important;*/
+    text-align: center;
+    color: #363d49;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: .5px;
+    font-weight: 300;
+    font-family: merriweather,serif;
+}
+
+    .pyTable td:first-child {
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .pyTable2 td:first-child {
+        font-weight: 100 !important;
+        text-align: center;
+    }
+
+    .pyTable td {
+        border-color: black;
+        border-style: solid;
+        border-width: 1px;
+        /*font-family: Arial, sans-serif;*/
+        font-family: merriweather,serif;
+        font-size: 16px;
+        overflow: hidden;
+        padding: 8px;
+        word-break: normal;
+        /*color: #363d49;*/
+        letter-spacing: .5px;
+    }
+
+    .pyTable th {
+        border-color: black;
+        border-style: solid;
+        border-width: 1px;
+        /* font-family: Arial, sans-serif;
+        font-size: 14px;*/
+        overflow: hidden;
+        padding: 10px 5px;
+        word-break: normal;
+        /*font-weight:100;*/
+        text-align: center;
+        font-family: merriweather,serif;
+        font-size: 17px;
+    }
+
+    .pyTable .tg-0lax {
+        text-align: left;
+        vertical-align: top
+    }
+
+
+.short td:first-child {
+    font-weight: 300 !important;
+}
+
+
+
+
+.lesContent {
+    /*direction: rtl;*/
+    /*float: right;*/
+    direction: inherit;
+    text-align: justify;
+    font-size: 15px !important;
+    font-family: IRANSans;
+    text-justify: inter-word;
+    overflow: hidden;
+    margin-right: 6%;
+    margin-left: 6%;
+    line-height: 1.8;
+    /*word-spacing: -.5px !important;*/
+	letter-spacing: -.5px;
+
+}
+
+.card-text {
+		-webkit-user-select: none; /* Safari */
+  	-ms-user-select: none; /* IE 10 and IE 11 */
+ 	user-select: none; /* Standard syntax */
+
+}
+
+.card-text .pyDivBlue {
+		-webkit-user-select: text !important; /* Safari */
+  	-ms-user-select: text !important; /* IE 10 and IE 11 */
+ 	user-select: text !important; /* Standard syntax */
+
+}
+
+
+
+.pyNextLine {
+    display: block; /* makes it have a width */
+    content: ""; /* clears default height */
+    margin-top: 15px; /* change this to whatever height you want it */
+}
+
+.pyDivBlue .pyNextLine {
+    display: block; /* makes it have a width */
+    content: ""; /* clears default height */
+    margin-top: 0px; /* change this to whatever height you want it */
+}
+/*
+.pyDivRed .pyNextLine {
+	display: block; /* makes it have a width */
+content: ""; /* clears default height */
+margin-top: 0px; /* change this to whatever height you want it 
+}
+
+.pyDivgreen .pyNextLine {
+	display: block; /* makes it have a width */
+content: ""; /* clears default height */
+margin-top: 0px; /* change this to whatever height you want it 
+}
+*/
+.pyDivLtr {
+    text-align: left;
+}
+
+.pyLtr {
+    float: left !important;
+}
+
+.pyLeftAlign {
+    text-align: left !important;
+}
+
+.pyBold {
+    font-weight: bold !important;
+    direction: ltr;
+    display: inine-block;
+}
+
+
+.inline {
+    display: inline !important;
+}
+
+
+.pyHighlight {
+    display: inline-block;
+    padding: 0px 5px;
+    background-color: #f9f0ee !important;
+    color: #c6244b !important;
+    /*margin-right:5px !important;
+    margin-left:5px !important;*/
+    line-height: 1.5;
+    font-size: 16px;
+    /*font-family: source-code-pro,Menlo,Monaco,Ubuntu Mono,Consolas,monospace!important;*/
+    font-family: Calibri;
+    direction: ltr !important;
+    word-spacing: 1.5px;
+    letter-spacing: .5px;
+}
+
+.pyHighlightBlue {
+    display: inline-block;
+    padding: 0px 5px;
+    background-color: lightskyblue !important;
+    color: #06345b !important;
+    margin-right: 10px !important;
+    margin-left: 10px !important font-family: source-code-pro,Menlo,Monaco,Ubuntu Mono,Consolas,monospace!important;
+    direction: ltr !important;
+}
+
+.pyHighlightGreen {
+    display: inline-block;
+    background-color: #edf8f4 !important;
+    color: #4cbd94 !important;
+    margin-right: 5px !important;
+    margin-left: 5px !important;
+    padding: 0px 5px;
+    line-height: 1.5;
+    font-size: 14px;
+    font-family: source-code-pro,Menlo,Monaco,Ubuntu Mono,Consolas,monospace !important;
+    direction: ltr !important;
+}
+
+.pyDivRed {
+    font-family: source-code-pro,Menlo,Monaco,Ubuntu Mono,Consolas,monospace !important;
+    background-color: #f9f0ee !important;
+    color: #c6244b !important;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    content: "";
+    text-align: left;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    direction: ltr !important;
+}
+
+.pyDivBlue {
+    font-family: source-code-pro,Menlo,Monaco,Ubuntu Mono,Consolas,monospace !important;
+    background-color: #f1f4f8 !important;
+    color: #06345b !important;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    content: "";
+    text-align: left;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    direction: ltr !important;
+}
+
+.pyDivGreen {
+    font-family: source-code-pro,Menlo,Monaco,Ubuntu Mono,Consolas,monospace !important;
+    background-color: #edf8f4 !important;
+    color: #4cbd94 !important;
+    padding-left: 10px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    content: "";
+    text-align: left;
+    direction: ltr !important;
+	margin-bottom:15px;
+}
+
+.pyDivHelp {
+	font-family: source-code-pro,Menlo,Monaco,Ubuntu Mono,Consolas,monospace !important;
+    padding-left: 10px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    content: "";
+    text-align: left;
+    direction: ltr !important;
+}
+
+.pyDivHelp code {
+	color: #c6244d !important;
+
+}
+
+
+.pyInstruct {
+    background-color: #f9f0ee !important;
+    color: #c6244b !important;
+    padding-right: 5px !important;
+    padding-top: 3px !important;
+    margin-left: 5px !important;
+    padding-left: 5px !important;
+    line-height: 1.5;
+}
+
+.lesImage {
+    display: block !important;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 25px !important;
+}
+
+.twoImage {
+    display: block !important;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 25px !important;
+	width:50% !important;
+}
+
+.tashih {
+    display: inline !important;
+    padding: 0;
+}
+
+.summary {
+    margin: 5% 20% 10% 20%;
+}
+
+p + img {
+    padding-top: 5px !important;
+}
+
+p {
+    padding-left: 5px;
+}
+
+
+
+.ltr {
+    direction: ltr;
+}
+
+ul {
+    margin-bottom: 15px;
+    padding-right: 35px !important;
+}
+
+
+ol {
+    margin-bottom: 15px;
+    padding-right: 35px !important;
+}
+
+    ol li {
+        margin-top: 5px;
+        line-height: 30px;
+    }
+
+    ol ul {
+        padding-right: 20px !important;
+    }
+
+.lesContent ul li {
+    list-style-type: disc;
+    margin-top: 7px;
+    line-height: 30px;
+}
+
+.lesContent ol ul li {
+    list-style-type: circle;
+}
+
+.lesContent ul li ul li {
+    list-style-type: circle;
+}
+
+.lesContent ul li ul li ul li {
+    list-style-type: square;
+}
+
+
+.lesContent ol ul ul li {
+    list-style-type: square !important;
+}
+
+
+pre {
+    padding: 0;
+    margin: 0;
+}
+
+code {
+    color: #c6244d;
+    background-color: #f9f1f3;
+}
+
+pre code {
+    color: #c6244d;
+    background-color: #f9f1f3;
+    font-size: 15px;
+}
+
+.birunbarTitle {
+    font-size: 25px;
+    text-align: center;
+}
+
+.summary code {
+    color: #4cbd94 !important;
+    background-color: #edf8f4 !important;
+}
+
+.bar {
+    background-color: #d9d9d9;
+    color: #4c5361;
+    border-bottom: 1px solid #fff;
+    font-size: 16px;
+    line-height: 18px;
+    padding: 9px 20px;
+    font-weight: 400;
+    margin: 0;
+    width: 100%;
+    margin: 0 0 15px 0;
+    font-family: IRANSans;
+}
+
+.adad {
+    direction: ltr;
+    text-align: left;
+    background-color: #f9f0ee !important;
+    color: #c6244b !important;
+    width: max-content;
+    display: inline-block;
+    margin: 4px 8px;
+    padding: 4px 8px;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+}
+
+    a, a:active {
+        color: #3c9;
+        cursor: pointer;
+    }
+
+        a:hover {
+            color: #3c9;
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-position: under;
+        }
+
+.MJX_Assistive_MathML {
+    font-size: 22px;
+}
+
+.block {
+    display: block;
+    direction: ltr;
+}
+
+.required {
+    color: red !important
+}
+
+
+.pyVeryWeak {
+    color: #dc3545 !important;
+}
+
+.pyWeak {
+    color: orange !important;
+}
+
+.pyGood {
+    color: limegreen !important;
+}
+
+.pyExcellent {
+    color: green !important;
+}
+
+
+
+
+/*    //////////////codemirrorstyle//////////   */
+
+
+.CodeMirror-guttermarker {
+    color: #fff;
+}
+
+.CodeMirror-guttermarker-subtle {
+    color: #d0d0d0;
+}
+
+.CodeMirror-linenumber {
+    color: #d1d1d1;
+}
+
+.CodeMirror-cursor {
+    border-left: 1px solid #fff;
+}
+
+.cm-keyword {
+    color: #cc7832;
+}
+
+.cm-atom {
+    color: #fc0;
+}
+
+.cm-number {
+    color: #cba900;
+}
+
+.cm-def {
+    color: #8da6ce;
+}
+
+span.cm-variable-1 {
+    color: inherit;
+}
+
+.cm-s-vibrant {
+    span .cm-def
+
+{
+    color: #ffc66d;
+}
+
+span.cm-tag {
+    color: #ffc66d;
+}
+
+}
+
+span.cm-variable-2 {
+    color: #ffc66d;
+}
+
+span.cm-variable-3 {
+    color: #ffc66d;
+}
+
+.cm-operator {
+    color: #888;
+}
+
+.cm-comment {
+    color: grey;
+}
+
+.cm-string {
+    color: #a5c25c;
+}
+
+.cm-string-2 {
+    color: red;
+}
+
+.cm-meta {
+    color: #d8fa3c;
+}
+
+.cm-attribute {
+    color: #8da6ce;
+}
+
+.cm-builtin {
+    color: #4a6fab;
+}
+
+.cm-tag {
+    color: #8da6ce;
+}
+
+.cm-header {
+    color: #ff6400;
+}
+
+.cm-hr {
+    color: #aeaeae;
+}
+
+.cm-link {
+    color: #00f;
+}
+
+.cm-error {
+}
+
+.CodeMirror-activeline-background {
+    background: #27282e;
+}
+
+.CodeMirror-matchingbracket {
+    outline: 1px solid grey;
+    color: #fff !important;
+}

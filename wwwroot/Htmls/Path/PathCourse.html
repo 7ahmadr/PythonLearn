@@ -1,0 +1,47 @@
+﻿<div class="pyPC_Init">
+    <div class="WaitingDiv" ng-show="loading"></div><!-- Place at bottom of page -->
+
+    <div class="pyPC_Main">
+        <div class="row">
+            <div class="col-sm-12 col-lg-6">
+                <label class="pyPC_PTitle">فصل</label><br />
+                <label class="pyPC_PName" ng-bind="Season.name"></label>
+                <div class="pyPC_PExp justify-content-center" ng-bind="Season.explain">
+
+                </div>
+                <div class="pyPC_OptDiv">
+                    <div ng-repeat="o in SeasonOptions" class="pyPC_OptTxt">
+                        <span class="zmdi zmdi-check-all pyPC_OptIcon"></span>
+                        {{o}}
+                    </div><br />
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-lg-6">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="pyPC_MiddleDiv">
+        <label class="pyPC_MDivTitle">تمرین، انجام پروژه، یادگیری کاربردی</label>
+        <div class="pyPC_MDivTxt">PythonCoding مهارت های لازم برای شروع و پیشرفت حرفه خود در علم داده را به شما می آموزد.</div>
+        <a href="#" ng-click="GoToHomePage()" class="pyPC_MDivLink">بیشتر بدانید</a>
+    </div>
+
+
+
+    <div class="pyPC_SeasonDiv container">
+        <label class="pyPC_SeasonTitle text-center">درسنامه های این دوره</label>
+        <div ng-repeat="c in Courses" class="row m-t-100 w-100 pyPC_CourseRow">
+            <div class="col-sm-10">
+                <label class="pyPC_lblCName" ng-bind="c.name"></label>
+                <br />
+                <label class="pyPC_lblCDesc" ng-bind="c.desc"></label>
+            </div>
+            <div class="col-sm-2 d-flex justify-content-center">
+                <button class="btn btn-success pyPC_btnCourse" ng-click="GoToMission(c.id)">مشاهده درسنامه</button>
+            </div>
+        </div>
+    </div>
+</div>

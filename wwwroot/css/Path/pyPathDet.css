@@ -1,0 +1,153 @@
+body {
+    background-color: #ffffff !important;
+}
+
+.pyPD_Init {
+    font-family: IRANSans;
+}
+
+.pyPD_Main{
+    margin-top: 6%;
+    padding: 2em 4em 2em 4em;
+}
+
+.pyPD_PName{
+    font-size: 2.3em;
+    font-weight: bold;
+}
+
+.pyPD_PExp {
+    font-size: 17px;
+    margin-top: 15px;
+    line-height: 1.7;
+    color: #2e2e2e;
+    text-align: justify;
+}
+
+.pyPD_PTitle{
+    font-size: 15px;
+    color: #4d7fdf;
+}
+
+.pyPD_OptDiv{
+    margin-top: 8vh;
+}
+
+.pyPD_OptIcon{
+    color: #4d7fdf !important;
+}
+
+.pyPD_OptTxt{
+    margin-top: 10px;
+}
+
+.pyPD_MiddleDiv{
+    background-color: #263555;
+    color: white;
+    padding: 4% 10% 5% 10%;
+    margin-top: 7vh
+}
+
+.pyPD_MDivTitle{
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.pyPD_MDivTxt{
+    margin-top: 10px
+}
+
+.pyPD_MDivLink{
+    font-family: Inherit;
+    color: #61d199;
+    line-height: 3
+}
+
+
+
+.pyPD_CourseRow {
+    border-top: 1px solid #d4d4d4;
+    padding: 25px;
+    margin-top: 0px
+}
+
+.pyPD_CourseRow:hover{
+    background-color: #f2f3f7
+}
+
+.pyPD_btnCourse {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #39cf90;
+    border: none;
+    padding: 0px 50px 0px 50px;
+    height: 45px
+}
+
+    .pyPD_btnCourse:hover {
+        background-color: #30b580
+    }
+
+.pyPD_lblCName {
+    font-size: 20px;
+    margin-right: 10px
+}
+
+.pyPD_lblCDesc {
+    font-size: 15px;
+}
+
+.pyPD_SeasonDiv{
+    margin-top: 70px !important;
+    
+}
+
+.pyPD_SeasonTitle{
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-bottom: 5vh
+}
+
+.pyPD_PDesc{
+    font-size: 18px;
+    color: #898a8e;
+}
+
+
+
+@media only screen and (max-device-width: 480px) {
+    .pyPD_PTitle, .pyPD_MDivLink{
+        font-size: 1.8em;
+    }
+    
+    .pyPD_PName, .pyPD_SeasonTitle{
+        font-size: 3em
+    }
+    
+    .pyPD_PExp{
+        font-size: 2em;
+        margin-left: 80px;
+        text-align: justify;
+    }
+    
+    .pyPD_OptTxt, .pyPD_MDivTitle{
+        font-size: 2em;
+    }
+    
+    .pyPD_MDivTxt, .pyPD_lblCDesc{
+        font-size: 1.8em;
+    }
+    
+    .pyPD_lblCName{
+        font-size: 2.2em;
+        font-weight: bold;
+    }
+    
+    .pyPD_btnCourse{
+        font-size: 2em;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+}
+
+

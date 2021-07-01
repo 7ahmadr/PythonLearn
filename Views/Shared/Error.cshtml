@@ -1,0 +1,18 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+<body style="font-family:Yekan">
+    @*<h1 class="text-danger">Error.</h1>*@
+    <h2 style="text-align:center" class="text-danger">متاسفیم! چنین آدرسی در سایت وجود ندارد...</h2>
+
+    @if (Model.ShowRequestId)
+    {
+        <p style="text-align:center">
+            <strong>Request ID:</strong> <code>@Model.RequestId</code>
+        </p>
+    }
+    <p style="text-align:center">
+        <a class="btn btn-primary" style="text-align:center !important; font-family:Yekan" href="http://pythoncoding.ir">صفحه اصلی</a>
+    </p>
+</body>

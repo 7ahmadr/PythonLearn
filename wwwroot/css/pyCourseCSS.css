@@ -1,0 +1,308 @@
+@font-face {
+    font-family: IranSANS;
+    font-style: normal;
+    src: url('../fonts/IranSANS.ttf');
+}
+
+@font-face {
+    font-family: Yekan;
+    font-style: normal;
+    src: url('../fonts/Yekan.ttf');
+}
+
+
+@media only screen and (max-width: 1000px) {
+    /* For mobile phones: */
+    [class*="pyCS_SubMiniHeader"] {
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom:10px !important
+    }
+
+    [class*="mr-4"]{
+        margin-right:0px !important
+    }
+
+    [class*="pyCS_CourseDiv"] {
+        margin-top: 20vh !important
+    }
+}
+
+body{
+    background-color: #f4f6fb !important
+}
+
+
+.pyCS_SubHeader {
+    top: 30%;
+    color: white;
+    text-align: center;
+}
+
+.pyCS_SubLRHeader {
+    margin-top:190px;
+    margin-right: 10%;
+    width: 80% !important;
+    display: flex;
+    /*margin: 175px 8% 0px 8%*/
+}
+
+.pyCS_SubMiniHeader {
+    position: relative;
+    background-color: white;
+    text-align: center;
+    height: 120px !important;
+    border: solid;
+    border-color: #e4e6ed;
+    border-width: 1px;
+    border-radius: 4px;
+    width: 48.5% !important;
+}
+
+
+.pyCS_Header {
+    background-color: #2c509b;
+    height: 400px
+}
+
+
+.pyCS_ResumeBtn {
+    font-family: IRANSans !important;
+    color: white;
+    font-size: 16px;
+    padding: 16px 20px 16px 20px;
+    min-width: 120px;
+    width: 14%;
+    font-weight: bold;
+    background-color: #0cba9a;
+    border: none;
+    margin-top: 1em;
+}
+
+    .pyCS_ResumeBtn:hover {
+        background-color: #0ed8b3
+    }
+
+.pyCS_Welcome {
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+	font-family: IRANSans;
+}
+
+
+.pyCS_UnderWelcome{
+    margin-top:1em;
+	font-family: IRANSans;
+}
+
+
+.pyCS_SubMiniInternal {
+    padding: 20px;
+    text-align: right;
+}
+
+.pyCS_CurPathTitle {
+    color: #6f778d;
+    font-size: 20px;
+	font-family: IRANSans;
+}
+
+.pyCS_ChangePathIcon {
+    border-radius: 50%;
+    border-color: #f6f6f9;
+    border: 2px solid #f5f6f9;
+    padding: 7px;
+    color: #498ee0
+}
+
+.pyCS_CurPath {
+    color: #6f778d;
+    font-size: 22px;
+    font-weight:bold;
+    color:#444a5e
+}
+
+.pyCS_badgeCompeleted {
+    background-color: #0cb89a;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 20px;
+    padding: 10px 16px 10px 16px
+}
+
+
+.pyCS_CurPathSub {
+    color: #6f778d;
+    font-size: 13px;
+    font-weight:300
+}
+
+.pyCS_PathAmount {
+    color: #4a90e2;
+    font-size:26px;
+}
+
+.pyCS_PathAmountDad {
+    border-right: 2px solid #e4e6ed;
+    padding-right: 15px
+}
+
+.pyCS_FirstTabs{
+
+}
+
+    .pyCS_FirstTabsLi > .active {
+        color: #4a90e2 !important;
+        border-top:none;
+        border-left:none;
+        border-right:none;
+        border-bottom: 2px solid #4a90e2 !important;
+    }
+
+.pyCS_FirstTab{
+    font-size: 18px;
+    color: #6f778d;
+	font-family: IRANSans;
+}
+
+    .pyCS_FirstTab:hover {
+        color: #4a90e2
+    }
+
+.pyCS_StepTabsDiv{
+    margin-top: 20px;
+	font-family: IRANSans;
+}
+
+.pyCS_StepTabs{
+    font-size:16px;
+    background-color:#fafbfd;
+    color:#93a3b8;
+    border: 1px solid #e4e6ed !important;
+    padding: 1vw 4vw 1vw 4vw !important;
+}
+
+
+.pyCS_LevelDesc {
+    text-align: center;
+    margin: 2%;
+    color: #4a505c;
+    font-size: 22px;
+	font-family: IRANSans;
+}
+
+.pyCS_LevelDescTop {
+    text-align: center;
+    margin: 2%;
+    color: #4a505c;
+    font-size: 13px;
+}
+
+
+.pyCS_Season{
+    font-weight: bold;
+    font-size:20px;
+    padding: 25px 20px 25px 20px !important;
+    color:#444a5c !important
+}
+
+.pyCS_SeasonLabel {
+    font-size: 13px !important;
+	font-family: IRANSans;
+}
+
+.pyCS_Course {
+    font-size: 16px;
+    padding: 20px 15px 20px 15px !important;
+    color: #444a5c !important
+}
+
+    .pyCS_Season :hover, .pyCS_Course:hover {
+        color: #4a90e2 !important
+    }
+
+
+.pyCS_SeasonDetail {
+    float: left !important;
+    color: #4a90e2 !important;
+    font-size: 16px !important;
+    font-style: normal !important;
+}
+
+    .pyCS_SeasonDetail:hover {
+        color: #0cb89a !important;
+
+    }
+
+    .pyCS_Active {
+        color: #4a90e2 !important;
+    }
+
+.pyCS_CourseDiv {
+    margin-top: 20vh
+}
+
+
+@media only screen and (max-device-width: 480px) {
+    .pyCS_Welcome{
+        font-size: 3.4em !important;
+    }
+    
+    .pyCS_UnderWelcome{
+        font-size: 2.2em
+    }
+    
+    .pyCS_ResumeBtn{
+        font-size: 2em;
+        font-weight: normal;
+        padding-left: 190px !important;
+        padding-right: 65px !important;
+    }
+    
+    .pyCS_CurPathTitle{
+        font-size: 1.5em;
+    }
+    
+    .pyCS_PathAmount{
+        font-size: 1.9em
+    }
+    
+    .pyCS_CurPathSub{
+        font-size: 1.4em;
+    }
+    
+    .pyCS_CurPath, .pyCS_FirstTab{
+        font-size: 1.8em
+    }
+    
+    .pyCS_LevelDescTop, .pyCS_LevelDesc, .pyCS_StepTabs{
+        font-size: 1.7em
+    }
+    
+    .container{
+        margin: 0px !important;
+    }
+    
+    .tab-content{
+        width: 95vw !important;
+    }
+    
+    .pyCS_SeasonLabel{
+        font-size: 0.8em !important;
+    }
+    
+    .pyCS_SeasonDetail{
+        font-size: 0.8em !important;
+        font-weight: normal;
+    }
+    
+    .pyCS_Season{
+        font-size: 2.2em !important;
+    }
+    
+    .pyCS_Course{
+        font-size: 1.9em
+    }
+}

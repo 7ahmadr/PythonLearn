@@ -1,0 +1,55 @@
+.pyH_Nav {
+    display: flex !important;
+    border-radius: 0px !important;
+    background-color:#fff;
+    justify-content: space-between !important;
+    flex-wrap: wrap !important;
+    align-items: stretch !important;
+    padding-right: 0px !important;
+    padding-left: 20px !important;
+    height: 55px !important;
+    padding-top: 8px !important;
+}
+
+.pyH_MenuItem {
+    color: #898a8e !important;
+    margin-right: 30px;
+    font-size: 15px;
+    font-family: IRANSans;
+}
+
+    .pyH_MenuItem:hover {
+        color: #0c1115 !important;
+    }
+
+.pyH_MenuItemBtn {
+    margin-right: 30px;
+    font-size: 15px;
+    margin-top: -4px;
+    background-color: #39cf90;
+    color: white;
+    border: none;
+    font-family: IRANSans;
+}
+
+    .pyH_MenuItemBtn:hover {
+        background-color: #37ba83;
+    }
+
+
+.pyH_Footer {
+    background-color: #263555;
+    margin-top: 50px;
+    padding: 80px;
+    padding-bottom: 100px;
+    font-family: IRANSans;
+    color: white !important;
+    font-size: 12px;
+    line-height: 25px !important;
+}
+
+.pyH_FooterLink {
+    color: white !important;
+    font-family:Yekan;
+    font-size:12px
+}

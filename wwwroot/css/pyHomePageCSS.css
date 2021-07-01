@@ -1,0 +1,203 @@
+body{
+    font-family: IRANSans;
+}
+.pyHP_Header {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin-top: 55px;
+    background-color: #2a54a7;
+    height: 500px;
+    padding: 60px;
+}
+
+
+.pyHP_HeaderRow{
+    margin-bottom: 0px;
+}
+
+
+.pyHP_HeaderPic{
+    float: left;
+    border: 30px solid #263555;
+    border-radius: 30px 30px 0px 0px;
+    border-width: 30px 20px 20px 20px;
+}
+
+.pyHP_HeaderPic{
+    margin-top: 30px;
+}
+
+.pyHP_HeaderTxtTitle{
+    font-size: 24px;
+    color: white;
+    font-weight: bolder;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.pyHP_HeaderTxtCapt{
+    color: white;
+    margin-top: 20px;
+    font-size: 18px
+}
+
+.pyHP_HeaderBtnStart{
+    color: white;
+    background-color: #39cf90;
+    padding: 10px 25px 10px 25px;
+}
+
+.pyHP_HeaderBtnStart:hover{
+    background-color: #2ca874
+}
+
+.pyHP_CardTxt {
+    font-family: IRANSans;
+}
+
+.pyHP_SecContainer{
+    margin-top:150px;
+    margin-right: 3%;
+}
+
+.pyHP_BtnCard {
+    font-family: IRANSans;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #29a1f8;
+    border-color: #29a1f8
+}
+
+.pyHP_CardTitle{
+    font-size: 1.5em;
+    color: #2e2e2e;
+	
+}
+
+.pyHP_CardTxt{
+    font-size: 1em;
+    color: #2e2e2e
+}
+
+.pyHP_MiddleDiv{
+    background-color:#f4f6fb;
+    margin-top: 150px
+}
+
+.pyHP_MidCard{
+    border: none;
+    background-color: inherit;
+}
+
+.pyHP_MidCardTxt{
+font-family: IRANSans;
+}
+
+.pyHP_MidCardTitle{
+    font-size: 1.4em
+}
+
+.pyHP_MidCardTxt{
+    font-size: 1em;
+    color: #2d2d2e;
+}
+
+.pyHP_MiddleBar {
+    background-color: #232b3d;
+    color: white;
+    padding: 4% 10% 5% 10%;
+    margin-top: 150px
+}
+
+.pyHP_MDivTitle {
+    font-size: 21px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.pyHP_DownBarTitle {
+    font-size: 21px;
+    font-weight: bold;
+    color: #212529;
+}
+
+.pyHP_MDivTxt {
+    margin-top: 10px
+}
+
+
+.pyHP_DownBar {
+    background-color: #fff;
+    color: #000000;
+    padding: 4% 10% 5% 10%;
+    margin-top: 150px
+}
+
+
+.pyHP_DownBtnStart {
+    color: white;
+    background-color: #39cf90;
+    padding: 2vh 15vw 2vh 15vw;
+    font-weight: bold;
+}
+
+    .pyHP_DownBtnStart:hover {
+        background-color: #2ca874
+    }
+
+
+.pyHP_QuoteCard{
+    border:none !important
+}
+
+
+@media only screen and (max-device-width: 480px) {
+    .pyHP_HeaderTxtTitle{
+        font-size: 3.5em;
+    }
+    
+    
+    .pyHP_HeaderTxtCapt{
+        font-size: 2em
+    }
+    
+    .pyHP_HeaderBtnStart, .pyHP_DownBtnStart{
+        font-size: 2em;
+        padding: 20px 80px
+    }
+    
+    .pyHP_CardTitle{
+        font-size: 2.5em;
+    }
+    
+    .pyHP_CardTxt{
+        font-size: 2em;
+    }
+    
+    .pyHP_BtnCard{
+        font-size: 2em
+    }
+    
+    .pyHP_MidCardTitle{
+        font-size: 2.5em
+    }
+    
+    .pyHP_MidCardTxt{
+        font-size: 2.2em;
+    }
+    
+    .pyHP_QuoteCardBody{
+        font-size: 1.8em
+    }
+    
+    .pyHP_QuoteCardFooter{
+        font-size: 1.6em    
+    }
+    
+    .pyHP_MDivTxt, .pyHP_MDivTitle{
+        font-size: 2.5em
+    }
+   
+}

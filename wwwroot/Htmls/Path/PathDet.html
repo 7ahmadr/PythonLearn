@@ -1,0 +1,48 @@
+﻿<div class="pyPD_Init">
+    <div class="WaitingDiv" ng-show="loading"></div><!-- Place at bottom of page -->
+
+    <div class="pyPD_Main">
+        <div class="row">
+            <div class="col-sm-12 col-lg-6">
+                <label class="pyPD_PTitle">مسیر</label><br />
+                <label class="pyPD_PName" ng-bind="PathDet.name"></label>
+                <!--<label class="pyPD_PDesc" ng-bind="PathDet.desc"></label>-->
+                <div class="pyPD_PExp justify-content-center" ng-bind="PathDet.explain">
+
+                </div>
+                <p class="pyPD_OptDiv">
+                    <div ng-repeat="o in PathOptions" class="pyPD_OptTxt">
+                        <span class="zmdi zmdi-check-all pyPD_OptIcon"></span> {{o}}
+                    </div>
+                </p>
+            </div>
+
+            <div class="col-sm-12 col-lg-6">
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="pyPD_MiddleDiv">
+        <label class="pyPD_MDivTitle">تمرین، انجام پروژه، یادگیری کاربردی</label>
+        <div class="pyPD_MDivTxt">PythonCoding مهارت های لازم برای شروع و پیشرفت حرفه خود در علم داده را به شما می آموزد.</div>
+        <a href="#" ng-click="GoToHomePage()" class="pyPD_MDivLink">بیشتر بدانید</a>
+    </div>
+
+
+
+    <div class="pyPD_SeasonDiv container">
+        <label class="pyPD_SeasonTitle text-center">سرفصل های دوره</label>
+        <div ng-repeat="ps in PathSeasons" class="row m-t-100 w-100 pyPD_CourseRow">
+            <div class="col-sm-10">
+                <label class="pyPD_lblCName" ng-bind="ps.name"></label>
+                <br />
+                <label class="pyPD_lblCDesc" ng-bind="ps.desc"></label>
+            </div>
+            <div class="col-sm-2 d-flex justify-content-center">
+                <button class="btn btn-success pyPD_btnCourse" ng-click="GoToPathCourse(ps.id)">مشاهده دوره</button>
+            </div>
+        </div>
+    </div>
+</div>

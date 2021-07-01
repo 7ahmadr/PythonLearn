@@ -1,0 +1,148 @@
+body {
+    background-color: #ffffff !important;
+}
+
+.pyPM_Init {
+    font-family: Yekan
+}
+
+.pyPM_Main {
+    margin-top: 6%;
+    padding: 2em 4em 2em 4em;
+}
+
+.pyPM_PName {
+    font-size: 2.3em;
+    font-weight: bold;
+}
+
+.pyPM_PExp {
+    font-size: 17px;
+    margin-top: 15px;
+    line-height: 1.7;
+    color: #2e2e2e;
+    text-align: justify;
+}
+
+.pyPM_PTitle {
+    font-size: 15px;
+    color: #4d7fdf;
+}
+
+.pyPM_OptDiv {
+    margin-top: 8vh;
+    margin-right: 6vw
+}
+
+.pyPM_OptIcon {
+    color: #4d7fdf !important;
+}
+
+.pyPM_OptTxt {
+    margin-top: 10px
+}
+
+.pyPM_MiddleDiv {
+    background-color: #263555;
+    color: white;
+    padding: 4% 10% 5% 10%;
+    margin-top: 7vh
+}
+
+.pyPM_MDivTitle {
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.pyPM_MDivTxt {
+    margin-top: 10px
+}
+
+.pyPM_MDivLink {
+    font-family: Inherit;
+    color: #61d199;
+    line-height: 3
+}
+
+
+
+.pyPM_CourseRow {
+    padding: 15px;
+    margin-top: 0px;
+}
+
+    .pyPM_CourseRow:hover {
+        background-color: #f2f3f7
+    }
+
+.pyPM_btnCourse {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #39cf90;
+    border: none;
+    padding: 0px 50px 0px 50px;
+    height: 45px
+}
+
+    .pyPM_btnCourse:hover {
+        background-color: #30b580
+    }
+
+.pyPM_lblCName {
+    font-size: 16px;
+    margin-right: 10px
+}
+
+.pyPM_lblCDesc {
+    font-size: 15px;
+}
+
+.pyPM_SeasonDiv {
+    margin-top: 80px !important;
+}
+
+.pyPM_SeasonTitle {
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-bottom: 5vh
+}
+
+.pyPM_PDesc {
+    font-size: 18px;
+    color: #898a8e;
+}
+
+
+@media only screen and (max-device-width: 480px) {
+    .pyPM_PTitle, .pyPM_MDivLink {
+        font-size: 1.8em;
+    }
+
+    .pyPM_PName, .pyPM_SeasonTitle {
+        font-size: 3em
+    }
+
+    .pyPM_PExp {
+        font-size: 2em;
+        margin-left: 80px;
+    }
+
+    .pyPM_OptTxt, .pyPM_MDivTitle {
+        font-size: 2em;
+    }
+
+    .pyPM_MDivTxt, .pyPM_lblCDesc {
+        font-size: 1.8em;
+    }
+
+    .pyPM_lblCName {
+        font-size: 2.2em;
+        font-weight: bold;
+    }
+
+    .pyPM_btnCourse {
+        font-size: 2em;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+}

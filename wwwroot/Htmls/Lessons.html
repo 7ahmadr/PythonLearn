@@ -1,0 +1,201 @@
+
+<script>window.MathJax = { MathML: { extensions: ["mml3.js", "content-mathml.js"] } };</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=MML_HTMLorMML"></script> 
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<div class="WaitingDiv" ng-show="loading"></div>
+
+
+<div id="divSidebar" class="pyLS_Sidebar">
+    <h4 class="pyLS_SidebarTitle" ng-bind="Lessons[0].cname"></h4>
+    <hr class="pyLS_SidebarLine" />
+    <div class="list-group pyLS_SidebarList">
+        <a ng-repeat="l in Lessons" href="#" ng-class="{pyLS_SidebarItemActive: $index == LessonID-1}" ng-click="SidebarClick($index)" class="list-group-item list-group-item-action pyLS_SidebarItem" ng-bind="l.name"></a>
+    </div>
+</div>
+
+
+
+<div class="pagination-container">
+    <div id="pyLS_LesMain" class="row pyLS_LesMain">
+        <div id="divLesson" class="col-lg-6 col-sm-12 " style="padding:0px !important; padding-left:1px">
+            <div ng-repeat="l in Lessons" data-page="{{$index + 1}}" class="card NoRadius pyLS_LesSubMain col-sm-12" ng-class="{pyHidden: $index != LessonID-1}">
+                <h4 class="lesTitle pyLS_CrsTitle" ng-bind="l.cname"></h4>
+                <div id="divLessonBody" class="card-body  text-right lesBody col-sm-12">
+                    <div class="bar">
+                        <span>آموزش</span>
+                    </div>
+
+                    <div class="card-text text-dark lesContent " ng-bind-html="ParseLesson(l.content)"></div>
+                    
+                    <div id="dasturat" class="bar" ng-class="{pyInvisible: lesInstruction == null}">
+                        <span>دستورات</span>
+                    </div>
+                    <div class="card-text text-dark lesContent" ng-bind-html="ParseLesson(l.instruction)"></div>
+
+
+
+                    <div class="div_1" ng-hide="hasHint==0 && lesAnswer == null">
+
+
+                        <div class="div_2" data-test-selector="GetHelpMenu">
+                            <div class="div_3">کمک</div>
+
+
+                            <button class="btn btn-secondary dropdown-toggle div_4" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            </button>
+                            <div class="dropdown-menu NoRadius pyHelpMenu">
+
+                                <a onclick="ScrollDivDown('[id=divLessonBody]')" class="dropdown-item teste" ng-show="hasHint==1" ng-click="lesDisplayHint()" href="#"><span class="zmdi zmdi-lamp"></span> راهنمایی </a>
+
+                                <a onclick="ScrollDivDown('[id=divLessonBody]')" class="dropdown-item" ng-show="correctCode != null" ng-click="lesDisplayAnswer()" href="#">
+                                    <span class="zmdi zmdi-eye"></span> مشاهده پاسخ
+                                </a>
+                                <a class="dropdown-item" href="#"><span class="zmdi zmdi-comment-text"></span> فروم </a>
+                            </div>
+                        </div>
+                        <div class="div_8">
+                            <div class="div_9" data-test-selector="mission-help-get-hint">Get a hint</div>
+                            <div class="div_9" title="[alt+a] to See the answer" data-test-selector="mission-help-show-answer">See the answer</div>
+                            <div class="div_9">Community discussion</div>
+                        </div>
+                    </div>
+
+
+                    <div id="divHint " ng-show="ShowHint==true">
+                        <div class="bar rahnamaeee" ng-class="{pyInvisible: hasHint==0 && correctCode == null}">
+                            <span>راهنمایی</span>
+                        </div>
+
+                        <div class="card-text  text-dark lesContent" ng-class="{pyInvisible: hasHint==0 && correctCode == null}" ng-bind-html="ParseLesson(l.hint)"></div>
+                    </div>
+
+                    <div id="sss" ng-show="ShowAnswer==true">
+                        <div class="bar Javaaab" ng-class="{pyInvisible:  correctCode == null}">
+                            <span>پاسخ</span>
+                        </div>
+
+                        <div class="card-text ltr  text-dark lesContent fix-scroll" ng-class="{pyInvisible:  correctCode == null}" ng-bind-html="ParseLesson(l.correctCode)"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div id="divCompiler" class="col-lg-6 col-sm-12" style="padding:0px !important; padding-right: 1px ">
+            <div class="card pyLS_LesSubMain">
+                <div class="lesBtnFileDiv">
+                    <div class="col-sm-12">
+                        <a class="NoRadius lesBtnScriptPy text-white" ng-class="{pyUnclickable: showFile!=1 && showFile2!=1}" ng-click="showFile=0; showFile2=0">script.py</a>
+                        <button title="مشاهده فایل" ng-if="hasFile == 1" ng-click="ToggleShowFile()" ng-class="{pyBtnActive: showFile==1, pyBtnDeactive: showFile==0}" class="btn btn-primary NoRadius lesBtnFile"> {{fileName}} </button>
+                        <a class="zmdi zmdi-download" target="_blank" ng-if="hasFile == 1" href="/Downloads/{{fileName}}"></a>
+                        <button title="مشاهده فایل" ng-if="hasFile == 1 && fileName2 != null" ng-click="ToggleShowFile2()" ng-class="{pyBtnActive: showFile2==1, pyBtnDeactive: showFile2==0}" class="btn btn-primary NoRadius lesBtnFile"> {{fileName2}} </button>
+                        <a class="zmdi zmdi-download" target="_blank" ng-if="hasFile == 1 && fileName2 != null " href="/Downloads/{{fileName2}}"></a>
+                    </div>
+                </div>
+
+
+                <div class="card-body lesBody">
+                    <div class="lesBodyCompiler cm-s-dq-dark">
+                        <div ng-show="showFile == 1" class="text-left lesBodyFile" ng-bind-html="ParseFileHtml(fileHtml)"></div>
+                        <div ng-show="showFile2 == 1" class="text-left lesBodyFile" ng-bind-html="ParseFileHtml(fileHtml2)"></div>
+                        <div ng-hide="showFile==1 || showFile2==1">
+                            <textarea id="txt_code" class="lesBodyEditor" ui-codemirror ng-model="pyCode"></textarea>
+                        </div>
+                        <!--style="height:80%; width:100%; direction:ltr !important; color:white;font-size:18px !important; font-family:Consolas; background-color:#1e1e1e"-->
+                        <div class="pyLS_Result" ng-class="{text_danger: pyError == 'true'}" readonly="readonly">
+                            <span class="pyLS_ResultTitle w-100">output</span>
+                            <span id="txt_result" class="pyLS_ResultTxt" onkeydown="return false" ng-bind-html="ParseFileHtml(SetNextLines(pyResult))" contenteditable>
+                            </span>
+                        </div>
+
+                        <!--<div class="pyLS_Result" ng-class="{text_danger: pyError == 'true'}" readonly="readonly">
+                            <span class="pyLS_ResultTitle w-100">variables</span>
+                            <span id="txt_vars" class="pyLS_VarsTxt" ng-bind-html="ParseFileHtml(SetNextLines(pyUserVars))" contenteditable>
+                            </span>
+                        </div>-->
+                    </div>
+
+                    <div class="pyLS_Btns">
+                        <div class="col-sm-9 pyLS_BtnsDiv text-md-left">
+                            <button id="btn_clearCode" class="btn pyLS_btnNew" title="پاک کردن متن (F9)" ng-click="OpenResetDiv()"><span class="zmdi zmdi-refresh"></span></button>
+                            <button id="btn_sendAnswer" ng-if="lesAnswer != '####'" class="btn pyLS_btn pyLS_btnSubAns" ng-click="CompileCode(pyCode, true)" title="ارسال پاسخ (Ctrl + F5)"> Submit Answer </button>
+                            <button id="btn_runCode" class="btn btn-default pyLS_btn pyLS_btnRunCode" ng-click="CompileCode(pyCode, false)" title="اجرای کد (F5)"> Run Code  </button>
+                        </div>
+                        <div class="col-sm-3 pyLS_BtnsDiv ">
+                            <button id="btn_clearCode" title="کنسول" ng-click="ToggleConsole()" class="btn btn-default pyLS_btn pyLS_btnConsole "><span class=""></span> open console </button>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="ShowConsole" style="padding:0px !important; padding-left:1px; height:70vh !important; width:100% !important">
+                    <div>
+                        <textarea id="txt_console" class="pyLS_Console" ng-keyup="ConsoleKeyUp($event,pyConsoleAll)" ng-model="pyConsoleAll">
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyLS_Btns h-auto pyLS_NextScreenDiv" ng-show="ShowNextScreen">
+                <div class="form-row">
+                    <div class="col align-self-center">
+                        <i class="zmdi zmdi-check-circle zmdi-hc-2x pyLS_NiceWork align-middle"></i>
+                        <label class="pyLS_NiceWork mr-2 h5">عالی بود!</label>
+                    </div>
+
+                    <div class="col text-center align-self-center">
+                        <button ng-click="changePage('+')" class="btn btn-default pyLS_btn pyLS_btnRunCode pyLS_NextScreenBtn align-middle" title="مرحله بعد">
+                            بریم مرحله بعد
+                            <i class="zmdi zmdi-chevron-left zmdi-hc-lg align-middle mr-1"></i>
+                        </button>
+                    </div>
+
+                    <div class="col">
+                        <a class="nav-link zmdi zmdi-close-circle-o zmdi-hc-2x float-left text-white pyLS_NextScreenClose" ng-click="ShowNextScreen=false" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="h-auto pyLS_ResetCodeDiv pyCH_VerticalCenter" ng-show="ShowResetDiv" onshow="alert(143)">
+        <div class="row">
+            <div class="col align-self-center text-center">
+                <label class="pyLS_NiceWork mr-2 h3" style="color: #4c5361">پاک کردن کد ها</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col align-self-center text-center">
+                <label class="pyLS_NiceWork mr-2 h5" style="color: #222b49">تمام کدهای نوشته شده پاک بشه؟</label>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col align-self-center text-center">
+                <button class="btn btn-primary pyLS_ResetCodeBtn pyLS_ResetCodeOk" ng-click="ClearCompiler(); CloseResetDiv()">کدها پاک بشه</button>
+            </div>
+
+            <div class="col align-self-center text-center">
+                <button class="btn btn-danger pyLS_ResetCodeBtn pyLS_ResetCodeClose" ng-click="CloseResetDiv()">کدها بمونه</button>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-bottom shadow rounded pyLS_Footer" style="padding:0px !important">
+        <div class="row w-100">
+            <div id="pyLS_Footer_Right" class="col-sm-3">
+                <a id="btnShowSidebar" href="#" onclick="$('[id=divSidebar]').show()" class="pyLS_lesTitle pyCH_VerticalCenter"><i class="zmdi zmdi-menu zmdi-hc-lg"></i> {{Lessons[LessonID-1].name}}</a>
+            </div>
+            <div id="pyLS_Footer_Center"  class="col-sm-6 d-flex justify-content-center">
+                <button type="button" ng-disabled="LessonID==1" ng-click="changePage('-')" title="مشاهده درسنامه قبلی" class="btn pyLS_btnPrevNext">قبلی</button>
+                <span class="pyLS_FooterPageNum">{{Lessons.length}} / {{LessonID}}</span>
+                <button type="button" ng-click="changePage('+')" title="مشاهده درسنامه بعدی" class="btn pyLS_btnPrevNext">بعدی</button>
+            </div>
+            <div id="pyLS_Footer_Left"  class="col-sm-3">
+            </div>
+        </div>
+    </nav>
+</div>

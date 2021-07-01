@@ -1,0 +1,153 @@
+body {
+    background-color: #ffffff !important;
+}
+
+.pyPC_Init {
+    font-family: Yekan
+}
+
+.pyPC_Main {
+    margin-top: 6%;
+    padding: 2em 4em 2em 4em;
+}
+
+.pyPC_PName {
+    font-size: 2.3em;
+    font-weight: bold;
+}
+
+.pyPC_PExp {
+    font-size: 17px;
+    margin-top: 15px;
+    line-height: 1.7;
+    color: #2e2e2e;
+    text-align: justify;
+}
+
+.pyPC_PTitle {
+    font-size: 15px;
+    color: #4d7fdf;
+}
+
+.pyPC_OptDiv {
+    margin-top: 8vh;
+    margin-right: 6vw
+}
+
+.pyPC_OptIcon {
+    color: #4d7fdf !important;
+}
+
+.pyPC_OptTxt {
+    margin-top: 10px
+}
+
+.pyPC_MiddleDiv {
+    background-color: #263555;
+    color: white;
+    padding: 4% 10% 5% 10%;
+    margin-top: 7vh
+}
+
+.pyPC_MDivTitle {
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.pyPC_MDivTxt {
+    margin-top: 10px
+}
+
+.pyPC_MDivLink {
+    font-family: Inherit;
+    color: #61d199;
+    line-height: 3
+}
+
+
+
+.pyPC_CourseRow {
+    border-top: 1px solid #d4d4d4;
+    padding: 25px;
+    margin-top: 0px;
+}
+
+.pyPC_CourseRow:hover{
+    background-color: #f2f3f7
+}
+
+.pyPC_btnCourse {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #39cf90;
+    border: none;
+    padding: 0px 50px 0px 50px;
+    height: 45px
+}
+
+    .pyPC_btnCourse:hover {
+        background-color: #30b580
+    }
+
+.pyPC_lblCName {
+    font-size: 20px;
+    margin-right: 10px
+}
+
+.pyPC_lblCDesc {
+    font-size: 15px;
+}
+
+.pyPC_SeasonDiv {
+    margin-top: 80px !important;
+}
+
+.pyPC_SeasonTitle {
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-bottom: 5vh
+}
+
+.pyPC_PDesc {
+    font-size: 18px;
+    color: #898a8e;
+}
+
+
+
+
+
+@media only screen and (max-device-width: 480px) {
+    .pyPC_PTitle, .pyPC_MDivLink {
+        font-size: 1.8em;
+    }
+
+    .pyPC_PName, .pyPC_SeasonTitle {
+        font-size: 3em
+    }
+
+    .pyPC_PExp {
+        font-size: 2em;
+        margin-left: 80px;
+        text-align: justify;
+    }
+
+    .pyPC_OptTxt, .pyPC_MDivTitle {
+        font-size: 2em;
+    }
+
+    .pyPC_MDivTxt, .pyPC_lblCDesc {
+        font-size: 1.8em;
+    }
+
+    .pyPC_lblCName {
+        font-size: 2.2em;
+        font-weight: bold;
+    }
+
+    .pyPC_btnCourse {
+        font-size: 2em;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+}

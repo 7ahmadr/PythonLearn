@@ -1,0 +1,41 @@
+﻿<div class="pyPM_Init">
+    <div class="WaitingDiv" ng-show="loading"></div><!-- Place at bottom of page -->
+
+    <div class="pyPM_Main">
+        <div class="row">
+            <div class="col-sm-12 col-lg-6">
+                <label class="pyPM_PTitle">درسنامه</label><br />
+                <label class="pyPM_PName" ng-bind="Course.name"></label>
+                <div class="pyPM_PExp justify-content-center" ng-bind="Course.explain">
+
+                </div>
+                <div class="pyPM_OptDiv">
+                    <label ng-repeat="o in CourseOptions" class="pyPM_OptTxt"><span class="zmdi zmdi-check-all pyPM_OptIcon"></span> {{o}} </label><br />
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-lg-6">
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="pyPM_MiddleDiv">
+        <label class="pyPM_MDivTitle">تمرین، انجام پروژه، یادگیری کاربردی</label>
+        <div class="pyPM_MDivTxt">PythonCoding مهارت های لازم برای شروع و پیشرفت حرفه خود در علم داده را به شما می آموزد.</div>
+        <a href="#" ng-click="GoToHomePage()" class="pyPM_MDivLink">بیشتر بدانید</a>
+    </div>
+
+
+
+    <div class="pyPM_SeasonDiv container">
+        <label class="pyPM_SeasonTitle">در این درسنامه خواهید آموخت</label>
+        <div ng-repeat="l in Lessons" class="row m-t-100 w-100 pyPM_CourseRow">
+            <div class="col-sm-10">
+                <label class="pyPM_lblCName" ng-bind="l.name"></label>
+            </div>
+        </div>
+    </div>
+</div>

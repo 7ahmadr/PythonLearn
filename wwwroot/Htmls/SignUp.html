@@ -1,0 +1,148 @@
+﻿<head>
+    <title>ثبت نام</title>
+</head>
+<div class="WaitingDiv" ng-show="loading"></div>
+
+
+<div class="row w-100 d-flex pyLg_MainDiv">
+    <div class="col-xl-6 col-lg-6 col-md-12">
+        <div class="pyLg_VerticalCenter pyLg_MainDivBody w-50 ">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label class="pyLg_Title">ثبت نام</label>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label class="p-l-30 pyLg_TitleDesc">قبلا ثبت نام کرده اید؟ <a class="text-primary" ng-click="GoToLogin()" href="#">ورود</a></label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="pyLg_Label">نام <span class="required"> * </span></label>
+                <input type="text" ng-model="FirstName" maxlength="20" required class="form-control pyLg_Txt" placeholder="نام">
+            </div>
+
+            <div class="form-group">
+                <label class="pyLg_Label">نام خانوادگی <span class="required"> * </span></label>
+                <input type="text" ng-model="LastName" maxlength="20" required class="form-control pyLg_Txt" placeholder="نام خانوادگی">
+            </div>
+
+            <!--<div class="form-group">
+                <label class="pyLg_Label">شماره موبایل</label>
+                <input type="text" ng-model="Mobile" class="form-control pyLg_Txt" onkeypress="return isNumber(event)" maxlength="11" placeholder="مثال: 09123456789">
+                <small ng-show="ValidateMobile(Mobile)==false" ng-class="'pyVeryWeak'" class="form-text text-danger">شماره موبایل وارد شده معتبر نمی باشد</small>
+            </div>-->
+            
+
+            <div class="form-group">
+                <label class="pyLg_Label" for="InputEmail1">ایمیل <span class="required"> * </span></label>
+                <input id="InputEmail1" type="text" ng-model="Username" class="form-control pyLg_Txt" aria-describedby="emailHelp" placeholder="ایمیل">
+                <small ng-show="ValidateEMail(Username)==false && Username!==''" id="emailHelp" class="form-text text-danger pyLg_Small">ایمیل وارد شده معتبر نمی باشد</small>
+            </div>
+
+            <div class="form-group">
+                <label class="pyLg_Label">رمز عبور <span class="required"> * </span></label>
+                <input type="password" ng-model="Password" class="form-control pyLg_Txt" placeholder="رمز عبور" maxlength="30">        <!--ng-keyup="CheckPassRate(Password)"-->
+                <!--<small ng-if="PassRate=='خیلی ضعیف'" class="pyVeryWeak pyLg_Small"> <i class="zmdi zmdi-block"></i> {{PassRate}}</small>
+                <small ng-if="PassRate=='ضعیف'" class="pyWeak pyLg_Small"> <i class="zmdi zmdi-close-circle"></i> {{PassRate}}</small>
+                <small ng-if="PassRate=='خوب'" class="pyGood pyLg_Small"> <i class="zmdi zmdi-check"></i> {{PassRate}}</small>
+                <small ng-if="PassRate=='عالی'" class="pyExcellent pyLg_Small"> <i class="zmdi zmdi-check-all"></i> {{PassRate}}</small>-->
+            </div>
+
+            <div class="form-group">
+                <button ng-disabled="CheckValidation()==false" type="submit" class="btn btn-primary w-100 pyLg_BtnLogin" ng-click="AddUser()" href="#">
+                    ثبت نام
+                </button>
+            </div>
+
+            <div class="form-group">
+                <small class="form-text text-muted w-100 text-center pyLg_Small">یا از طریق گوگل وارد شوید</small>
+                <button type="button" class="btn btn-default  w-100 text-center pyLg_BtnGoogle" href="#" onclick="window.open('/api/user/GetExternalLogin/Google','_self')">
+                    <img src="/Template/images/GoogleLogo.png" class="pyLg_BtnIcon">
+                    ورود با گوگل
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-xl-6 col-lg-6 pyLg_LeftDiv d-none d-xl-block d-lg-block">
+
+    </div>
+</div>
+
+
+<!--<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <div class="login100-form-title" style="background-image: url(../Template/images/login.jpg);">
+                <span class="login100-form-title-1">
+                    ثبت نام در وبسایت Python Coding
+                </span>
+            </div>
+
+            <form class="login100-form validate-form">
+                <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                    <span class="label-input100">نام</span><span class="label-input100 required"> * </span>
+                    <input class="input100" type="text" ng-model="FirstName" maxlength="20" required>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                    <span class="label-input100">نام خانوادگی</span><span class="label-input100 required"> * </span>
+                    <input class="input100" type="text" ng-model="LastName" maxlength="20" required>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                    <span class="label-input100">شماره موبایل</span>
+                    <span ng-show="ValidateMobile(Mobile)==false" ng-class="'pyVeryWeak'"> <i class="zmdi zmdi-block"></i></span>
+                    <input class="input100" ng-model="Mobile" type="text" onkeypress="return isNumber(event)" maxlength="11" placeholder="مثال: 09123456789">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                    <span class="label-input100">ایمیل</span><span class="label-input100 required"> * </span>
+                    <span ng-show="ValidateEMail(Username)==false" ng-class="'pyVeryWeak'"> <i class="zmdi zmdi-block"></i></span>
+                    <input class="input100" type="email" placeholder="مثال: name@website.com" ng-model="Username" maxlength="30" required>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
+                    <span class="label-input100">رمز عبور</span><span class="label-input100 required"> * </span>
+                    <input class="input100" type="password" ng-keyup="CheckPassRate(Password)" ng-model="Password" name="pass" placeholder="رمز عبور حداقل دارای 8 کاراکتر و ترکیبی از عدد و حروف باشد" maxlength="30" required>
+                    <label class="focus-input100"></label>
+
+                    <label ng-if="PassRate=='بسیار ضعیف'" ng-class="'pyVeryWeak'"> <i class="zmdi zmdi-block"></i> {{PassRate}}</label>
+                    <label ng-if="PassRate=='ضعیف'" ng-class="'pyWeak'"> <i class="zmdi zmdi-close-circle"></i> {{PassRate}}</label>
+                    <label ng-if="PassRate=='خوب'" ng-class="'pyGood'"> <i class="zmdi zmdi-check"></i> {{PassRate}}</label>
+                    <label ng-if="PassRate=='عالی'" ng-class="'pyExcellent'"> <i class="zmdi zmdi-check-all"></i> {{PassRate}}</label>
+                </div>
+
+
+                <div style="margin-top:10px">
+                    <a ng-click="GoToLogin()" href="#" style="font-family:IRANSans">
+                        قبلا ثبت نام کرده ام
+                    </a>
+                </div>
+
+                <div style="margin-top:10px" class="container-login100-form-btn">
+                    <button ng-disabled="CheckValidation()==false" type="submit" href="#" ng-click="AddUser()" class="login100-form-btn">
+                        ثبت نام
+                    </button>
+
+                    <button type="button" style="background-color:darkred;  margin-right:5px" class="login100-form-btn" href="#" onclick="window.open('/api/user/GetExternalLogin/Google','_self')">
+                        <i class="zmdi zmdi-google"></i>
+                        ثبت نام با گوگل
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>-->
+

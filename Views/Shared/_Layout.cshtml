@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<head>
+    <link rel="icon" href="~/favicon.ico">
+    <title>PythonCoding | آموزش جامع پایتون</title>
+
+
+    @****************************   Bootstrap JQuery   ***********************************@
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="~/Template/styles/bootstrap-rtl.css">
+    <script src="~/Template/scripts/modernizr.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <link href="~/css/Alert/jquery.confirm.css" rel="stylesheet" />
+    <script src="~/js/Alert/jquery.confirm.js"></script>
+
+
+
+    @****************************   Angular   ***********************************@
+    <script src="~/js/Angular/angular.min.js"></script>
+    <script src="~/js/Angular/angular-route.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/css/Angular/angular-ui.css">
+    @*<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.css">*@
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.js"></script>*@
+    <script src="~/js/Angular/angular-ui.js"></script>
+
+
+
+    @****************************   pyJS   ***********************************@
+    <script src="~/js/Angular/Module.js"></script>
+    <script src="~/js/Angular/Service.js"></script>
+    <script src="~/js/jsControllers/jsHomeController.js"></script>
+    <script src="~/js/jsControllers/jsSignUpController.js"></script>
+    <script src="~/js/jsControllers/jsLoginController.js"></script>
+    <script src="~/js/jsControllers/jsPathController.js"></script>
+    <script src="~/js/jsControllers/jsPathDetController.js"></script>
+    <script src="~/js/jsControllers/jsPathCourseController.js"></script>
+    <script src="~/js/jsControllers/jsPathMissionController.js"></script>
+    <script src="~/js/pyPublicJS.js"></script>
+
+
+
+    @****************************   pyCSS   ***********************************@
+    <link rel="stylesheet" href="~/Template/styles/main.css">
+    <link href="~/Template/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.css" rel="stylesheet" />
+    <link href="~/css/PyCSS.css" rel="stylesheet" />
+    <link href="~/css/PyHeader.css" rel="stylesheet" />
+    <link href="~/css/pyHomePageCSS.css" rel="stylesheet" />
+    <link href="~/css/PyLogin.css" rel="stylesheet" />
+    <link href="~/css/Path/pyPath.css" rel="stylesheet" />
+    <link href="~/css/Path/pyPathDet.css" rel="stylesheet" />
+    <link href="~/css/Path/pyPathCourse.css" rel="stylesheet" />
+    <link href="~/css/Path/pyPathMission.css" rel="stylesheet" />
+</head>
+
+<body ng-app="PyApp">
+    <header id="pyHeader">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top pyH_Nav shadow-sm">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="nav" id="navbarNavAltMarkup">
+                    @*<li class="nav-item"><a class="pyH_MenuItem" onclick="window.open('/Course/Index', '_blank')"><i class="zmdi zmdi-account-o zmdi-hc-lg m-l-4"></i>  پنل کاربری  </a></li>*@
+                    <li class="nav-item"><button onclick="window.open('/Course/Index', '_self')" class="btn pyH_MenuItemBtn btn-success">آغاز رایگان</button></li>
+                    <li class="nav-item"><a class="pyH_MenuItem" href="#" ng-href="/User/SignUpForm">ثبت نام</a></li>
+                    <li class="nav-item"><a class="pyH_MenuItem" href="#" ng-href="/User/LoginForm">ورود</a></li>
+                    <li class="nav-item"><a class="pyH_MenuItem" href="#" ng-href="/Path/Index">دوره ها</a></li>
+                    @*<li class="nav-item"><a class="pyH_MenuItem" href="#">درسنامه ها</a></li>
+                    <li class="nav-item"><a class="pyH_MenuItem" href="#">تعرفه ها</a></li>
+                    <li class="nav-item"><a class="pyH_MenuItem pyMobileHide" href="#faq">چرا سایت ما</a></li>*@
+                    <li class="nav-item"><a class="pyH_MenuItem pyMobileHide" href="#contact">ارتباط با ما</a></li>
+                </ul>
+            </div>
+            <a href="#" class="navbar-brand pull-right pyMobileHide" style="float:left !important">
+                <span class="pyMenuItem">PYTHON Coding</span>
+                <img src="pythonlogo.png" />
+            </a>
+        </nav>
+
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+
+
+    <footer id="pyFooter" class="pyH_Footer">
+        <div>
+            <div class="row">
+                <div class="col-sm-9">
+                    <div>
+                        کلیه حقوق مادی و معنوی این سایت محفوظ است.
+                        <br />
+                        این سایت متعهد است که از اطلاعات شخصی شما برای حفظ حریم خصوصی محافظت کند.
+                        <br />
+                        تیم وبسایت جامع آموزشی PythonCoding
+                    </div>
+                </div>
+
+
+                <div class="col-sm-3">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <a class="pyH_FooterLink" href="#">خانه</a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a class="pyH_FooterLink" href="#">دوره ها</a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a class="pyH_FooterLink" href="#">کمک</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <a class="pyH_FooterLink" href="#">قیمت ها</a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a class="pyH_FooterLink" href="#">اینستاگرام</a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a class="pyH_FooterLink" href="#">تلگرام</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <a class="pyH_FooterLink" href="#">قوانین</a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a class="pyH_FooterLink" href="#">تماس با ما</a>
+                        </div>
+                        <div class="col-sm-4">
+                            <a class="pyH_FooterLink" href="#">درباره ما</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+
+@*<script>
+    $(document).ready(function () {
+        var h = window.innerHeight;
+        $('[id=hero]').css('height', "1000px !important");
+    })
+</script>*@

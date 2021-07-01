@@ -1,0 +1,109 @@
+﻿.pyCH_Nav {
+    display: flex !important;
+    background-color: #ffffff;
+    border-radius: 0px !important;
+    justify-content: space-between !important;
+    flex-wrap: wrap !important;
+    align-items: stretch !important;
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+    height: 55px !important;
+    padding-top: 5px !important;
+}
+
+
+.MenuDropdown__menu_open {
+    transition: all .25s ease;
+    color: #fff;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.pyCH_Icon {
+    font-size: 23px;
+    vertical-align: middle !important;
+    color: #6f768a !important;
+}
+
+.pyCH_NavItem {
+    padding-right: 10px
+}
+
+.pyCH_NavbarNav {
+    padding-right: 0px !important;
+}
+
+.pyCH_dropDown {
+    background-color: #4d5262 !important;
+}
+
+.pyCH_dropDownItem {
+    color: whitesmoke !important;
+    font-size: 15px !important;
+    padding:10px 15px 10px 15px !important;
+}
+
+    .pyCH_dropDownItem:hover {
+        color: whitesmoke !important;
+        background-color:#61cf93 !important
+    }
+
+.pyCH_btnSale {
+    background-color: #f5db9a !important;
+    color: #4a505c !important;
+    padding-right: 40px !important;
+    padding-left: 40px !important;
+    border-color: #4a505c;
+    font-weight: bold;
+    font-size: 16px !important;
+    margin-right: 10px !important
+}
+
+    .pyCH_btnSale:hover {
+        background-color: #f6dea1 !important;
+        border-color: #a19167 !important;
+    }
+
+.pyCH_BorderGold {
+    --border-opacity: 2;
+    border-color: #a19167;
+    border-width: 2px !important;
+    border-top: none;
+    border-left: none;
+}
+
+.pyCH_FooterLink{
+    color:white !important;
+}
+
+.pyCH_CoursePage {
+    left:30px !important;
+    color:white !important;
+    font-size: 14px;
+	font-family: IRANSans;
+}
+
+.pyCH_VerticalCenter {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.pyCH_CoursePage :hover {
+    color: #61cf93 !important
+}
+
+.pyCH_Footer {
+    background-color: #444a5c;
+    margin-top: 50px;
+    padding: 40px;
+    padding-bottom: 60px;
+    font-family: IRANSans;
+    color: white !important;
+    font-size: 12px;
+    line-height: 25px !important
+}
