@@ -1,7 +1,8 @@
 ﻿appCourse.controller("jsCourseController", function ($scope, $rootScope, $route, $location, PyCourseService) {
     $scope.loading = true;
-    $scope.PassRate = "";        //***  برای وقتی کاربر بخواد رمز تغییر بده  ***
+    $scope.PassRate = "";        //***  برای وقتی کاربر بخواد رمز تغییییر بده  ***
     SetUI();
+    let d = 4;
 
     $("[id=csNav]").show();
     $("#pyFooter").show();
