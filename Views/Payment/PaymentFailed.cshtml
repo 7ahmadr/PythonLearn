@@ -1,0 +1,66 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>پرداخت تکمیل شد</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <section class="h-100 mt-5">
+        <header class="container h-100">
+            <div class="d-flex align-items-center justify-content-center h-100">
+                <div class="card text-center border-danger" style="width: 25rem">
+                    <div class="card-body">
+                        <h5 class="card-title text-danger h4">تراکنش پرداخت ناموفق بود</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">PythonCoding</h6>
+                        <p class="card-text font-weight-bold">
+                            کاربر گرامی عملیات پرداخت ناموفق بود. لطفا دوباره تلاش کنید
+                        </p>
+                        <button class="btn btn-primary pyBtn" onclick="window.open('/Payment/Index', '_self')">خرید اشتراک</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </section>
+    @*<section class="h-100">
+            <header class="container h-100">
+                <div class="d-flex align-items-center justify-content-center h-100">
+                    <div class="d-flex flex-column">
+                        <h4 class="text align-self-center p-2">
+                            کاربر گرامی پرداخت شما با موفقیت انجام شد. لطفا جهت دسترسی به درسنامه ها، از طریق لینک زیر دوباره به سایت وارد شوید
+                        </h4>
+                        <button class="btn btn-primary" onclick="window.open('/User/LoginForm', '_self')">ورود به سایت</button>
+                    </div>
+                </div>
+            </header>
+        </section>*@
+
+    @*<div class="row">
+            <div class="w-50 mx-auto">
+                <h3>
+                    کاربر گرامی پرداخت شما با موفقیت انجام شد. لطفا جهت دسترسی به درسنامه ها، از طریق لینک زیر دوباره به سایت وارد شوید
+                </h3>
+            </div>
+        </div>*@
+</body>
+</html>
+
+
+<style>
+    .pyBtn {
+        background-color: #2c509b;
+        border-color: #2c509b;
+    }
+
+        .pyBtn:hover {
+            background-color: royalblue;
+            border-color: royalblue;
+        }
+</style>

@@ -65,11 +65,20 @@ namespace PythonLearn.Controllers
         }
 
 
-        public JsonResult GetAll(string Token)
+        public JsonResult GetAll(string Token, string EMail)
         {
             try
             {
-                List<string> PermissionList = PermissionsController.GetPermissionList(Token);
+                //*****************  اگر کاربر فعال باشد باید چک کنیم که پرمیشن هایش اکسپایر نشده باشند  ***********
+                Data.User user = null;
+                int UID = 0;
+                if (!string.IsNullOrEmpty(EMail))
+                {
+                    user = GetUserByEmail(EMail);
+                    UID = user.ID;
+                }
+
+                List<string> PermissionList = PermissionsController.GetPermissionList(Token, UID);
                 var PathList = _context.PathRepository.GetAll();
                 var CourseList = _context.CourseRepository.GetAll();    //GetCourseListWithPermissions(); //
                 var SeasonList = _context.SeasonRepository.GetAll();
@@ -117,11 +126,20 @@ namespace PythonLearn.Controllers
         }
 
 
-        public ActionResult GetLessons(int CID, string Token)
+        public ActionResult GetLessons(int CID, string Token, string EMail)
         {
             try
             {
-                List<string> PermissionList = PermissionsController.GetPermissionList(Token);
+                //*****************  اگر کاربر فعال باشد باید چک کنیم که پرمیشن هایش اکسپایر نشده باشند  ***********
+                Data.User user = null;
+                int UID = 0;
+                if (!string.IsNullOrEmpty(EMail))
+                {
+                    user = GetUserByEmail(EMail);
+                    UID = user.ID;
+                }
+
+                List<string> PermissionList = PermissionsController.GetPermissionList(Token, UID);
                 var Course = _context.CourseRepository.Get(c => c.ID == CID);
                 var IsFree = Course.IsFree;
                 int SID = Course.SID;
@@ -224,6 +242,13 @@ namespace PythonLearn.Controllers
                 return Json(new { state = "NO", data = ex.Message });
             }
 
+        }
+
+
+        private Data.User GetUserByEmail(string EMail)
+        {
+            Data.User user = _context.UserRepository.Get(u => u.Username == EMail);
+            return user;
         }
 
 

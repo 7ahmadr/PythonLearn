@@ -4,7 +4,7 @@
 </head>
 <div class="WaitingDiv" ng-show="loading"></div>
 
-<div class="row w-100 d-flex pyLg_MainDiv">
+<form id="div_Login" class="row w-100 d-flex pyLg_MainDiv">
     <div ng-show="ForgotPassword==false" class="col-xl-6 col-lg-6 col-md-12">
         <div class="pyLg_VerticalCenter pyLg_MainDivBody w-50 ">
             <div class="form-group">
@@ -37,7 +37,7 @@
             </div>
 
             <div class="form-group">
-                <button ng-disabled="CheckValidation()==false" type="submit" class="btn btn-primary w-100 pyLg_BtnLogin" ng-click="Login()" href="#">
+                <button id="btn_Login" ng-disabled="CheckValidation()==false" type="submit" class="btn btn-primary w-100 pyLg_BtnLogin" ng-click="Login()" href="#">
                     ورود
                 </button>
             </div>
@@ -90,7 +90,7 @@
     <div class="col-xl-6 col-lg-6 pyLg_LeftDiv d-none d-xl-block d-lg-block">
 
     </div>
-</div>
+</form>
 
 
 

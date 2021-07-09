@@ -1,8 +1,7 @@
-﻿appCourse.controller("jsCourseController", function ($scope, $rootScope, $route, $location, PyCourseService) {
+﻿appCourse.controller("jsCourseController", function($scope, $rootScope, $route, $location, PyCourseService) {
     $scope.loading = true;
     $scope.PassRate = "";        //***  برای وقتی کاربر بخواد رمز تغییییر بده  ***
     SetUI();
-    let d = 4;
 
     $("[id=csNav]").show();
     $("#pyFooter").show();
@@ -15,7 +14,7 @@
         //}
         var list = PyCourseService.GetAll();
         list.then(
-            function (cs) {
+            function(cs) {
                 if (cs.data.state === "YES") {
                     $scope.Courses = cs.data.data.course;
                     $scope.Seasons = cs.data.data.season;
@@ -35,10 +34,10 @@
                     alert(cs.data.data);
                 }
             },
-            function (error) {
+            function(error) {
                 $scope.error = 'نمایش با شکست مواجه شد', error;
             }
-        ).finally(function () {
+        ).finally(function() {
             if (typeof sessionStorage.CID !== 'undefined' && (sessionStorage.CID !== 0) && (sessionStorage.CID !== '0')) {
                 var CID = sessionStorage.CID;
                 sessionStorage.CID = 0;
@@ -51,16 +50,17 @@
 
 
 
-    $scope.GoToLessons = function (CID, PathPermission, IsFree) {
+    $scope.GoToLessons = function(CID, PathPermission, IsFree) {
         if ($scope.HasPermission(PathPermission, IsFree) === false) {
-            AlertFail("لطفا جهت دسترسی به این درس اقدام به تهیه اشتراک کنید: اگر حساب کاربری ندارید، ابتدا یک حساب کاربری ساخته و سپس از نوار منو روی گزینه تهیه اشتراک کلیک کنید.");
+            //AlertFail("لطفا جهت دسترسی به این درس اقدام به تهیه اشتراک کنید: اگر حساب کاربری ندارید، ابتدا یک حساب کاربری ساخته و سپس از نوار منو روی گزینه تهیه اشتراک کلیک کنید.");
+            window.open("/Path/IndexPathMission/" + CID, '_self');
             return;
         }
         $location.path("/Course/Lessons/" + CID + "/1/");
     };
 
 
-    $scope.HasPermission = function (PathPermission, IsFree) {
+    $scope.HasPermission = function(PathPermission, IsFree) {
         if (IsFree === true) return true;
         for (var i = 0; i < $scope.Permissions.length; i++)
             if ($scope.Permissions[i].indexOf(PathPermission) !== -1)
@@ -69,26 +69,26 @@
     };
 
 
-    $scope.LogOut = function () {
+    $scope.LogOut = function() {
         localStorage.setItem('token', '');
         localStorage.setItem('fullname', '');
         localStorage.setItem('email', '');
         $scope.GoToLogin();
     };
 
-    $scope.GoToLogin = function () {
+    $scope.GoToLogin = function() {
         window.open('/User/LoginForm', '_self');
         //$location.path('/User/LoginForm');
     };
 
 
-    $scope.CheckPassRate = function (pass) {
+    $scope.CheckPassRate = function(pass) {
         var score = SetPasswordRate(scorePassword(pass));
         $scope.PassRate = score;
     };
 
 
-    $scope.ChangePassValidation = function () {
+    $scope.ChangePassValidation = function() {
         if ($scope.OldPass === '' || $scope.OldPass === undefined) return false;
         if ($scope.NewPass === '' || $scope.NewPass === undefined) return false;
         if ($scope.NewPassRepeat === '' || $scope.NewPassRepeat === undefined) return false;
@@ -99,10 +99,10 @@
     };
 
 
-    $scope.ChangePassword = function () {
+    $scope.ChangePassword = function() {
         var call = PyCourseService.ChangePassword(localStorage.getItem('email'), $scope.OldPass, $scope.NewPass);
         call.then(
-            function (cs) {
+            function(cs) {
                 if (cs.data.state === "YES") {
                     AlertSuccess("رمز عبور شما با موفقیت تغییر کرد.");
                     ClearChangePassModal();
@@ -110,7 +110,7 @@
                 else
                     AlertFail(cs.data.msg);
             },
-            function (error) {
+            function(error) {
                 $scope.error = 'نمایش با شکست مواجه شد', error;
             }
         );

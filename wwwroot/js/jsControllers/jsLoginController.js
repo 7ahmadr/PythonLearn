@@ -3,6 +3,7 @@
     ClearForm();
     $("#pyFooter").hide();
     $("#pyHeader").hide();
+    KeyShortcutLogin();
 
     $scope.Login = function () {
         $scope.loading = true;
@@ -102,3 +103,14 @@
         return ValidateEMail(EMail);
     };
 });
+
+
+function KeyShortcutLogin() {
+    $("#div_Login").keydown(function (e) {
+        var charCode = (e.which) ? e.which : event.keyCode;
+        if (charCode === 13) {
+            e.preventDefault();
+            $("#btn_Login").click();
+        }
+    });
+}

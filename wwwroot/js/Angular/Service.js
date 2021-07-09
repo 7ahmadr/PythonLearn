@@ -114,7 +114,8 @@ appCourse.service("PyCourseService", function ($http) {
             url: '/Course/GetAll/',
             method: 'GET',
             params: {
-                Token: localStorage.getItem("token")
+                Token: localStorage.getItem("token"),
+                EMail: localStorage.getItem("email")
             }
         });
     };
@@ -126,7 +127,8 @@ appCourse.service("PyCourseService", function ($http) {
             method: 'GET',
             params: {
                 CID: CID,
-                Token: localStorage.getItem("token")
+                Token: localStorage.getItem("token"),
+                EMail: localStorage.getItem("email")
             }
         });
     };
@@ -190,6 +192,17 @@ appCourse.service("PyCourseService", function ($http) {
                 Username: Username,
                 OldPass: OldPass,
                 NewPass: NewPass
+            }
+        });
+    };
+
+
+    this.GetAllPricing = function () {
+        return $http({
+            url: '/Payment/GetAllPricing/',
+            method: 'POST',
+            params: {
+
             }
         });
     };

@@ -31,7 +31,7 @@ appCourse.controller("jsLessonController", function ($scope, $location, PyCourse
                 else {
                     $scope.ShowMainDiv = false;
                     alert(cs.data.data);
-                    //window.open('/User/SignUpForm', '_self');
+                    window.open('/course/Index', '_self');
                 }
             },
             function (error) {

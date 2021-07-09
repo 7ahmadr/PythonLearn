@@ -2,6 +2,7 @@
 using PythonLearn.Data;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -49,7 +50,15 @@ namespace PythonLearn.Controllers
         }
 
 
+        public string PersianDate(DateTime d)
+        {
+            PersianCalendar pc = new PersianCalendar();
+            var day = pc.GetDayOfMonth(d);
+            var month = pc.GetMonth(d);
+            var strMonth = (month.ToString().Length > 1) ? month.ToString() : "0" + (month.ToString());
+            var strDay = (day.ToString().Length > 1) ? day.ToString() : "0" + (day.ToString());
 
-
+            return string.Format("{0}/{1}/{2}", pc.GetYear(d), strMonth, strDay);
+        }
     }
 }

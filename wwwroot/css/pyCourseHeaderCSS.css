@@ -53,8 +53,8 @@
 .pyCH_btnSale {
     background-color: #f5db9a !important;
     color: #4a505c !important;
-    padding-right: 40px !important;
-    padding-left: 40px !important;
+    padding-right: 30px !important;
+    padding-left: 30px !important;
     border-color: #4a505c;
     font-weight: bold;
     font-size: 16px !important;
@@ -67,11 +67,11 @@
     }
 
 .pyCH_BorderGold {
-    --border-opacity: 2;
-    border-color: #a19167;
-    border-width: 2px !important;
-    border-top: none;
-    border-left: none;
+    /*--border-opacity: 2;*/
+    border: none;
+    /*border-width: 2px !important;*/
+    /*border-top: none;
+    border-left: none;*/
 }
 
 .pyCH_FooterLink{

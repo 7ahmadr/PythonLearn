@@ -1,4 +1,7 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using System.Web.Http;
 using Microsoft.AspNetCore.Mvc;
 using PythonLearn.Data.Context;
 using PythonLearn.Data.Infrastructure;
@@ -41,26 +44,5 @@ namespace PythonLearn.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-
-        public IActionResult OnlinePayCallBack(int id)
-        {
-            if (HttpContext.Request.Query["Status"] != "" &&
-    HttpContext.Request.Query["Status"].ToString().ToLower() == "ok" &&
-    HttpContext.Request.Query["Authority"] != "")
-            {
-                var sdf = "";
-                //string authority = HttpContext.Request.Query["Authority"].ToString();
-                //var payment = new ZarinpalSandbox.Payment(12000);
-                //var res = payment.Verification(authority).Result;
-                //if (res.Status == 100)
-                //{
-                //    ViewBag.code = res.RefId;
-                //    return View();
-                //}
-
-            }
-
-            return NotFound();
-        }
     }
 }
