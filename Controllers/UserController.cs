@@ -52,7 +52,7 @@ namespace PythonLearn.Controllers
         {
             try
             {
-                var User = _userService.Authenticate(Username, Password);
+                var User = _userService.Authenticate(Username.ToLower(), Password);
                 if (User == null)
                     return Json(new { state = "NO", msg = "نام کاربری یا رمز عبور وارد شده اشتباه است." });
 
@@ -76,6 +76,7 @@ namespace PythonLearn.Controllers
         {
             try
             {
+                Username = Username.ToLower();
                 if (_userService.ExistUser(Username) != null)
                     if (IsExternal == false)
                         return Json(new { state = "NO", msg = "ایمیل وارد شده قبلا در سایت ثبت شده است." });

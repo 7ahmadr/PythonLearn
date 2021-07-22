@@ -61,7 +61,7 @@ namespace PythonLearn.Controllers
                 return RedirectToAction("PaymentAlreadyDone", "Payment");
 
             var res = payment.PaymentRequest($"پرداخت فاکتور  جهت ثبت نام در دوره {PathName}",
-                $"https://localhost:44352/api/payment/OnlinePaymentCallBack/{u.ID}/{PID}/{PathPerm}/{Cost}/{Month}", EMail, u.Mobile);
+                $"https://pythoncoding.ir/api/payment/OnlinePaymentCallBack/{u.ID}/{PID}/{PathPerm}/{Cost}/{Month}", EMail, u.Mobile);
             if (res.Result.Status == 100)
             {
                 return Redirect("https://zarinpal.com/pg/StartPay/" + res.Result.Authority);

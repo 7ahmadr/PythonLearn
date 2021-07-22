@@ -11,23 +11,26 @@
     <div class="col-lg-12 pyCS_SubHeader">
         <h2 class="font-weight-bold pyCS_Welcome">{{FullName}}  خوش آمدید</h2>
         <h5 class="pyCS_UnderWelcome">یادگیری را ادامه دهید:  <b>برنامه نویسی با پایتون</b></h5>
-       <!-- <a class="btn btn-primary pyCS_ResumeBtn">ادامه دوره</a>       temperory commenting -->    
+        <!-- <a class="btn btn-primary pyCS_ResumeBtn">ادامه دوره</a>       temperory commenting -->
+        <p class="pb-3 pyCS_UnderWelcome text-warning" ng-bind-html="ReturnHtml(TimeLeft)"></p>
+
     </div>
 
     <div class="row pyCS_SubLRHeader">
         <div class="pyCS_SubMiniHeader">
             <div class="pyCS_SubMiniInternal">
-                <label class="pyCS_CurPathTitle">مسیر فعلی:</label>
-              <!--  <a class="zmdi zmdi-edit pyCS_ChangePathIcon" href="#"></a>    temperory commenting -->
+                <label class="pyCS_CurPathTitle">مسیر فعلی: </label>
+                <a class="zmdi zmdi-edit pyCS_ChangePathIcon" data-toggle="modal" data-target="#ChangePathModal" href="#"></a>
                 <br />
-                <label class="pyCS_CurPath">تحلیل داده با پایتون</label>
-              <!--  <span class="badge badge-success pyCS_badgeCompeleted">45% تمام شده</span>   temperory commenting -->
+                <label class="pyCS_CurPath">{{Paths[ActivePath].name}}</label>
+                <!--  <span class="badge badge-success pyCS_badgeCompeleted">45% تمام شده</span>   temperory commenting -->
+                <br />
             </div>
         </div>
 
         <div class="pyCS_SubMiniHeader mr-4">
             <div class="pyCS_SubMiniInternal">
-                <div class="row"  style="height: 30px !important">
+                <div class="row" style="height: 30px !important">
                     <div class="col-md-6">
                         <label class="pyCS_CurPathTitle">تعداد کورس ها:  </label>
                     </div>
@@ -81,20 +84,20 @@
                     <span class="zmdi zmdi-mail-send"></span>  مسیر فعلی
                 </a>
             </li>
-         <!--   <li class="nav-item pyCS_FirstTabsLi">
-                <a class="nav-link NoRadius pyCS_FirstTab" id="tabP22" ng-class="{active: $index == 0}" data-toggle="tab" onclick="return false;" href="#contentP22" role="tab" aria-controls="contentP22">
-                    <span class="zmdi zmdi-calendar"></span>  گزارش هفتگی
-                </a>
-            </li>
-            <li class="nav-item pyCS_FirstTabsLi">
-                <a class="nav-link NoRadius pyCS_FirstTab" id="tabP33" ng-class="{active: $index == 0}" data-toggle="tab" onclick="return false;" href="#contentP33" role="tab" aria-controls="contentP33">
-                    <span class="zmdi zmdi-code"></span>   تمرین
-                </a>
-            </li> -->
+            <!--   <li class="nav-item pyCS_FirstTabsLi">
+                   <a class="nav-link NoRadius pyCS_FirstTab" id="tabP22" ng-class="{active: $index == 0}" data-toggle="tab" onclick="return false;" href="#contentP22" role="tab" aria-controls="contentP22">
+                       <span class="zmdi zmdi-calendar"></span>  گزارش هفتگی
+                   </a>
+               </li>
+               <li class="nav-item pyCS_FirstTabsLi">
+                   <a class="nav-link NoRadius pyCS_FirstTab" id="tabP33" ng-class="{active: $index == 0}" data-toggle="tab" onclick="return false;" href="#contentP33" role="tab" aria-controls="contentP33">
+                       <span class="zmdi zmdi-code"></span>   تمرین
+                   </a>
+               </li> -->
         </ul>
 
 
-        <div ng-repeat="p in Paths" id="contentP{{p.id}}" class="tab-pane fade show pyCS_StepTabsDiv" ng-class="{active: $index == 0}" role="tabpanel" aria-labelledby="tabP{{p.id}}">
+        <div ng-repeat="p in Paths" id="contentP{{p.id}}" class="tab-pane fade show pyCS_StepTabsDiv" ng-class="{active: $index == ActivePath}" role="tabpanel" aria-labelledby="tabP{{p.id}}">
             <div class="tab-content" id="myTabContent">
                 <div class="container">
                     <ul class="row nav nav-tabs" id="myTab" role="tablist">
@@ -113,7 +116,7 @@
 
                                 <div ng-repeat="s in Seasons | orderBy:'number'" ng-if="s.lid==l.id" class="list-group" style="margin-top:1%">
                                     <a data-toggle="collapse" data-target="#collapse{{$index}}" class="list-group-item list-group-item-action NoRadius pyCS_Season">
-                                     <!--   <label class="pyCS_SeasonLabel">دوره {{$index + 1}} / {{Seasons.length}}</label> -->
+                                        <!--   <label class="pyCS_SeasonLabel">دوره {{$index + 1}} / {{Seasons.length}}</label> -->
                                         <i href="#" class="pyCS_SeasonDetail">مشاهده مشخصات دوره</i>
                                         <br />
                                         {{s.name}}
@@ -140,7 +143,7 @@
 
 <div class="modal" id="ChangePassModal" tabindex="-1" role="dialog" aria-labelledby="ChangePassModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content NoRadius">
+        <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="ChangePassModalLabel">تغییر رمز عبور</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -170,12 +173,48 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary NoRadius" ng-disabled="ChangePassValidation()==false" ng-click="ChangePassword()">تایید</button>
-                <button id="btn_closeChangePass" type="button" class="btn btn-default NoRadius" data-dismiss="modal">بازگشت</button>
+                <button type="button" class="btn btn-primary" ng-disabled="ChangePassValidation()==false" ng-click="ChangePassword()">تایید</button>
+                <button id="btn_closeChangePass" type="button" class="btn btn-default" data-dismiss="modal">بازگشت</button>
             </div>
         </div>
     </div>
 </div>
+
+
+
+
+<div class="modal" id="ChangePathModal" tabindex="-1" aria-labelledby="ChangePathModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 50% !important; max-width: 50%" role="document">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h5 class="modal-title font-weight-bold" id="ChangePassModalLabel">مسیر مورد نظر خود را انتخاب کنید</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="list-group">
+                    <div ng-repeat="p in Paths" id="Path{{p.id}}">
+                        <a href="#" data-dismiss="modal" class="list-group-item list-group-item-action flex-column mt-2" ng-class="{active: $index == ActivePath}"  ng-click="ChangeActivePath($index)">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h4 class="mb-1">{{p.name}}</h4>
+                            </div>
+                            <small class="mb-1">{{p.desc}}</small>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="modal-footer">
+                <button id="btn_okChangePath" type="button" class="btn btn-primary px-4" data-dismiss="modal">تایید</button>
+                <button id="btn_closeChangePath" type="button" class="btn btn-outline-secondary px-3" data-dismiss="modal">بازگشت</button>
+            </div>-->
+        </div>
+    </div>
+
+</div>
+
+
+
 <script>
     $(".progress-bar").animate({
         width: "100%"

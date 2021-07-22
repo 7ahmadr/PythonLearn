@@ -101,11 +101,10 @@ namespace PythonLearn.Controllers
             try
             {
                 var Lessons = from l in _context.LessonRepository.GetMany(c => c.CID == CID)
-                                select new { 
-                                    l.Name, l.Desc
-                                };
+                              select new { l.Name, l.Desc };
                 var Course = _context.CourseRepository.Get(c => c.ID == CID);
-                return Json(new { state = "YES", lessons = Lessons, course = Course });
+                var Season = _context.SeasonRepository.Get(s => s.ID == Course.SID);
+                return Json(new { state = "YES", lessons = Lessons, course = Course, season = Season });
             }
             catch (Exception ex)
             {

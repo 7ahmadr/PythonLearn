@@ -11,6 +11,11 @@
     padding-top: 8px !important;
 }
 
+.pyH_NavbarNav {
+    padding-right: 0px !important;
+    flex-direction: row !important;
+}
+
 .pyH_MenuItem {
     color: #898a8e !important;
     margin-right: 30px;
@@ -52,4 +57,26 @@
     color: white !important;
     font-family:Yekan;
     font-size:12px
+}
+
+
+@media only screen and (max-device-width: 600px) {
+
+    .pyH_MenuItem {
+        font-size: 32px;
+        margin-left: 40px;
+        padding: 0px
+    }
+
+    .pyH_MenuItemBtn {
+        font-size: 34px;
+    }
+
+    .pyH_Nav {
+        height: 70px !important;
+    }
+
+    .pyMobileHide{
+        display: none;
+    }
 }

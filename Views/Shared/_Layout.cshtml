@@ -54,24 +54,23 @@
 <body ng-app="PyApp">
     <header id="pyHeader">
         <nav class="navbar navbar-expand-lg navbar-light fixed-top pyH_Nav shadow-sm">
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="nav" id="navbarNavAltMarkup">
-                    @*<li class="nav-item"><a class="pyH_MenuItem" onclick="window.open('/Course/Index', '_blank')"><i class="zmdi zmdi-account-o zmdi-hc-lg m-l-4"></i>  پنل کاربری  </a></li>*@
-                    <li class="nav-item"><button onclick="window.open('/Course/Index', '_self')" class="btn pyH_MenuItemBtn btn-success">آغاز رایگان</button></li>
-                    <li class="nav-item"><a class="pyH_MenuItem" href="#" ng-href="/User/SignUpForm">ثبت نام</a></li>
-                    <li class="nav-item"><a class="pyH_MenuItem" href="#" ng-href="/User/LoginForm">ورود</a></li>
-                    <li class="nav-item"><a class="pyH_MenuItem" href="#" ng-href="/Path/Index">دوره ها</a></li>
-                    @*<li class="nav-item"><a class="pyH_MenuItem" href="#">درسنامه ها</a></li>
-                    <li class="nav-item"><a class="pyH_MenuItem" href="#">تعرفه ها</a></li>
-                    <li class="nav-item"><a class="pyH_MenuItem pyMobileHide" href="#faq">چرا سایت ما</a></li>*@
-                    <li class="nav-item"><a class="pyH_MenuItem pyMobileHide" href="#contact">ارتباط با ما</a></li>
-                </ul>
+            @*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>*@
+            <div class="navbar-nav pyH_NavbarNav">
+                <button onclick="window.open('/Course/Index', '_self')" class="btn pyH_MenuItemBtn btn-success">آغاز رایگان</button>
+                <a class="nav-item nav-link  pyH_MenuItem" href="#" ng-href="/User/SignUpForm">ثبت نام</a>
+                <a class="nav-item nav-link pyH_MenuItem" href="#" ng-href="/User/LoginForm">ورود</a>
+                <a class="nav-item nav-link pyH_MenuItem" href="#" ng-href="/Path/Index">دوره ها</a>
+                <a class="nav-item nav-link pyH_MenuItem" href="#contact">ارتباط با ما</a>
             </div>
+
             <a href="#" class="navbar-brand pull-right pyMobileHide" style="float:left !important">
                 <span class="pyMenuItem">PYTHON Coding</span>
                 <img src="pythonlogo.png" />
             </a>
         </nav>
+
 
     </header>
     <div>
@@ -137,8 +136,8 @@
 
 
 @*<script>
-    $(document).ready(function () {
-        var h = window.innerHeight;
-        $('[id=hero]').css('height', "1000px !important");
-    })
-</script>*@
+        $(document).ready(function () {
+            var h = window.innerHeight;
+            $('[id=hero]').css('height', "1000px !important");
+        })
+    </script>*@

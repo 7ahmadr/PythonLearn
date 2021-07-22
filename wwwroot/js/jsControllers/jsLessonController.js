@@ -11,7 +11,7 @@ appCourse.controller("jsLessonController", function ($scope, $location, PyCourse
     $scope.ShowAnswer = false;
     $scope.ShowNextScreen = false;
     $scope.ShowResetDiv = false;
-
+    $("#btn_changePass").hide();
     loadAll($scope.CourseID);
 
     function loadAll(CID) {
@@ -27,6 +27,11 @@ appCourse.controller("jsLessonController", function ($scope, $location, PyCourse
                     $scope.pyConsoleAll = " >>> ";
                     $scope.pyConsoleCode = "";
                     $scope.ShowConsole = 0;
+
+
+                    if (localStorage.getItem("fullname") !== null && localStorage.getItem("fullname") !== '') {
+                        $('#btn_Login').hide();
+                    }
                 }
                 else {
                     $scope.ShowMainDiv = false;
@@ -97,10 +102,10 @@ appCourse.controller("jsLessonController", function ($scope, $location, PyCourse
                     //UserValues = UserValues.split("__%__");
                     //UserStatus = UserStatus.split("__%__");
                     //Corrects = Corrects.split("__%__");
+                    //$scope.pyUserVars = $scope.CreateVarsHtml(UserVars, UserValues, UserStatus, Corrects);
                     //****************  مربوط به نمایش متغیرهای کد است...پاک نشود  ****************
 
 
-                    $scope.pyUserVars = $scope.CreateVarsHtml(UserVars, UserValues, UserStatus, Corrects);
                     if (CheckAnswer === true) {
                         $scope.CheckAnswer();
                     }
@@ -173,7 +178,7 @@ appCourse.controller("jsLessonController", function ($scope, $location, PyCourse
             $("#divLesson").removeClass("col-sm-12");
             if (window.mobileCheck()) {                //اگر موبایلی بود
                 $("#divLesson").addClass("col-sm-12");
-                $("#divLesson").css("height", "55vh");
+                $("#divLesson").css("height", "60vh");
             }
             else {
                 $("#divLesson").addClass("col-sm-12");

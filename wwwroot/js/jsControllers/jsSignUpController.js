@@ -14,6 +14,7 @@
                     //AlertSuccess("کاربر گرامی ثبت نام شما در سایت با موفقیت انجام شد و ایمیلی حاوی لینک فعالسازی برای شما ارسال گردید. لطفا جهت فعال کردن حساب کاربری به ایمیل خود مراجعه کنید.", "حله");
                     ClearForm();
                     localStorage.setItem('token', cs.data.token);
+                    localStorage.setItem('email', cs.data.email);
                     localStorage.setItem('fullname', cs.data.name);
                     window.open('/Course/Index', '_self');
                 }

@@ -199,5 +199,10 @@ font-family: IRANSans;
     .pyHP_MDivTxt, .pyHP_MDivTitle{
         font-size: 2.5em
     }
+    
+    .pyHP_Header{
+        height: 30vh;
+        padding: 70px
+    }
    
 }

@@ -13,6 +13,7 @@ using PythonLearn.Authentication.Services;
 using static PythonLearn.Authentication.Permissions.Permissions;
 using System.IdentityModel.Tokens.Jwt;
 using PythonLearn.Authentication.Controllers;
+using PythonLearn.Authentication.Extensions;
 
 namespace PythonLearn.Controllers
 {
@@ -72,20 +73,37 @@ namespace PythonLearn.Controllers
                 //*****************  اگر کاربر فعال باشد باید چک کنیم که پرمیشن هایش اکسپایر نشده باشند  ***********
                 Data.User user = null;
                 int UID = 0;
+                string TimeLeft = "";
+                pyExtension pyEx = new pyExtension();
                 if (!string.IsNullOrEmpty(EMail))
                 {
                     user = GetUserByEmail(EMail);
                     UID = user.ID;
                 }
-
                 List<string> PermissionList = PermissionsController.GetPermissionList(Token, UID);
+
+                #region FillAllLists
                 var PathList = _context.PathRepository.GetAll();
                 var CourseList = _context.CourseRepository.GetAll();    //GetCourseListWithPermissions(); //
                 var SeasonList = _context.SeasonRepository.GetAll();
-                //var LessonList = _context.LessonRepository.GetAll();
                 var LevelList = _context.LevelRepository.GetAll();
+                #endregion
 
+                string NowDate = pyEx.GetPersianDate(DateTime.Now);
 
+                if (PermissionList.Count > 0 && PermissionList[0] != "NotAuthenticate" && !string.IsNullOrEmpty(PermissionList[0]))
+                    foreach (string p in PermissionList)
+                    {
+                        var UserPay = _context.UserPaymentRepository.GetMany(u => u.PathName == p && u.UID == UID).Last();
+                        int xMonth = UserPay.Month;
+                        if (xMonth == 0) continue;
+                        string xDate = UserPay.XDate;
+                        string PName = (from pth in PathList where pth.Permission == p select pth.Name).SingleOrDefault();
+                        TimeLeft += "زمان باقی مانده تا پایان اشتراک " + "«<b>" + PName + "</b>»"
+                            + ": <strong>" + (pyEx.DateDayDifference(xDate, NowDate, xMonth)).ToString() + " روز " + "</strong><br/>";
+                    }
+
+                #region Return All
                 return Json(new
                 {
                     state = "YES",
@@ -95,9 +113,11 @@ namespace PythonLearn.Controllers
                         Level = LevelList,
                         Season = SeasonList,
                         Course = CourseList,
-                        Permission = PermissionList
+                        Permission = PermissionList,
+                        TimeLeft = TimeLeft
                     }
                 });
+                #endregion
             }
             catch (Exception ex)
             {

@@ -188,6 +188,7 @@
 .pyLS_BtnsDiv {
     float: left;
     margin-top: 1.4vh;
+    left: 0px;
 }
 
 .pyLS_btnSubAns {
@@ -415,7 +416,7 @@ pyLS_btnNew:hover {
 
 @media only screen and (max-device-width: 600px) {
 
-    .lesContent, .pyHighlight, .lesBtnFile {
+    .lesContent, .pyHighlight, .lesBtnFile, .pyLS_ResultTitle, .pyLS_ResultTxt {
         font-size: 32px !important
     }
     
@@ -425,7 +426,14 @@ pyLS_btnNew:hover {
     
     #divLesson{
         overflow: scroll;
+        height: 60vh !important;
     }
+    
+    #divCompiler{
+        overflow: scroll;
+        height: 40vh !important;
+    }
+    
     .CodeMirror-sizer, .lesBtnFileDiv{
         font-size: 35px
     }
@@ -459,7 +467,7 @@ pyLS_btnNew:hover {
     
     #pyLS_Footer_Center{
         max-width: 100vw !important;
-        flex: 0 0 100%
+        flex: 0 0 100%;
     }
     
     
@@ -474,10 +482,13 @@ pyLS_btnNew:hover {
         padding: 40px;
     }
     
-    .pyLS_Btns{
+    .pyLS_Btns {
         margin-bottom: 80px;
-        height:auto
+        height:auto;
+        position: fixed;
+        padding: 0px !important;
     }
+    
 
     .pyLS_btn, #btn_clearCode {
         font-size: 40px;

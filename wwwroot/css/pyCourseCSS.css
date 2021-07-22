@@ -25,7 +25,7 @@
     }
 
     [class*="pyCS_CourseDiv"] {
-        margin-top: 20vh !important
+        margin-top: 20vh !important;
     }
 }
 
@@ -281,8 +281,13 @@ body{
         font-size: 1.7em
     }
     
+    .pyCS_StepTabs {
+        padding-right: 20px !important;
+        padding-left: 20px !important;
+    }
     .container{
         margin: 0px !important;
+        max-width: 100%;
     }
     
     .tab-content{
@@ -304,5 +309,17 @@ body{
     
     .pyCS_Course{
         font-size: 1.9em
+    }
+    
+    .pyCS_Header{
+        height: 40%;
+    }
+    
+    .pyCS_SubLRHeader{
+        margin-top: 30%
+    }
+    
+    .pyCS_CourseDiv{
+        margin-top: 10vh !important;
     }
 }

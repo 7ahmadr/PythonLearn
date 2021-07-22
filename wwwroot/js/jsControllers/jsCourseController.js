@@ -1,7 +1,8 @@
-﻿appCourse.controller("jsCourseController", function($scope, $rootScope, $route, $location, PyCourseService) {
+﻿appCourse.controller("jsCourseController", function ($scope, $rootScope, $route, $location, PyCourseService, $sce) {
     $scope.loading = true;
     $scope.PassRate = "";        //***  برای وقتی کاربر بخواد رمز تغییییر بده  ***
     SetUI();
+    $scope.ActivePath = 0;
 
     $("[id=csNav]").show();
     $("#pyFooter").show();
@@ -21,13 +22,17 @@
                     $scope.Levels = cs.data.data.level;
                     $scope.Paths = cs.data.data.path;
                     $scope.Permissions = cs.data.data.permission;
+                    $scope.TimeLeft = cs.data.data.timeLeft;
 
                     if (localStorage.getItem("fullname") === null || localStorage.getItem("fullname") === '') {
                         $("#btn_logOut").hide();
+                        $("#btn_changePass").hide();
                         $scope.FullName = 'کاربر مهمان';
                     }
                     else {
                         $scope.FullName = localStorage.getItem("fullname");
+                        $('#btn_Login').hide();
+                        $("#btn_changePass").show();
                     }
                 }
                 else {
@@ -117,6 +122,15 @@
     };
 
 
+    $scope.ReturnHtml = function (htm) {
+        return $sce.trustAsHtml(htm);
+    };
+
+    $scope.ChangeActivePath = function (index) {
+        $scope.ActivePath = index;
+    };
+
+
     function SetUI() {
         $("[id=csNav]").show();
         $("#CourseFooter").show();
@@ -133,3 +147,8 @@
         $("#btn_closeChangePass").click();
     }
 });
+
+
+function test1() {
+    alert(2341243);
+}

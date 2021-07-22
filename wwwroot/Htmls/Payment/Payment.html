@@ -1,4 +1,5 @@
-﻿<div style="margin-top: 60px; background-color: #ffffff; border-radius:30px" class="container shadow p-4">
+﻿
+<div style="margin-top: 60px; background-color: #ffffff; border-radius:30px" class="container shadow p-4">
     <label class="font-weight-bold h6" for="pyPathSelect">لطفا دوره مورد نظر خود را انتخاب نمایید</label>
     <select class="form-control form-control-lg border" ng-class="{borderDanger: PathIndex == null}" id="pyPathSelect" ng-model="PathIndex">
         <option ng-repeat="p in Paths" value="{{p.id}}">{{p.name}}</option>

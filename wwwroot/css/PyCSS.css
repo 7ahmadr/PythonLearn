@@ -10,6 +10,11 @@
     src: url('../fonts/Yekan.ttf');
 }
 
+* {
+    font-family: IRANSans;
+}
+
+
 body {
     background-color: #fff !important;
 }
@@ -21,17 +26,15 @@ body {
 
 .card-text:last-child {
     margin-bottom: 60px;
-	-webkit-user-select: text; /* Safari */
-  	-ms-user-select: text; /* IE 10 and IE 11 */
- 	user-select: text; /* Standard syntax */
-	height: max-content;
-
-	
+    -webkit-user-select: text; /* Safari */
+    -ms-user-select: text; /* IE 10 and IE 11 */
+    user-select: text; /* Standard syntax */
+    height: max-content;
 }
 
 
 pre {
-font-size:100% !important;	
+    font-size: 100% !important;
 }
 
 .card-header {
@@ -112,8 +115,8 @@ font-size:100% !important;
 }
 
 .pyDivBlue .CodeMirror {
-	height: max-content !important;
-	background-color: #f1f4f8 !important;
+    height: max-content !important;
+    background-color: #f1f4f8 !important;
 }
 
 .pyTitle {
@@ -277,7 +280,7 @@ font-size:100% !important;
 
 .pyInvisible {
     visibility: hidden !important;
-	margin:0px !important;
+    margin: 0px !important;
 }
 
 .pyLesHelp {
@@ -285,6 +288,7 @@ font-size:100% !important;
     background-color: inherit !important;
     border: none !important;
 }
+
 
 
 .pyTableDiv {
@@ -314,13 +318,89 @@ font-size:100% !important;
         text-align: center;
     }
 
-    .pyTable2 td:first-child {
-        font-weight: 100 !important;
+.pyTable2 td:first-child {
+    font-weight: 100 !important;
+    text-align: center;
+}
+
+.pyTable td {
+    border-color: #bac4d1 !important;
+    border-style: solid;
+    border-width: 1px;
+    /*font-family: Arial, sans-serif;*/
+    font-family: merriweather,serif;
+    font-size: 16px;
+    overflow: hidden;
+    padding: 8px;
+    word-break: normal;
+    /*color: #363d49;*/
+    letter-spacing: .5px;
+}
+
+.pyTable th {
+    border-color: #bac4d1 !important;
+    border-style: solid;
+    border-width: 1px;
+    /* font-family: Arial, sans-serif;
+        font-size: 14px;*/
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
+    /*font-weight:100;*/
+    text-align: center;
+    font-family: merriweather,serif;
+    font-size: 17px;
+}
+
+.pyTable .tg-0lax {
+    text-align: left;
+    vertical-align: top
+}
+
+
+.short td:first-child {
+    font-weight: 300 !important;
+}
+
+.firstrow td:first-child {
+    font-weight: 300 !important;
+}
+
+.firstcolumn th:first-child {
+    font-weight: 300 !important;
+}
+
+
+
+
+
+
+
+
+.hideTable {
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+    margin-left: auto;
+    margin-right: auto; /*width:100% !important;
+    max-width:100% !important;*/
+    text-align: center;
+    color: #363d49;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: .5px;
+    font-weight: 300;
+    font-family: merriweather,serif;
+}
+
+    .hideTable td:first-child {
+        font-weight: 600;
         text-align: center;
     }
 
-    .pyTable td {
-        border-color: black;
+
+
+    .hideTable td {
+        border-color: #bac4d1 !important;
         border-style: solid;
         border-width: 1px;
         /*font-family: Arial, sans-serif;*/
@@ -333,8 +413,8 @@ font-size:100% !important;
         letter-spacing: .5px;
     }
 
-    .pyTable th {
-        border-color: black;
+    .hideTable th {
+        border-color: #bac4d1 !important;
         border-style: solid;
         border-width: 1px;
         /* font-family: Arial, sans-serif;
@@ -348,15 +428,49 @@ font-size:100% !important;
         font-size: 17px;
     }
 
-    .pyTable .tg-0lax {
+    .hideTable .tg-0lax {
         text-align: left;
         vertical-align: top
     }
 
 
-.short td:first-child {
-    font-weight: 300 !important;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hideTable {
+    border-radius: 5px !important;
+    overflow: hidden !important;
+    width: 100% !important;
 }
+
+    .hideTable th,
+    .hideTable td {
+        border-right: 0 !important;
+        border-left: 0 !important;
+    }
+
+        .hideTable th:last-child,
+        .hideTable td:last-child {
+            border-right: 0 !important;
+        }
 
 
 
@@ -374,23 +488,20 @@ font-size:100% !important;
     margin-left: 6%;
     line-height: 1.8;
     /*word-spacing: -.5px !important;*/
-	letter-spacing: -.5px;
-
+    letter-spacing: -.5px;
 }
 
 .card-text {
-		-webkit-user-select: none; /* Safari */
-  	-ms-user-select: none; /* IE 10 and IE 11 */
- 	user-select: none; /* Standard syntax */
-
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
-.card-text .pyDivBlue {
-		-webkit-user-select: text !important; /* Safari */
-  	-ms-user-select: text !important; /* IE 10 and IE 11 */
- 	user-select: text !important; /* Standard syntax */
-
-}
+    .card-text .pyDivBlue {
+        -webkit-user-select: text !important; /* Safari */
+        -ms-user-select: text !important; /* IE 10 and IE 11 */
+        user-select: text !important; /* Standard syntax */
+    }
 
 
 
@@ -519,11 +630,11 @@ margin-top: 0px; /* change this to whatever height you want it
     content: "";
     text-align: left;
     direction: ltr !important;
-	margin-bottom:15px;
+    margin-bottom: 15px;
 }
 
 .pyDivHelp {
-	font-family: source-code-pro,Menlo,Monaco,Ubuntu Mono,Consolas,monospace !important;
+    font-family: source-code-pro,Menlo,Monaco,Ubuntu Mono,Consolas,monospace !important;
     padding-left: 10px;
     padding-top: 1px;
     padding-bottom: 1px;
@@ -532,10 +643,9 @@ margin-top: 0px; /* change this to whatever height you want it
     direction: ltr !important;
 }
 
-.pyDivHelp code {
-	color: #c6244d !important;
-
-}
+    .pyDivHelp code {
+        color: #c6244d !important;
+    }
 
 
 .pyInstruct {
@@ -560,7 +670,7 @@ margin-top: 0px; /* change this to whatever height you want it
     margin: auto;
     padding-top: 20px;
     padding-bottom: 25px !important;
-	width:50% !important;
+    width: 50% !important;
 }
 
 .tashih {
@@ -620,9 +730,9 @@ ol {
     list-style-type: circle;
 }
 
-.lesContent ul li ul li ul li {
-    list-style-type: square;
-}
+    .lesContent ul li ul li ul li {
+        list-style-type: square;
+    }
 
 
 .lesContent ol ul ul li {

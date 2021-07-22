@@ -1,3 +1,7 @@
+var IsLogin = false;
+if (localStorage.getItem("email") !== "" && localStorage.getItem("email") !== null) {
+    IsLogin = true;
+}
 
 function AlertPrimary(msg, btnText = 'بریم', rtl = true) {
     $.confirm({

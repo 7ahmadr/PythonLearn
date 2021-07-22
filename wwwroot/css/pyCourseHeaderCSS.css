@@ -1,4 +1,4 @@
-﻿.pyCH_Nav {
+.pyCH_Nav {
     display: flex !important;
     background-color: #ffffff;
     border-radius: 0px !important;
@@ -22,10 +22,14 @@
 }
 
 .pyCH_Icon {
-    font-size: 23px;
+    font-size: 17px;
     vertical-align: middle !important;
     color: #6f768a !important;
 }
+
+    .pyCH_Icon:hover {
+        background-color: #f6f6f6;
+    }
 
 .pyCH_NavItem {
     padding-right: 10px
@@ -33,6 +37,7 @@
 
 .pyCH_NavbarNav {
     padding-right: 0px !important;
+    flex-direction: row !important;
 }
 
 .pyCH_dropDown {
@@ -42,29 +47,43 @@
 .pyCH_dropDownItem {
     color: whitesmoke !important;
     font-size: 15px !important;
-    padding:10px 15px 10px 15px !important;
+    padding: 10px 15px 10px 15px !important;
 }
 
     .pyCH_dropDownItem:hover {
         color: whitesmoke !important;
-        background-color:#61cf93 !important
+        background-color: #61cf93 !important
     }
 
 .pyCH_btnSale {
     background-color: #f5db9a !important;
     color: #4a505c !important;
-    padding-right: 30px !important;
-    padding-left: 30px !important;
+    padding-right: 25px !important;
+    padding-left: 25px !important;
     border-color: #4a505c;
     font-weight: bold;
-    font-size: 16px !important;
-    margin-right: 10px !important
+    font-size: 14px !important;
+    margin-right: 10px !important;
+    margin-top: 5px;
 }
 
     .pyCH_btnSale:hover {
         background-color: #f6dea1 !important;
         border-color: #a19167 !important;
     }
+
+.pyCH_btnDashboard {
+    background-color: #e8ebf0 !important;
+    color: #384454 !important;
+    padding-right: 25px !important;
+    padding-left: 25px !important;
+    border-color: #4a505c;
+    font-weight: bold;
+    font-size: 14px !important;
+    margin-right: 10px !important;
+    border: none;
+    margin-top: 5px;
+}
 
 .pyCH_BorderGold {
     /*--border-opacity: 2;*/
@@ -74,15 +93,15 @@
     border-left: none;*/
 }
 
-.pyCH_FooterLink{
-    color:white !important;
+.pyCH_FooterLink {
+    color: white !important;
 }
 
 .pyCH_CoursePage {
-    left:30px !important;
-    color:white !important;
+    left: 30px !important;
+    color: white !important;
     font-size: 14px;
-	font-family: IRANSans;
+    font-family: IRANSans;
 }
 
 .pyCH_VerticalCenter {
@@ -106,4 +125,24 @@
     color: white !important;
     font-size: 12px;
     line-height: 25px !important
+}
+
+
+
+@media only screen and (max-device-width: 600px) {
+
+    .pyCH_Icon{
+        font-size: 30px;
+        margin-left: 40px;
+        padding: 0px
+}
+    
+    .pyCH_Nav{
+        height: 70px !important;
+    }
+    
+    .pyCH_btnSale{
+        font-size: 32px !important;
+        margin-top: 0px
+    }
 }

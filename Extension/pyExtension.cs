@@ -60,5 +60,32 @@ namespace PythonLearn.Controllers
 
             return string.Format("{0}/{1}/{2}", pc.GetYear(d), strMonth, strDay);
         }
+
+
+
+
+        public int DateDayDifference(string FirstDate, string LastDate, int Month)
+        {
+            int Year1 = Convert.ToInt32(FirstDate.Substring(0, 4));
+            int Year2 = Convert.ToInt32(LastDate.Substring(0, 4));
+            int Month1 = Convert.ToInt32(FirstDate.Substring(5, 2));
+            int Month2 = Convert.ToInt32(LastDate.Substring(5, 2));
+            int Day1 = Convert.ToInt32(FirstDate.Substring(8, 2));
+            int Day2 = Convert.ToInt32(LastDate.Substring(8, 2));
+            int DiffDay = (((Year2 - Year1) * 360) + ((Month2 - Month1) * 30) + (Day2 - Day1));
+            return Month * 30 - DiffDay;
+        }
+
+
+        public string GetPersianDate(DateTime d)
+        {
+            PersianCalendar pc = new PersianCalendar();
+            var day = pc.GetDayOfMonth(d);
+            var month = pc.GetMonth(d);
+            var strMonth = (month.ToString().Length > 1) ? month.ToString() : "0" + (month.ToString());
+            var strDay = (day.ToString().Length > 1) ? day.ToString() : "0" + (day.ToString());
+
+            return string.Format("{0}/{1}/{2}", pc.GetYear(d), strMonth, strDay);
+        }
     }
 }

@@ -14,6 +14,7 @@
                 if (cs.data.state === "YES") {
                     $scope.Lessons = cs.data.lessons;
                     $scope.Course = cs.data.course;
+                    $scope.Season= cs.data.season;
                     $scope.CourseOptions = cs.data.course.options.split("##");
                 }
                 else

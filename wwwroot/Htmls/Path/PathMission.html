@@ -1,10 +1,35 @@
 ﻿<div class="pyPM_Init">
     <div class="WaitingDiv" ng-show="loading"></div><!-- Place at bottom of page -->
 
+    <div class="pyPM_Header">
+        <div class="pyPM_HeaderRight">
+            <div class="pyPM_SubMiniHeaderRight">
+                <div class="pyPM_SubMiniTitle text-center">
+                    <label class="pyPM_PName text-white" ng-bind="Course.name"></label>
+                    <label class="pyPM_PNameDesc text-white">این درسنامه قسمتی از دوره <b class="text-success">{{Season.name}}</b> می باشد</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="pyPM_HeaderLeft">
+            <div class="pyPM_SubMiniHeader shadow">     
+                <div class="pyPM_SubMiniInternal text-center">
+                    <i class="zmdi zmdi-lock zmdi-hc-4x text-secondary"></i>
+                    <br />
+                    <label class="pyPM_CurPath mt-2">با تهیه اشتراک پیشرفت کنید</label>
+                    <br />
+                    <label class="pyPM_CurPathTitle">با تهیه اشتراک می توانید از محتوای تمامی درسنامه های کاربردی این دوره استفاده نمایید</label>
+                    <button onclick="IsLogin == true ? window.open('/Payment/Index','_self') : window.open('/User/LoginForm', '_self')" class="btn pyH_MenuItemBtn btn-success mt-3">استفاده از درسنامه</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="pyPM_Main">
         <div class="row">
             <div class="col-sm-12 col-lg-6">
-                <label class="pyPM_PTitle">درسنامه</label><br />
+                <label class="pyPM_PTitle">توضیحات درسنامه</label><br />
                 <label class="pyPM_PName" ng-bind="Course.name"></label>
                 <div class="pyPM_PExp justify-content-center" ng-bind="Course.explain">
 
@@ -15,7 +40,13 @@
             </div>
 
             <div class="col-sm-12 col-lg-6">
-
+                <label class="pyPM_PTitle">خلاصه درسنامه</label><br />
+                <label class="pyPM_SeasonTitle">در این درسنامه خواهید آموخت</label>
+                <div ng-repeat="l in Lessons" class="row m-t-100 w-100 pyPM_CourseRow">
+                    <div class="col-sm-10">
+                        <label class="pyPM_lblCName" ng-bind="l.name"></label>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -31,11 +62,6 @@
 
 
     <div class="pyPM_SeasonDiv container">
-        <label class="pyPM_SeasonTitle">در این درسنامه خواهید آموخت</label>
-        <div ng-repeat="l in Lessons" class="row m-t-100 w-100 pyPM_CourseRow">
-            <div class="col-sm-10">
-                <label class="pyPM_lblCName" ng-bind="l.name"></label>
-            </div>
-        </div>
+
     </div>
 </div>
