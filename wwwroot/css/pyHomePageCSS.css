@@ -58,16 +58,16 @@ body{
 }
 
 .pyHP_SecContainer{
-    margin-top:150px;
+    margin-top:5%;
     margin-right: 3%;
 }
 
 .pyHP_BtnCard {
     font-family: IRANSans;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: #29a1f8;
-    border-color: #29a1f8
+    padding: 10px 40px;
+    background-color: #017a9b;
+    border-color: #017a9b;
+    margin-bottom: 20px
 }
 
 .pyHP_CardTitle{

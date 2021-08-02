@@ -183,7 +183,16 @@ namespace PythonLearn.Controllers
         }
 
 
-        private static object GetLessonPackage(IEnumerable<Lesson> List, IEnumerable<Data.Entity.FileHtml> FileList, Course course)
+        //private void SaveUserLastLesson(ref Data.User user, int lid, int cid)
+        //{
+        //    user.CID = cid;
+        //    user.LID = lid;
+        //    _context.UserRepository.Update(user);
+        //    _context.Commit();
+        //}
+
+
+        private static IEnumerable<object> GetLessonPackage(IEnumerable<Lesson> List, IEnumerable<Data.Entity.FileHtml> FileList, Course course)
         {
             return (from l in List
                     join f in FileList

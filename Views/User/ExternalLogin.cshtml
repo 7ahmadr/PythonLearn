@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1 style="display: none" id="txtUserID">@ViewBag.Username</h1>
+</body>
+</html>
+
+
+<script>
+    let Username = document.getElementById("txtUserID").textContent;
+
+
+    $.ajax({
+        url: '/User/Login/',
+        type: 'POST',
+        data: {
+            Username: Username,
+            Password: 'google'
+        },
+        success: function (cs) {
+            localStorage.setItem('token', cs.token);
+            localStorage.setItem('fullname', cs.name);
+            localStorage.setItem('email', cs.email);
+            window.open('/Course/Index', '_self');
+        }
+    });
+</script>

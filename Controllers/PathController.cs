@@ -48,8 +48,7 @@ namespace PythonLearn.Controllers
             try
             {
                 List<Data.Path> AllPath = _context.PathRepository.GetAll();
-                List<Data.Course> AllCourse = _context.CourseRepository.GetAll();
-                return Json(new { state = "YES", path = AllPath, course = AllCourse });
+                return Json(new { state = "YES", path = AllPath, course = GetCourseList() });
             }
             catch (Exception ex)
             {
@@ -57,6 +56,23 @@ namespace PythonLearn.Controllers
             }
         }
 
+
+        private object GetCourseList()
+        {
+            return (from c in _context.CourseRepository.GetAll()
+                    join s in _context.SeasonRepository.GetAll() on c.SID equals s.ID
+                    join l in _context.LevelRepository.GetAll() on s.LID equals l.ID
+                    join p in _context.PathRepository.GetAll() on l.PID equals p.ID
+                    select new
+                    {
+                        id = c.ID,
+                        pid = p.ID,
+                        name = c.Name,
+                        number = c.Number,
+                        desc = c.Desc,
+                        isfree = c.IsFree,
+                    }).ToList();
+        }
 
 
         public IActionResult GetAllPathDet(int PID)

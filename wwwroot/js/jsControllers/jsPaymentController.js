@@ -5,6 +5,9 @@
         window.open(`/User/LoginForm`, '_self');
 
     $scope.PathIndex = null;
+    $scope.UserCoupon = null;
+    $scope.UserCouponCost = 0;
+
     loadAllPricing();
     function loadAllPricing() {
         var list = PyCourseService.GetAllPricing();
@@ -13,6 +16,7 @@
                 if (cs.data.state === "YES") {
                     $scope.Pricings = cs.data.data.pricing;
                     $scope.Paths = cs.data.data.path;
+                    $scope.Coupons = cs.data.data.coupon;
 
                     if (localStorage.getItem("fullname") !== null && localStorage.getItem("fullname") !== '') {
                         $('#btn_Login').hide();
@@ -35,12 +39,26 @@
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     };
 
+
+    $scope.CheckCoupon = function (cpn, coupons) {
+        if (coupons === null || cpn === null) return null;
+        $scope.UserCouponCost = 0;
+        for (var i = 0; i < coupons.length; i++) {
+            if (coupons[i].name.toLowerCase() === cpn.toLowerCase()) {
+                $scope.UserCouponCost = coupons[i].cost;
+                return coupons[i].desc;
+            }
+        }
+        return null;
+    };
+
+
     $scope.PayForLesson = function (priceIndex) {
         if ($scope.PathIndex === null) {
             AlertPrimary("لطفا یک دوره را برای خرید انتخاب کنید.", "باشه");
             return;
         }
-        let Cost = Number($scope.Pricings[priceIndex].cost - $scope.Pricings[priceIndex].off);
+        let Cost = Number($scope.Pricings[priceIndex].cost - $scope.Pricings[priceIndex].off - $scope.UserCouponCost);
         let Month = Number($scope.Pricings[priceIndex].month);
         GoToPaymentPage($scope.PathIndex, Cost, Month);
     };

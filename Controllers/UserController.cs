@@ -15,6 +15,7 @@ using System.Transactions;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using PythonLearn.Models;
+using PythonLearn.Controllers;
 
 namespace PythonLearn.Controllers
 {
@@ -48,16 +49,13 @@ namespace PythonLearn.Controllers
 
 
         [AllowAnonymous]
-        public ActionResult Login(string Username, string Password, bool IsExternal = false)
+        public ActionResult Login(string Username, string Password)
         {
             try
             {
                 var User = _userService.Authenticate(Username.ToLower(), Password);
                 if (User == null)
                     return Json(new { state = "NO", msg = "نام کاربری یا رمز عبور وارد شده اشتباه است." });
-
-                else if (IsExternal == true)
-                    return RedirectToAction("Index", "Course");
 
                 else if (User.Active == false)
                     return Json(new { state = "NO", msg = "حساب کاربری شما فعالسازی نشده است. لطفا به ایمیل خود مراجعه کنید." });
@@ -72,6 +70,15 @@ namespace PythonLearn.Controllers
         }
 
 
+
+        //[AllowAnonymous]
+        //public IActionResult LoginExternal(string Username)
+        //{
+        //    return Json(new { state = "YES" });
+        //}
+
+
+
         public ActionResult AddUser(string FirstName, string LastName, string Username, string Password, string Mobile, bool IsExternal = false)
         {
             try
@@ -81,18 +88,36 @@ namespace PythonLearn.Controllers
                     if (IsExternal == false)
                         return Json(new { state = "NO", msg = "ایمیل وارد شده قبلا در سایت ثبت شده است." });
                     else
-                        return Login(Username, Password, IsExternal);
+                    {
+                        ViewBag.Username = Username;
+                        return View("ExternalLogin");
+                        //return Login(Username, Password, IsExternal);
 
-                User newUser = _userService.AddUser(FirstName, LastName, Username, Password, Mobile, true);
+                    }
+
+                pyExtension pyEx = new pyExtension();
+                User newUser = _userService.AddUser(FirstName, LastName, Username, Password, Mobile, true, pyEx.PersianDate(DateTime.Now));
                 _context.UserRepository.Insert(newUser);
                 _context.Commit();
+
+                #region SendMailComment
                 //if (IsExternal == false)
                 //{
                 //    string MailText = _pyExtention.ActivationMailText(newUser, HttpContext.Request);
                 //    if (_pyExtention.SendMail(Username, "Python Coding", "فعالسازی حساب کاربری", MailText) != "1")
                 //        return Json(new { state = "NO", msg = "فرآیند ارسال ایمیل ناموفق بود." });
                 //}
-                return Login(Username, Password, IsExternal); //Json(new { state = "YES" });
+                #endregion
+
+
+                if (IsExternal == false)
+                    return Login(Username, Password); //Json(new { state = "YES" });
+                else
+                {
+                    ViewBag.Username = Username;
+                    return View("ExternalLogin");
+                }
+
             }
             catch (Exception ex)
             {

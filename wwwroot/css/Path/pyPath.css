@@ -33,8 +33,8 @@ body {
     border-color: #e4e6ed;
     border-width: 1px;
     border-radius: 5px !important;
-    width: 50vh !important;
-    max-width: 18rem;
+    /*width: 50vh !important;*/
+    /*max-width: 18rem;*/
     margin-right:20px
 }
 

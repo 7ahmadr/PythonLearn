@@ -10,9 +10,7 @@
     src: url('../fonts/Yekan.ttf');
 }
 
-* {
-    font-family: IRANSans;
-}
+
 
 
 body {
@@ -76,7 +74,7 @@ pre {
 }
 
 .card {
-    border-radius: 0px !important;
+    border-radius: 5px !important;
     background-color: #fff;
 }
 
@@ -109,10 +107,7 @@ pre {
     display: block;
 }
 
-.pyHelpMenu {
-    font-family: IRANSans !important;
-    font-size: 14px
-}
+
 
 .pyDivBlue .CodeMirror {
     height: max-content !important;
@@ -658,12 +653,6 @@ margin-top: 0px; /* change this to whatever height you want it
     line-height: 1.5;
 }
 
-.lesImage {
-    display: block !important;
-    margin: auto;
-    padding-top: 20px;
-    padding-bottom: 25px !important;
-}
 
 .twoImage {
     display: block !important;

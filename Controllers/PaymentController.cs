@@ -52,10 +52,11 @@ namespace PythonLearn.Controllers
             {
                 List<Pricing> Pr = _context.PricingRepository.GetAll();
                 List<Path> Pth = _context.PathRepository.GetAll();
+                List<Coupon> Cpn = _context.CouponRepository.GetAll();                  
                 return Json(new
                 {
                     state = "YES",
-                    data = new { pricing = Pr, path = Pth }
+                    data = new { pricing = Pr, path = Pth, coupon = Cpn }
                 });
             }
             catch (Exception ex)

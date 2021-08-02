@@ -17,11 +17,11 @@
         width: 100% !important;
         min-width: 100% !important;
         max-width: 100% !important;
-        margin-bottom:10px !important
+        margin-bottom: 10px !important
     }
 
-    [class*="mr-4"]{
-        margin-right:0px !important
+    [class*="mr-4"] {
+        margin-right: 0px !important
     }
 
     [class*="pyCS_CourseDiv"] {
@@ -29,7 +29,7 @@
     }
 }
 
-body{
+body {
     background-color: #f4f6fb !important
 }
 
@@ -41,7 +41,7 @@ body{
 }
 
 .pyCS_SubLRHeader {
-    margin-top:190px;
+    margin-top: 12%;
     margin-right: 10%;
     width: 80% !important;
     display: flex;
@@ -71,7 +71,7 @@ body{
     font-family: IRANSans !important;
     color: white;
     font-size: 16px;
-    padding: 16px 20px 16px 20px;
+    padding: 16px 20px 16px 20px !important;
     min-width: 120px;
     width: 14%;
     font-weight: bold;
@@ -87,13 +87,13 @@ body{
 .pyCS_Welcome {
     font-size: 2rem !important;
     font-weight: 700 !important;
-	font-family: IRANSans;
+    font-family: IRANSans;
 }
 
 
-.pyCS_UnderWelcome{
-    margin-top:1em;
-	font-family: IRANSans;
+.pyCS_UnderWelcome {
+    margin-top: 1em;
+    font-family: IRANSans;
 }
 
 
@@ -105,7 +105,7 @@ body{
 .pyCS_CurPathTitle {
     color: #6f778d;
     font-size: 20px;
-	font-family: IRANSans;
+    font-family: IRANSans;
 }
 
 .pyCS_ChangePathIcon {
@@ -116,11 +116,17 @@ body{
     color: #498ee0
 }
 
+.pyCS_ChangePathBtn {
+    border: 2px solid #f6f6f9;
+    color: #444a5e;
+    font-weight: bold;
+}
+
 .pyCS_CurPath {
     color: #6f778d;
     font-size: 22px;
-    font-weight:bold;
-    color:#444a5e
+    font-weight: bold;
+    color: #444a5e
 }
 
 .pyCS_badgeCompeleted {
@@ -136,12 +142,14 @@ body{
 .pyCS_CurPathSub {
     color: #6f778d;
     font-size: 13px;
-    font-weight:300
+    font-weight: 300;
+    font-family: iransans;
 }
 
 .pyCS_PathAmount {
     color: #4a90e2;
-    font-size:26px;
+    font-size: 26px;
+    font-family: iransans;
 }
 
 .pyCS_PathAmountDad {
@@ -149,37 +157,36 @@ body{
     padding-right: 15px
 }
 
-.pyCS_FirstTabs{
-
+.pyCS_FirstTabs {
 }
 
-    .pyCS_FirstTabsLi > .active {
-        color: #4a90e2 !important;
-        border-top:none;
-        border-left:none;
-        border-right:none;
-        border-bottom: 2px solid #4a90e2 !important;
-    }
+.pyCS_FirstTabsLi > .active {
+    color: #4a90e2 !important;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #4a90e2 !important;
+}
 
-.pyCS_FirstTab{
+.pyCS_FirstTab {
     font-size: 18px;
     color: #6f778d;
-	font-family: IRANSans;
+    font-family: IRANSans;
 }
 
     .pyCS_FirstTab:hover {
         color: #4a90e2
     }
 
-.pyCS_StepTabsDiv{
+.pyCS_StepTabsDiv {
     margin-top: 20px;
-	font-family: IRANSans;
+    font-family: IRANSans;
 }
 
-.pyCS_StepTabs{
-    font-size:16px;
-    background-color:#fafbfd;
-    color:#93a3b8;
+.pyCS_StepTabs {
+    font-size: 16px;
+    background-color: #fafbfd;
+    color: #93a3b8;
     border: 1px solid #e4e6ed !important;
     padding: 1vw 4vw 1vw 4vw !important;
 }
@@ -190,7 +197,7 @@ body{
     margin: 2%;
     color: #4a505c;
     font-size: 22px;
-	font-family: IRANSans;
+    font-family: IRANSans;
 }
 
 .pyCS_LevelDescTop {
@@ -201,16 +208,16 @@ body{
 }
 
 
-.pyCS_Season{
+.pyCS_Season {
     font-weight: bold;
-    font-size:20px;
+    font-size: 20px;
     padding: 25px 20px 25px 20px !important;
-    color:#444a5c !important
+    color: #444a5c !important
 }
 
 .pyCS_SeasonLabel {
     font-size: 13px !important;
-	font-family: IRANSans;
+    font-family: IRANSans;
 }
 
 .pyCS_Course {
@@ -233,93 +240,93 @@ body{
 
     .pyCS_SeasonDetail:hover {
         color: #0cb89a !important;
-
     }
 
-    .pyCS_Active {
-        color: #4a90e2 !important;
-    }
+.pyCS_Active {
+    color: #4a90e2 !important;
+}
 
 .pyCS_CourseDiv {
-    margin-top: 20vh
+    margin-top: 15vh
 }
 
 
 @media only screen and (max-device-width: 480px) {
-    .pyCS_Welcome{
+    .pyCS_Welcome {
         font-size: 3.4em !important;
     }
-    
-    .pyCS_UnderWelcome{
+
+    .pyCS_UnderWelcome {
         font-size: 2.2em
     }
-    
-    .pyCS_ResumeBtn{
+
+    .pyCS_ResumeBtn {
         font-size: 2em;
         font-weight: normal;
         padding-left: 190px !important;
         padding-right: 65px !important;
     }
-    
-    .pyCS_CurPathTitle{
+
+    .pyCS_CurPathTitle {
         font-size: 1.5em;
     }
-    
-    .pyCS_PathAmount{
+
+    .pyCS_PathAmount {
         font-size: 1.9em
     }
-    
-    .pyCS_CurPathSub{
+
+    .pyCS_CurPathSub {
         font-size: 1.4em;
     }
-    
-    .pyCS_CurPath, .pyCS_FirstTab{
+
+    .pyCS_CurPath, .pyCS_FirstTab {
         font-size: 1.8em
     }
-    
-    .pyCS_LevelDescTop, .pyCS_LevelDesc, .pyCS_StepTabs{
+
+    .pyCS_LevelDescTop, .pyCS_LevelDesc, .pyCS_StepTabs {
         font-size: 1.7em
     }
-    
+
     .pyCS_StepTabs {
         padding-right: 20px !important;
         padding-left: 20px !important;
     }
-    .container{
+
+    .container {
         margin: 0px !important;
         max-width: 100%;
     }
-    
-    .tab-content{
+
+    .tab-content {
         width: 95vw !important;
     }
-    
-    .pyCS_SeasonLabel{
+
+    .pyCS_SeasonLabel {
         font-size: 0.8em !important;
     }
-    
-    .pyCS_SeasonDetail{
+
+    .pyCS_SeasonDetail {
         font-size: 0.8em !important;
         font-weight: normal;
     }
-    
-    .pyCS_Season{
+
+    .pyCS_Season {
         font-size: 2.2em !important;
     }
-    
-    .pyCS_Course{
+
+    .pyCS_Course {
         font-size: 1.9em
     }
-    
-    .pyCS_Header{
+
+    .pyCS_Header {
         height: 40%;
     }
-    
-    .pyCS_SubLRHeader{
+
+    .pyCS_SubLRHeader {
         margin-top: 30%
     }
-    
-    .pyCS_CourseDiv{
+
+    .pyCS_CourseDiv {
         margin-top: 10vh !important;
     }
 }

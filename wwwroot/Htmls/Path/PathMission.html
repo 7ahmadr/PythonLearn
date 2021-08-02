@@ -12,7 +12,7 @@
         </div>
 
         <div class="pyPM_HeaderLeft">
-            <div class="pyPM_SubMiniHeader shadow">     
+            <div class="pyPM_SubMiniHeader shadow">
                 <div class="pyPM_SubMiniInternal text-center">
                     <i class="zmdi zmdi-lock zmdi-hc-4x text-secondary"></i>
                     <br />
@@ -31,7 +31,7 @@
             <div class="col-sm-12 col-lg-6">
                 <label class="pyPM_PTitle">توضیحات درسنامه</label><br />
                 <label class="pyPM_PName" ng-bind="Course.name"></label>
-                <div class="pyPM_PExp justify-content-center" ng-bind="Course.explain">
+                <div class="pyPM_PExp justify-content-center" ng-bind-html="ReturnHtml(Course.explain)">
 
                 </div>
                 <div class="pyPM_OptDiv">

@@ -1,4 +1,4 @@
-﻿app.controller("jsPathMissionController", function ($scope, $rootScope, $route, $location, PyService) {
+﻿app.controller("jsPathMissionController", function ($scope, $rootScope, $route, $location, PyService, $sce) {
     var SID = location.pathname.split("/Path/IndexPathMission/").pop();
     loadAll(SID);
     $scope.loading = true;
@@ -31,5 +31,9 @@
 
     $scope.GoToHomePage = function () {
         $location.path('/Home/Index');
+    };
+
+    $scope.ReturnHtml = function (content) {
+        return $sce.trustAsHtml(content);
     };
 });

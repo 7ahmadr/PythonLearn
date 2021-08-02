@@ -9,13 +9,14 @@
     $("#pyHeader").show();
 
     function loadAll() {
-        var list = PyService.GetTopSeasons();
+        var list = PyService.GetAllPath();
 
 
         list.then(
             function (cs) {
                 if (cs.data.state === "YES") {
-                    $scope.Seasons = cs.data.data;
+                    $scope.Paths = cs.data.path;
+                    $scope.Courses = cs.data.course;
                 }
                 else {
                     alert(cs.data.data);

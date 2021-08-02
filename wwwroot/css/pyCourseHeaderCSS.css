@@ -25,6 +25,7 @@
     font-size: 17px;
     vertical-align: middle !important;
     color: #6f768a !important;
+    margin-right: 10px
 }
 
     .pyCH_Icon:hover {
@@ -60,6 +61,7 @@
     color: #4a505c !important;
     padding-right: 25px !important;
     padding-left: 25px !important;
+    padding-top:7px !important;
     border-color: #4a505c;
     font-weight: bold;
     font-size: 14px !important;

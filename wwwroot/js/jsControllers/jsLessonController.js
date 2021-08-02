@@ -7,6 +7,10 @@ appCourse.controller("jsLessonController", function ($scope, $location, PyCourse
     var CourseLesson = location.pathname.split("/Lessons/").pop();
     $scope.CourseID = CourseLesson.substr(0, CourseLesson.indexOf('/'));
     $scope.LessonID = CourseLesson.split("/").pop();
+
+    localStorage.setItem("CourseID", $scope.CourseID);
+    localStorage.setItem("LessonID", $scope.LessonID);
+
     $scope.ShowHint = false;
     $scope.ShowAnswer = false;
     $scope.ShowNextScreen = false;
@@ -15,7 +19,6 @@ appCourse.controller("jsLessonController", function ($scope, $location, PyCourse
     loadAll($scope.CourseID);
 
     function loadAll(CID) {
-        //document.getElementById('my_iframe').src = "http://";
         var list = PyCourseService.GetLessons(CID);
         list.then(
             function (cs) {

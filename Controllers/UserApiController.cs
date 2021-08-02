@@ -89,7 +89,7 @@ namespace PythonLearn.Controllers
                     Password = newUser.Password,
                     Mobile = newUser.Mobile,
                     IsExternal = true
-                }); ;
+                });
         }
 
     }
