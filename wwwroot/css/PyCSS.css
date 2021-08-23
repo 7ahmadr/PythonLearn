@@ -668,7 +668,7 @@ margin-top: 0px; /* change this to whatever height you want it
 }
 
 .summary {
-    margin: 5% 20% 10% 20%;
+    margin: 5% 0% 0% 20%;
 }
 
 p + img {
@@ -796,6 +796,13 @@ a {
             text-decoration: underline;
             text-underline-position: under;
         }
+
+math {
+    font-weight: 600;
+}
+
+}
+
 
 .MJX_Assistive_MathML {
     font-size: 22px;
@@ -945,3 +952,24 @@ span.cm-variable-3 {
     outline: 1px solid grey;
     color: #fff !important;
 }
+
+
+/******************  See More  *********************/
+.morelink {
+    color: #0254EB
+}
+
+    .morelink:visited {
+        color: #0254EB
+    }
+
+a.morelink {
+    text-decoration: none;
+    outline: none;
+}
+
+.morecontent span {
+    display: none;
+}
+
+/******************  See More  *********************/

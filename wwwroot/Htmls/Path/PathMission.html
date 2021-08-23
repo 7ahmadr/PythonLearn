@@ -2,16 +2,17 @@
     <div class="WaitingDiv" ng-show="loading"></div><!-- Place at bottom of page -->
 
     <div class="pyPM_Header">
-        <div class="pyPM_HeaderRight">
+        <div class="col-lg-6 d-flex justify-content-center pyPM_HeaderRight">
             <div class="pyPM_SubMiniHeaderRight">
                 <div class="pyPM_SubMiniTitle text-center">
                     <label class="pyPM_PName text-white" ng-bind="Course.name"></label>
+                    <br />
                     <label class="pyPM_PNameDesc text-white">این درسنامه قسمتی از دوره <b class="text-success">{{Season.name}}</b> می باشد</label>
                 </div>
             </div>
         </div>
 
-        <div class="pyPM_HeaderLeft">
+        <div class="col-lg-6  d-flex justify-content-center pyPM_HeaderLeft">
             <div class="pyPM_SubMiniHeader shadow">
                 <div class="pyPM_SubMiniInternal text-center">
                     <i class="zmdi zmdi-lock zmdi-hc-4x text-secondary"></i>

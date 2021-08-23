@@ -7,8 +7,8 @@
     align-items: stretch !important;
     padding-right: 0px !important;
     padding-left: 20px !important;
-    height: 55px !important;
-    padding-top: 8px !important;
+    height: 60px !important;
+    padding-top: 10px !important;
 }
 
 .pyH_NavbarNav {
@@ -31,14 +31,14 @@
     margin-right: 30px;
     font-size: 15px;
     margin-top: -4px;
-    background-color: #39cf90;
+    background-color: #017a9b;
     color: white;
     border: none;
     font-family: IRANSans;
 }
 
     .pyH_MenuItemBtn:hover {
-        background-color: #37ba83;
+        background-color: #016682;
     }
 
 

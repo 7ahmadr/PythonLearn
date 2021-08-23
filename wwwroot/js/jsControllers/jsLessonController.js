@@ -35,6 +35,9 @@ appCourse.controller("jsLessonController", function ($scope, $location, PyCourse
                     if (localStorage.getItem("fullname") !== null && localStorage.getItem("fullname") !== '') {
                         $('#btn_Login').hide();
                     }
+                    else {
+                        $("#btn_logOut").hide()
+                    }
                 }
                 else {
                     $scope.ShowMainDiv = false;
@@ -150,7 +153,13 @@ appCourse.controller("jsLessonController", function ($scope, $location, PyCourse
         $scope.lesInstruction = $scope.Lessons[index].instruction;
         $scope.correctCode = $scope.Lessons[index].correctCode;
         $scope.curLesson = index;
-        $scope.pyCode = $scope.Lessons[index].defaultCode;
+
+        let UserCode = localStorage.getItem($scope.CourseID + "/" + $scope.LessonID);
+        if (UserCode !== null)
+            $scope.pyCode = UserCode;
+        else
+            $scope.pyCode = $scope.Lessons[index].defaultCode;
+
         $scope.pyResult = "";
         if ($scope.Lessons[index].hint === null || $scope.Lessons[index].hint === "")
             $scope.hasHint = 0;//$(".dropup").children().find("#btn_hint").hide();
@@ -172,6 +181,10 @@ appCourse.controller("jsLessonController", function ($scope, $location, PyCourse
         //$scope.ScrollDivDown("#divLessonBody");
     };
 
+
+    $scope.IsMobile = function () {
+        return window.mobileCheck();
+    }
 
 
     $scope.SetDesign = function (index) {
@@ -465,6 +478,11 @@ appCourse.controller("jsLessonController", function ($scope, $location, PyCourse
         $location.path("/Course/Lessons/" + $scope.CourseID + "/" + newPage);
     };
 
+
+    $scope.EditorKeyPress = function () {
+        let name = $scope.CourseID + "/" + $scope.LessonID;
+        localStorage.setItem(name, $scope.pyCode);
+    };
 
     function SetUI() {
         $("[id=csNav]").hide();

@@ -59,9 +59,10 @@
         </button>*@
             <div class="navbar-nav pyH_NavbarNav">
                 <button onclick="window.open('/Course/Index', '_self')" class="btn pyH_MenuItemBtn btn-success">آغاز رایگان</button>
-                <a class="nav-item nav-link  pyH_MenuItem" href="#" ng-href="/User/SignUpForm">ثبت نام</a>
-                <a class="nav-item nav-link pyH_MenuItem" href="#" ng-href="/User/LoginForm">ورود</a>
-                <a class="nav-item nav-link pyH_MenuItem" href="#" ng-href="/Path/Index">دوره ها</a>
+                <a id="navlink_Dashboard" class="nav-item nav-link  pyH_MenuItem" href="#" onclick="window.open('/Course/Index', '_self')">داشبورد</a>
+                <a id="navlink_Signup" class="nav-item nav-link  pyH_MenuItem" href="#" ng-href="/User/SignUpForm">ثبت نام</a>
+                <a id="navlink_Login" class="nav-item nav-link pyH_MenuItem" href="#" ng-href="/User/LoginForm">ورود</a>
+                @*<a class="nav-item nav-link pyH_MenuItem" href="#" ng-href="/Path/Index">دوره ها</a>*@
                 <a class="nav-item nav-link pyH_MenuItem" href="#contact">ارتباط با ما</a>
             </div>
 
@@ -97,9 +98,9 @@
                         <div class="col-sm-4">
                             <a class="pyH_FooterLink" href="#">خانه</a>
                         </div>
-                        <div class="col-sm-4">
+                        @*<div class="col-sm-4">
                             <a class="pyH_FooterLink" href="#">دوره ها</a>
-                        </div>
+                        </div>*@
                         <div class="col-sm-4">
                             <a class="pyH_FooterLink" href="#">کمک</a>
                         </div>

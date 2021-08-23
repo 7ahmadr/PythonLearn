@@ -1,0 +1,69 @@
+﻿.pyPayContainer {
+    margin-top: 70px !important;
+    background-color: #ffffff;
+    border-radius: 30px
+}
+
+.pyPayTextPrimary {
+    color: #01579B;
+    text-decoration: solid
+}
+
+.pyPayTextSuccess {
+    color: #00796B !important
+}
+
+.pyPayTextDanger {
+    color: #dc3545 !important
+}
+
+.pyPayBgSuccess {
+    background-color: #00796B !important
+}
+
+.pyPaybtnSelect {
+    border-color: #01579B;
+    background-color: #01579B
+}
+
+
+.btn-outline-primary:hover {
+    background-color: #01579B;
+}
+
+
+.pyPayDesc {
+    background-color: #00796B;
+    color: white;
+    font-size: 13px;
+    padding: 5px 10px;
+    line-height: 200%;
+    margin-bottom: 0px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 30px
+}
+
+.borderDanger {
+    border-color: #dc3545 !important
+}
+
+
+@media only screen and (max-device-width: 600px) {
+    .pyPayLabel {
+        font-size: 28px
+    }
+
+    .pyPayInput, .pyPayTotalCost, .pyPaybtnSelect {
+        font-size: 32px;
+        height: auto
+    }
+
+    .pyPayDetail, .pyPayPureCost {
+        font-size: 26px
+    }
+
+    .pyPayTitle{
+        font-size:40px
+    }
+}

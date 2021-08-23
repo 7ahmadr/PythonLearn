@@ -52,7 +52,7 @@ namespace PythonLearn.Controllers
             }
             catch (Exception ex)
             {
-                return Json(new { state = "NO", msg = ex.Message });
+                return Json(new { state = "NO", msg = ex.Message + Environment.NewLine + " بارگذاری دروس با خطا مواجه شد. لطفا دوباره تلاش کنید" });
             }
         }
 

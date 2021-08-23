@@ -1,47 +1,62 @@
 ﻿<div class="pyHP_Header">
     <div class="row pyHP_HeaderRow">
-        <div class="col-xl-4 col-md-12 pyHP_HeaderTxt">
+        <div class="col-xl-6 col-md-12 pyHP_HeaderTxt">
             <div class="pyHP_HeaderTxtTitle">
                 برنامه نویس هوش مصنوعی شوید. روی پروژه های بزرگ کار کنید، آینده خود را تغییر دهید...
             </div>
             <div class="pyHP_HeaderTxtCapt">
-مهارت های مورد نیاز برای یافتن اولین شغل در علوم داده را فراگیرید. R، Python و SQL را بیاموزید.
-				بدون هیچ پیشنیازی
+                مهارت های مورد نیاز برای یافتن اولین شغل در علوم داده را فراگیرید. R، Python و SQL را بیاموزید.
+                بدون هیچ پیشنیازی
             </div>
             <br />
             <div class="d-flex justify-content-center w-100">
-                <button onclick="window.open('/Course/Index', '_self')"  class="btn btn-default pyHP_HeaderBtnStart">از همین امروز رایگان شروع کنید</button>
+                <button onclick="window.open('/Course/Index', '_self')" class="btn btn-default pyHP_HeaderBtnStart">از همین امروز رایگان شروع کنید</button>
             </div>
         </div>
 
-		<div class="col-xl-8 pyHP_HeaderPicDiv d-none d-xl-block">
+        <div class="col-xl-6 pyHP_HeaderPicDiv d-none d-xl-block">
             <img class="pyHP_HeaderPic" src="../Template/images/HomePageHeaderPic.JPG" />
         </div>
-		
+
     </div>
 </div>
 
 
 
+
+
 <div class="pyHP_SecContainer">
-    <strong class="h3">دوره های آموزشی</strong>
+    <strong class="pyHP_CardTitle">سرفصل ها</strong>
     <p></p>
-    <div ng-repeat="p in Paths" class="row w-100">
+
+    <div class="text-center">
+        <img style="text-align:center !important" src="../Template/images/WaitingGif.svg" ng-show="loading" />
+    </div>
+    <div ng-show="!loading" ng-repeat="p in Paths" class="row w-100">
         <div class="col-lg-12 col-sm-12">
             <div class="card shadow shadow-sm m-2 border-0">
                 <div>
-                    <small class="text-muted float-left p-4">سطح {{$index + 1}} از {{Paths.length}}</small>
+                    <small class="text-muted float-left p-4 pyHP_CardTxtRate">سطح {{$index + 1}} از {{Paths.length}}</small>
                     <div class="card-body p-5">
                         <h5 class="card-title pyHP_CardTitle">{{p.name}}</h5>
-                        <small class="card-text pyHP_CardTxt text-secondary">{{p.desc}}</small>
+                        <small class="card-text pyHP_CardTxt text-secondary comment more">{{p.desc}}</small>
                         <div class="mt-3">
                             <ul>
-                                <li ng-repeat="c in Courses" ng-if="c.pid==p.id">
+                                <li class="pyHP_CardTxt" ng-repeat="c in Courses" ng-if="c.pid==p.id">
                                     {{c.name}}
                                 </li>
                             </ul>
+
+                            <!--<ul>
+                                <li ng-repeat="c in Courses" ng-if="c.pid==p.id">
+                                    <div class=" caret zmdi zmdi-caret-left zmdi-hc-lg"><span class="pyHP_CardTxt"> {{c.name}} </span></div>
+                                    <ul class="nested">
+                                        <li ng-repeat="l in c.lessons">{{l.name}}</li>
+                                    </ul>
+                                </li>
+                            </ul>-->
                         </div>
-                        <a href="https://pythoncoding.ir/course/index" class="btn btn-primary pyHP_BtnCard m-t-30 float-left shadow shadow-sm">شروع کنید</a>
+                        <a href="#" ng-click="StartPath($index)" class="btn btn-primary pyHP_BtnCard m-t-30 float-left shadow shadow-sm">شروع کنید</a>
                     </div>
                 </div>
             </div>
@@ -49,30 +64,6 @@
     </div>
 </div>
 
-
-
-<!--<div class="pyHP_SecContainer">
-    <div class="row w-100">
-        <div class="col-lg-6 col-sm-12">
-            <div class="card shadow m-2">
-                <div class="card-body p-5">
-                    <h5 class="card-title pyHP_CardTitle">آماده هستید تا مهارت های داده خود را به سطوح بالاتری ارتقا دهید؟</h5>
-                    <p class="card-text pyHP_CardTxt">ما به شما کمک می کنیم مهارت های موجود خود را توسعه دهید ، بنابراین می توانید با اطمینان با مسایل مربوط به علوم داده را حل کنید .</p>
-                    <a href="https://pythoncoding.ir/course/index" class="btn btn-primary pyHP_BtnCard m-t-30 w-100">شروع کنید</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 col-sm-12">
-            <div class="card shadow m-2">
-                <div class="card-body p-5">
-                    <h5 class="card-title pyHP_CardTitle">آیا می خواهید تجربه های جدیدی را در علوم داده کسب کنید؟</h5>
-                    <p class="card-text pyHP_CardTxt">ما به شما کمک خواهیم کرد مهارت های لازم را برای به دست آوردن اولین شغل خود در علوم داده ایجاد کنید - بدون نیاز به تجربه قبلی و پیشنیاز.</p>
-                    <a href="https://pythoncoding.ir/course/index" class="btn btn-primary pyHP_BtnCard m-t-30 w-100">شروع کنید</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>-->
 
 
 <div class="pyHP_MiddleDiv">
@@ -176,7 +167,8 @@
                     </blockquote>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </div>
+

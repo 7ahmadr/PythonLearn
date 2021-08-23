@@ -21,6 +21,8 @@
                     if (localStorage.getItem("fullname") !== null && localStorage.getItem("fullname") !== '') {
                         $('#btn_Login').hide();
                     }
+                    window.setTimeout(function () { SeeMore() }, 500);
+
                 }
                 else {
                     alert(cs.data.msg);

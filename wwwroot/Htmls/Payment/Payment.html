@@ -1,84 +1,40 @@
 ﻿
-    <div style="margin-top: 60px; background-color: #ffffff; border-radius:30px" class="container shadow p-4">
-        <label class="font-weight-bold h6" for="pyPathSelect">لطفا دوره مورد نظر خود را انتخاب نمایید</label>
-        <select class="form-control form-control-lg border" ng-class="{borderDanger: PathIndex == null}" id="pyPathSelect" ng-model="PathIndex">
-            <option ng-repeat="p in Paths" value="{{p.id}}">{{p.name}}</option>
-        </select>
-        <div class="text-secondary m-2" ng-repeat="pp in Paths" ng-show="pp.id == PathIndex">
-            {{pp.desc}}
-        </div>
-        <p class="mt-4"></p>
-        <label class="font-weight-bold h6" for="pyCoupon">کوپن تخفیف</label>
-        <input id="pyCoupon" ng-model="UserCoupon" class="form-control" placeholder="در صورت در اختیار داشتن کوپن تخفیف، نام آن را وارد کنید" />
-        <small class="text-secondary mt-2" ng-bind="CheckCoupon(UserCoupon, Coupons)" ></small>
-        <hr class="mt-4" />
-        <p></p>
-        <table class="table table-borderless">
-            <tbody>
-                <tr ng-repeat="p in Pricings" ng-show="p.pid==PathIndex || p.pid==0" style="line-height:60px">
-                    <th scope="row">
-                        {{
-$index + 1
-                        }}
-                    </th>
-                    <td class="align-middle text-center h3">{{p.name}}</td>
-                    <td class="align-middle text-center h6"><del>{{CurrencyFormat(p.cost - UserCouponCost)}} تومان</del></td>
-                    <!--<td class="pyPayTextSuccess">{{CurrencyFormat(p.off)}} تومان</td>-->
-                    <td class="align-middle text-center">
-                        <div ng-hide="p.desc == '' || p.desc==null" class="alert alert-success pyPayDesc">{{p.desc}}</div>
-                    </td>
-                    <td class="h4 pyPayTextPrimary align-middle text-center" ng-class="{pyPayTextDanger: UserCouponCost!= 0}">{{CurrencyFormat(p.cost - p.off- UserCouponCost)}} تومان</td>
-                    <td class="align-middle text-center">
-                        <button type="submit" class="btn btn-primary btn-lg p-3 px-5" ng-click="PayForLesson($index)">انتخاب</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+<div class="container shadow p-4 pyPayContainer">
+    <label class="font-weight-bold h6 pyPayLabel" for="pyPathSelect">لطفا دوره مورد نظر خود را انتخاب نمایید</label>
+    <select class="form-control form-control-lg border pyPayInput" ng-class="{borderDanger: PathIndex == null}" id="pyPathSelect" ng-model="PathIndex">
+        <option ng-repeat="p in Paths" value="{{p.id}}">{{p.name}}</option>
+    </select>
+    <div class="text-secondary m-2 pyPayDetail comment more" ng-repeat="pp in Paths" ng-show="pp.id == PathIndex">
+        {{pp.desc}}
     </div>
+    <p class="mt-4"></p>
+    <label class="font-weight-bold h6 pyPayLabel" for="pyCoupon">کوپن تخفیف</label>
+    <input id="pyCoupon" ng-model="UserCoupon" class="form-control pyPayInput" placeholder="در صورت در اختیار داشتن کوپن تخفیف، نام آن را وارد کنید" />
+    <small class="text-secondary mt-2" ng-bind="CheckCoupon(UserCoupon, Coupons)"></small>
+    <hr class="mt-4" />
+    <p></p>
+    <table class="table table-borderless">
+        <tbody>
+            <tr ng-repeat="p in Pricings" ng-show="p.pid==PathIndex || p.pid==0" style="line-height:60px">
+                <!--<th scope="row">
+                    {{$index + 1}}
+                </th>-->
+                <td class="align-middle text-center h3 pyPayTitle">{{p.name}}</td>
+                <td class="align-middle text-center h6 pyPayPureCost">
+                    <del ng-if="UserCouponCost!==0 || p.off!==0">{{CurrencyFormat(p.cost - UserCouponCost)}} تومان</del>
+                    <span ng-if="UserCouponCost==0 && p.off==0">{{CurrencyFormat(p.cost - UserCouponCost)}} تومان</span>
+                </td>
 
+                <!--<td class="pyPayTextSuccess">{{CurrencyFormat(p.off)}} تومان</td>-->
+                <td class="align-middle text-center">
+                    <div ng-hide="p.desc == '' || p.desc==null" class="alert alert-success pyPayDesc">{{p.desc}}</div>
+                </td>
+                <td class="h4 pyPayTextPrimary align-middle text-center pyPayTotalCost" ng-class="{pyPayTextDanger: UserCouponCost!= 0}">{{CurrencyFormat(p.cost - p.off- UserCouponCost)}} تومان</td>
+                <td class="align-middle text-center">
+                    <button type="submit" class="btn btn-primary btn-lg p-3 px-5 pyPaybtnSelect" ng-click="PayForLesson($index)">انتخاب</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
-<style>
-    .pyPayTextPrimary {
-        color: #01579B;
-        text-decoration: solid
-    }
-
-    .pyPayTextSuccess {
-        color: #00796B !important
-    }
-
-    .pyPayTextDanger{
-        color: #dc3545 !important
-    }
-
-    .pyPayBgSuccess {
-        background-color: #00796B !important
-    }
-
-    .btn-primary {
-        border-color: #01579B;
-        background-color: #01579B
-    }
-
-
-    .btn-outline-primary:hover {
-        background-color: #01579B;
-    }
-
-
-    .pyPayDesc {
-        background-color: #00796B;
-        color: white;
-        font-size: 13px;
-        padding: 5px 10px;
-        line-height: 200%;
-        margin-bottom: 0px;
-        text-align: center;
-        display: inline-block;
-        border-radius: 30px
-    }
-
-    .borderDanger {
-        border-color: #dc3545 !important
-    }
-</style>

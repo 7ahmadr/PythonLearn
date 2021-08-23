@@ -117,9 +117,10 @@ body {
 }
 
 .pyCS_ChangePathBtn {
-    border: 2px solid #f6f6f9;
-    color: #444a5e;
+    border: 2px solid #a10000;
+    color: #a10000;
     font-weight: bold;
+    padding: 5px 30px !important
 }
 
 .pyCS_CurPath {

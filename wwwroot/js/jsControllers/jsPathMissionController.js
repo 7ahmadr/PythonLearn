@@ -5,6 +5,14 @@
     $("#pyFooter").show();
     $("#pyHeader").show();
 
+    if (localStorage.getItem("fullname") !== null && localStorage.getItem("fullname") !== '') {
+        $("#navlink_Signup").hide();
+        $("#navlink_Login").hide();
+    }
+    else {
+        $("#navlink_Signup").show();
+        $("#navlink_Login").show();
+    }
 
     function loadAll(SID) {
         window.scrollTo(0, 0);
@@ -14,7 +22,7 @@
                 if (cs.data.state === "YES") {
                     $scope.Lessons = cs.data.lessons;
                     $scope.Course = cs.data.course;
-                    $scope.Season= cs.data.season;
+                    $scope.Season = cs.data.season;
                     $scope.CourseOptions = cs.data.course.options.split("##");
                 }
                 else

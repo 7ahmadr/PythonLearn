@@ -3,7 +3,7 @@ body {
 }
 
 .pyPM_Init {
-    font-family: Yekan
+    font-family: IRANSans
 }
 
 .pyPM_Main {
@@ -122,6 +122,7 @@ body {
     background-color: #2c509b;
     height: 400px;
     display: flex;
+    width:100%
 }
 
 
@@ -185,9 +186,12 @@ body {
     }
 
     .pyPM_PName, .pyPM_SeasonTitle {
-        font-size: 3em
+        font-size: 4em
     }
 
+    .pyPM_CurPath{
+        font-size: 2.5em
+    }
     .pyPM_PExp {
         font-size: 2em;
         margin-left: 80px;
@@ -212,8 +216,8 @@ body {
         padding-left: 20px;
     }
 
-    .pyPM_PNameDesc{
-        font-size: 30px
+    .pyPM_PNameDesc, .pyPM_CurPathTitle {
+        font-size: 2em
     }
 
 

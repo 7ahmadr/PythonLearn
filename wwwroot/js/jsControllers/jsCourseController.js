@@ -38,6 +38,7 @@
                         $('#btn_Login').hide();
                         $("#btn_changePass").show();
                     }
+                    window.setTimeout(function () { SeeMore() }, 500);
                 }
                 else {
                     alert(cs.data.data);

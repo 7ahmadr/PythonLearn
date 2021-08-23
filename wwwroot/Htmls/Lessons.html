@@ -1,6 +1,6 @@
 
 <script>window.MathJax = { MathML: { extensions: ["mml3.js", "content-mathml.js"] } };</script>
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=MML_HTMLorMML"></script> 
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=MML_HTMLorMML"></script>
 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -29,7 +29,7 @@
                     </div>
 
                     <div class="card-text text-dark lesContent " ng-bind-html="ParseLesson(l.content)"></div>
-                    
+
                     <div id="dasturat" class="bar" ng-class="{pyInvisible: lesInstruction == null}">
                         <span>دستورات</span>
                     </div>
@@ -103,7 +103,7 @@
                         <div ng-show="showFile == 1" class="text-left lesBodyFile" ng-bind-html="ParseFileHtml(fileHtml)"></div>
                         <div ng-show="showFile2 == 1" class="text-left lesBodyFile" ng-bind-html="ParseFileHtml(fileHtml2)"></div>
                         <div ng-hide="showFile==1 || showFile2==1">
-                            <textarea id="txt_code" class="lesBodyEditor" ui-codemirror ng-model="pyCode"></textarea>
+                            <textarea ng-change="EditorKeyPress()" id="txt_code" class="lesBodyEditor" ui-codemirror ng-model="pyCode"></textarea>
                         </div>
                         <!--style="height:80%; width:100%; direction:ltr !important; color:white;font-size:18px !important; font-family:Consolas; background-color:#1e1e1e"-->
                         <div class="pyLS_Result" ng-class="{text_danger: pyError == 'true'}" readonly="readonly">
@@ -187,14 +187,15 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-bottom shadow rounded pyLS_Footer" style="padding:0px !important">
         <div class="row w-100">
             <div id="pyLS_Footer_Right" class="col-sm-3">
-                <a id="btnShowSidebar" href="#" onclick="$('[id=divSidebar]').show()" class="pyLS_lesTitle pyCH_VerticalCenter"><i class="zmdi zmdi-menu zmdi-hc-lg"></i> {{Lessons[LessonID-1].name}}</a>
+                <a id="btnShowSidebar" ng-if="IsMobile()==false" href="#" onclick="$('[id=divSidebar]').show()" class="pyLS_lesTitle pyCH_VerticalCenter"><i class="zmdi zmdi-menu zmdi-hc-lg pyLS_lesTitleTxt"></i> {{Lessons[LessonID-1].name}}</a>
+                <a id="btnShowSidebar" ng-if="IsMobile()==true" href="#" onclick="$('[id=divSidebar]').show()" class="pyLS_lesTitle pyCH_VerticalCenter"><i class="zmdi zmdi-menu zmdi-hc-lg pyLS_lesTitleTxt"></i></a>
             </div>
-            <div id="pyLS_Footer_Center"  class="col-sm-6 d-flex justify-content-center">
+            <div id="pyLS_Footer_Center" class="col-sm-6 d-flex justify-content-center">
                 <button type="button" ng-disabled="LessonID==1" ng-click="changePage('-')" title="مشاهده درسنامه قبلی" class="btn pyLS_btnPrevNext">قبلی</button>
                 <span class="pyLS_FooterPageNum">{{Lessons.length}} / {{LessonID}}</span>
                 <button type="button" ng-click="changePage('+')" title="مشاهده درسنامه بعدی" class="btn pyLS_btnPrevNext">بعدی</button>
             </div>
-            <div id="pyLS_Footer_Left"  class="col-sm-3">
+            <div id="pyLS_Footer_Left" class="col-sm-3">
             </div>
         </div>
     </nav>
