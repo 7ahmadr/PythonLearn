@@ -11,23 +11,6 @@
 }
 
 
-@media only screen and (max-width: 1000px) {
-    /* For mobile phones: */
-    [class*="pyCS_SubMiniHeader"] {
-        width: 100% !important;
-        min-width: 100% !important;
-        max-width: 100% !important;
-        margin-bottom: 10px !important
-    }
-
-    [class*="mr-4"] {
-        margin-right: 0px !important
-    }
-
-    [class*="pyCS_CourseDiv"] {
-        margin-top: 20vh !important;
-    }
-}
 
 body {
     background-color: #f4f6fb !important
@@ -216,6 +199,13 @@ body {
     color: #444a5c !important
 }
 
+
+.pyCS_SeasonDesc {
+    font-size: 14px !important;
+    margin-right: 18px !important
+}
+
+
 .pyCS_SeasonLabel {
     font-size: 13px !important;
     font-family: IRANSans;
@@ -252,6 +242,19 @@ body {
 }
 
 
+.pyCS_courseItem > .active {
+    Color: #d16f80 !important;
+    Background-color: #feebed !important;
+    Border-color: #d16f80 !important;
+}
+
+    .pyCS_courseItem > :not(.active):hover {
+        Color: #61b7fa !important;
+        Background-color: #eaf2fe !important
+    }
+
+
+
 @media only screen and (max-device-width: 480px) {
     .pyCS_Welcome {
         font-size: 3.4em !important;
@@ -276,8 +279,8 @@ body {
         font-size: 1.9em
     }
 
-    .pyCS_CurPathSub {
-        font-size: 1.4em;
+    .pyCS_CurPathSub, .pyCS_comment {
+        font-size: 1.2em !important;
     }
 
     .pyCS_CurPath, .pyCS_FirstTab {
@@ -328,6 +331,22 @@ body {
     }
 
     .pyCS_CourseDiv {
-        margin-top: 10vh !important;
+        margin-top: 20vh !important;
+    }
+
+    .pyCS_SeasonDesc{
+        display: none
+    }
+
+    [class*="pyCS_SubMiniHeader"] {
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 10px !important;
+        height: 150px !important
+    }
+
+    [class*="mr-4"] {
+        margin-right: 0px !important
     }
 }

@@ -49,6 +49,11 @@
     <link href="~/css/Path/pyPathDet.css" rel="stylesheet" />
     <link href="~/css/Path/pyPathCourse.css" rel="stylesheet" />
     <link href="~/css/Path/pyPathMission.css" rel="stylesheet" />
+
+
+
+    <script src="~/js/Signalr/signalr.js"></script>
+    <script src="../js/Signalr/jsOnlineUsers.js"></script>
 </head>
 
 <body ng-app="PyApp">
@@ -62,8 +67,8 @@
                 <a id="navlink_Dashboard" class="nav-item nav-link  pyH_MenuItem" href="#" onclick="window.open('/Course/Index', '_self')">داشبورد</a>
                 <a id="navlink_Signup" class="nav-item nav-link  pyH_MenuItem" href="#" ng-href="/User/SignUpForm">ثبت نام</a>
                 <a id="navlink_Login" class="nav-item nav-link pyH_MenuItem" href="#" ng-href="/User/LoginForm">ورود</a>
-                @*<a class="nav-item nav-link pyH_MenuItem" href="#" ng-href="/Path/Index">دوره ها</a>*@
-                <a class="nav-item nav-link pyH_MenuItem" href="#contact">ارتباط با ما</a>
+                <a id="navlink_Logout" onclick="PublicLogOut()" class="nav-item nav-link  pyH_MenuItem"  href="#">خروج</a>
+                <a class="nav-item nav-link pyH_MenuItem">ارتباط با ما</a>
             </div>
 
             <a href="#" class="navbar-brand pull-right pyMobileHide" style="float:left !important">

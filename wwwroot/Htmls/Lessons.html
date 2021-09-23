@@ -12,7 +12,14 @@
     <h4 class="pyLS_SidebarTitle" ng-bind="Lessons[0].cname"></h4>
     <hr class="pyLS_SidebarLine" />
     <div class="list-group pyLS_SidebarList">
-        <a ng-repeat="l in Lessons" href="#" ng-class="{pyLS_SidebarItemActive: $index == LessonID-1}" ng-click="SidebarClick($index)" class="list-group-item list-group-item-action pyLS_SidebarItem" ng-bind="l.name"></a>
+        <div class="d-flex justify-content-between" ng-repeat="l in Lessons">
+            <a href="#" ng-class="{pyLS_SidebarItemActive: $index == LessonID-1}" ng-click="SidebarClick($index)"
+               class="list-group-item list-group-item-action pyLS_SidebarItem" ng-bind="l.name"></a>
+            <div class="d-flex" ng-switch="HasUserStudy(l.id)">
+                <i ng-switch-when="true" class="zmdi zmdi-check-all zmdi-hc-lg align-self-center pyLS_dblCheck"></i>
+                <i ng-switch-default class="zmdi zmdi-check zmdi-hc-lg align-self-center pyLS_oneCheck"></i>
+            </div>
+        </div>
     </div>
 </div>
 

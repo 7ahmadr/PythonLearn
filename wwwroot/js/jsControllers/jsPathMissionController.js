@@ -22,7 +22,7 @@
                 if (cs.data.state === "YES") {
                     $scope.Lessons = cs.data.lessons;
                     $scope.Course = cs.data.course;
-                    $scope.Season = cs.data.season;
+                    $scope.Path = cs.data.path;
                     $scope.CourseOptions = cs.data.course.options.split("##");
                 }
                 else
@@ -42,6 +42,6 @@
     };
 
     $scope.ReturnHtml = function (content) {
-        return $sce.trustAsHtml(content);
+        return $sce.trustAsHtml(FilterContent(content));
     };
 });

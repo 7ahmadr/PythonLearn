@@ -34,6 +34,12 @@ namespace PythonLearn.Controllers
         }
 
 
+        public IActionResult OnlineUsers()
+        {
+            return View();
+        }
+
+
         public IActionResult Privacy()
         {
             return View();

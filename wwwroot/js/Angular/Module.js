@@ -37,6 +37,10 @@ app.config(["$routeProvider", "$locationProvider", function ($routeProvider, $lo
         controller: "jsPathMissionController"
     });
 
+    $routeProvider.when("/Home/OnlineUsers", {
+        templateUrl: "/Home/OnlineUsers"
+    });
+
     //$routeProvider.when("/Course/Index", {
     //    templateUrl: "/Htmls/CourseList.html",
     //    controller: "jsCourseController"
@@ -101,6 +105,10 @@ appCourse.config(["$routeProvider", "$locationProvider", function($routeProvider
 
     $routeProvider.otherwise({
         redirectTo: "/course/index"
+    });
+
+    $routeProvider.when("/Home/OnlineUsers", {
+        templateUrl: "/Home/OnlineUsers"
     });
 
     $locationProvider.html5Mode({

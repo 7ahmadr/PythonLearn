@@ -120,7 +120,9 @@ namespace PythonLearn.Controllers
                               select new { l.Name, l.Desc };
                 var Course = _context.CourseRepository.Get(c => c.ID == CID);
                 var Season = _context.SeasonRepository.Get(s => s.ID == Course.SID);
-                return Json(new { state = "YES", lessons = Lessons, course = Course, season = Season });
+                var Level = _context.LevelRepository.Get(l => l.ID == Season.LID);
+                var Path = _context.PathRepository.Get(p => p.ID == Level.PID);
+                return Json(new { state = "YES", lessons = Lessons, course = Course, path = Path });
             }
             catch (Exception ex)
             {

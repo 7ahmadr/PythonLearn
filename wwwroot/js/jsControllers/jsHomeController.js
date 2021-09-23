@@ -3,6 +3,13 @@
     //if (localStorage.getItem("token") !== null && localStorage.getItem("token") !== '') {
     //    window.open('/course/index', '_self');
     //}
+    if (localStorage.getItem("fullname") === null || localStorage.getItem("fullname") === '')
+        $("#navlink_Logout").hide();
+    else {
+        $('#navlink_Login').hide();
+        $('#navlink_Signup').hide();
+    }
+
     $scope.loading = true;
     loadAll();
     $("#pyFooter").show();

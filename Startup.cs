@@ -1,15 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using PythonLearn.Models;
 using PythonLearn.Data.Context;
 using PythonLearn.Data.Infrastructure;
 using PythonLearn.Data.Entity;
@@ -17,8 +10,7 @@ using PythonLearn.Authentication;
 using PythonLearn.Authentication.Services;
 using Microsoft.AspNetCore.Authorization;
 using PythonLearn.Authentication.Permissions;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
+using PythonLearn.RealTime;
 
 namespace PythonLearn
 {
@@ -42,10 +34,6 @@ namespace PythonLearn
             // configure jwt authentication
             AppSetting appSet = appSettingsSection.Get<AppSetting>();
 
-            //services.AddIdentity<ExternalUser, IdentityRole>()
-            //        .AddEntityFrameworkStores<PyContext>()
-            //        .AddDefaultTokenProviders();
-
             services.pyExternalAuthentication();
             services.pyAuthentication(appSet.Secret);
 
@@ -61,7 +49,7 @@ namespace PythonLearn
             //services.AddDbContext <ExternalContext>(options => options.UseSqlServer(pyConString.Value));
             services.AddDbContext<PyContext>();
             //services.AddMvc();
-
+            services.AddSignalR();
 
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
@@ -72,7 +60,6 @@ namespace PythonLearn
         }
 
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
@@ -98,6 +85,7 @@ namespace PythonLearn
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}/{lid?}");
+                endpoints.MapHub<OnlineUsers>("/chatHub");
             });
         }
     }

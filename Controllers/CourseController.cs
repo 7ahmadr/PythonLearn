@@ -82,11 +82,13 @@ namespace PythonLearn.Controllers
                 }
                 List<string> PermissionList = PermissionsController.GetPermissionList(Token, UID);
 
+
                 #region FillAllLists
                 var PathList = _context.PathRepository.GetAll();
                 var CourseList = _context.CourseRepository.GetAll();    //GetCourseListWithPermissions(); //
                 var SeasonList = _context.SeasonRepository.GetAll();
                 var LevelList = _context.LevelRepository.GetAll();
+                //var CourseListUserStudy = GetCourseListWithUserStudy(UID);
                 #endregion
 
                 string NowDate = pyEx.GetPersianDate(DateTime.Now);
@@ -126,6 +128,27 @@ namespace PythonLearn.Controllers
 
         }
 
+        private object GetCourseListWithUserStudy(int UID)
+        {
+            return (from l in _context.LessonRepository.GetAll()
+                    join c in _context.CourseRepository.GetAll() on l.CID equals c.ID
+                    join us in _context.UserStudyRepository.GetAll() on l.ID equals us.LID 
+                    where us.UID==UID
+                    select new
+                    {
+                        c, userStudy= IsUserStudy(UID, c.ID)
+                    }).ToList();
+        }
+
+
+        private bool IsUserStudy(int UID, int CID)
+        {
+            int LessonCount = _context.LessonRepository.GetMany(l => l.CID == CID).Count();
+            int StudyCount = _context.UserStudyRepository.GetMany(u => u.UID == UID).Count();
+            if (LessonCount == StudyCount)
+                return true;
+            return false;
+        }
 
         private object GetCourseListWithPermissions()
         {
@@ -168,13 +191,14 @@ namespace PythonLearn.Controllers
 
                 var LessonPermission = _context.PathRepository.Get(p => p.ID == PID).Permission;
                 if (PermissionsController.HasPermission(PermissionList, LessonPermission) == false && IsFree == false)
-                    return Json(new { state = "NO", data = "اجازه دسترسی به این درسنامه برای شما وجود ندارد." });
+                    return Json(new { state = "NO", data = "جهت دیدن این مرحله، در منوی بالا روی 'خرید اشتراک' کلیک کنید." });
 
+                List<int> UserStudy = _context.UserStudyRepository.GetMany(us => us.UID == UID).Select(u => u.LID).ToList();
 
                 var List = _context.LessonRepository.GetMany(l => l.CID == CID);
                 var FileList = _context.FileHtmlRepository.GetAll();
                 var JoinList = GetLessonPackage(List, FileList, Course);
-                return Json(new { state = "YES", data = JoinList, SID = SID });
+                return Json(new { state = "YES", data = JoinList, SID = SID, userStudy = UserStudy });
             }
             catch (Exception ex)
             {
@@ -273,6 +297,39 @@ namespace PythonLearn.Controllers
 
         }
 
+
+        public JsonResult UpdateUserStudy(string EMail, int CID, int LNumber)
+        {
+            try
+            {
+                Data.User user = _context.UserRepository.Get(u => u.Username == EMail);
+                if (user is null)
+                    return Json(new { state = "NO", msg = "چنین کاربری وجود ندارد." });
+
+                Lesson lesson = _context.LessonRepository.Get(l => l.CID == CID && l.Number == LNumber);
+                if (lesson is null)
+                    return Json(new { state = "NO", msg = "چنین درسی وجود ندارد." });
+
+                int LID = lesson.ID;
+                int UID = user.ID;
+                var count = _context.UserStudyRepository.GetMany(us => us.UID == UID && us.LID == LID).ToList().Count;
+                if (count > 0)
+                    return Json(new { state = "NO", msg = "ردیف قبلا ثبت شده استُ" });
+
+
+                UserStudy US = new UserStudy();
+                US.LID = LID;
+                US.UID = UID;
+                _context.UserStudyRepository.Insert(US);
+                _context.Commit();
+                return Json(new { state = "YES" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { state = "NO", msg = ex.Message });
+                throw;
+            }
+        }
 
         private Data.User GetUserByEmail(string EMail)
         {

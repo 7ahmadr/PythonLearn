@@ -129,10 +129,13 @@
                                     </a>
                                     <div id="collapse{{$index}}">
                                         <a ng-repeat="c in Courses | orderBy:'number'" ng-if="c.sid==s.id" href="#" ng-click="GoToLessons(c.id,p.permission, c.isFree)" class="list-group-item list-group-item-action pyCS_Course">
-                                            {{c.isfree}}
-                                            <span class="zmdi zmdi-lock text-secondary" ng-hide="HasPermission(p.permission, c.isFree)"></span>
-                                            <span class="zmdi zmdi-check pyCS_Active" ng-show="HasPermission(p.permission, c.isFree)"></span>
-                                            {{c.name}}
+                                            <div class="mb-2 font-weight-bold">
+                                                {{c.isfree}}
+                                                <span class="zmdi zmdi-lock zmdi-hc-lg text-secondary" ng-hide="HasPermission(p.permission, c.isFree)"></span>
+                                                <span class="zmdi zmdi-check zmdi-hc-lg pyCS_Active" ng-show="HasPermission(p.permission, c.isFree)"></span>
+                                                {{c.name}}
+                                            </div>
+                                            <smal class="mt text-secondary pyCS_SeasonDesc">{{c.desc}}</smal>
                                         </a>
                                     </div>
                                 </div>
@@ -200,12 +203,12 @@
             </div>
             <div class="modal-body">
                 <div class="list-group">
-                    <div ng-repeat="p in Paths" id="Path{{p.id}}">
+                    <div ng-repeat="p in Paths" id="Path{{p.id}}" class="pyCS_courseItem">
                         <a href="#" data-dismiss="modal" class="list-group-item list-group-item-action flex-column mt-2" ng-class="{active: $index == ActivePath}" ng-click="ChangeActivePath($index, p.id)">
                             <div class="d-flex w-100 justify-content-between">
                                 <h4 class="mb-1">{{p.name}}</h4>
                             </div>
-                            <small class="mb-1 comment more">{{p.desc}}</small>
+                            <small class="mb-1 comment more pyCS_comment">{{p.desc}}</small>
                         </a>
                     </div>
                 </div>

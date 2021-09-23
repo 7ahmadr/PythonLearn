@@ -41,8 +41,8 @@ namespace PythonLearn.Controllers
 
 
 
-        [Microsoft.AspNetCore.Mvc.HttpGet("PayForLesson/{PID}/{EMail}/{Cost}/{Month}")]
-        public IActionResult PayForLesson(int PID, string EMail, int Cost, int Month)
+        [Microsoft.AspNetCore.Mvc.HttpGet("PayForLesson/{PID}/{EMail}/{Cost}/{Month}/{UserCoupon}/{CouponCost}")]
+        public IActionResult PayForLesson(int PID, string EMail, int Cost, int Month, string UserCoupon, int CouponCost)
         {
             //var payment = new Payment(Cost);      //for sandbox
             var payment = new Payment(_MerchantID, Cost);
@@ -61,7 +61,7 @@ namespace PythonLearn.Controllers
                 return RedirectToAction("PaymentAlreadyDone", "Payment");
 
             var res = payment.PaymentRequest($"پرداخت فاکتور  جهت ثبت نام در دوره {PathName}",
-                $"https://pythoncoding.ir/api/payment/OnlinePaymentCallBack/{u.ID}/{PID}/{PathPerm}/{Cost}/{Month}", EMail, u.Mobile);
+                $"https://pythoncoding.ir/api/payment/OnlinePaymentCallBack/{u.ID}/{PID}/{PathPerm}/{Cost}/{Month}/{UserCoupon}/{CouponCost}", EMail, u.Mobile);
             if (res.Result.Status == 100)
             {
                 return Redirect("https://zarinpal.com/pg/StartPay/" + res.Result.Authority);
@@ -73,8 +73,8 @@ namespace PythonLearn.Controllers
         }
 
 
-        [Microsoft.AspNetCore.Mvc.HttpGet("OnlinePaymentCallBack/{UID}/{PID}/{PathPerm}/{Cost}/{Month}")]
-        public IActionResult OnlinePaymentCallBack(int UID, int PID, string PathPerm, int Cost, int Month)
+        [Microsoft.AspNetCore.Mvc.HttpGet("OnlinePaymentCallBack/{UID}/{PID}/{PathPerm}/{Cost}/{Month}/{UserCoupon}/{CouponCost}")]
+        public IActionResult OnlinePaymentCallBack(int UID, int PID, string PathPerm, int Cost, int Month, string UserCoupon, int CouponCost)
         {
             if (HttpContext.Request.Query["Status"] != "" &&
                 HttpContext.Request.Query["Status"].ToString().ToLower() == "ok" &&
@@ -99,6 +99,7 @@ namespace PythonLearn.Controllers
 
                     _context.UserRepository.Update(user);
                     AddUserPayment(UID, PID, Cost, Month, PathPerm);
+                    if (CouponCost > 0) UpdateCoupon(UserCoupon);
                     _context.Commit();
 
                     return RedirectToAction("PaymentCompeleted", "Payment");
@@ -120,6 +121,15 @@ namespace PythonLearn.Controllers
             up.XDate = px.PersianDate(DateTime.Now);
             up.XTime = DateTime.Now.ToString("HH:mm:ss tt");
             _context.UserPaymentRepository.Insert(up);
+            return true;
+        }
+
+
+        private bool UpdateCoupon(string UserCoupon)
+        {
+            var Coupon = _context.CouponRepository.Get(c => c.Name == UserCoupon);
+            Coupon.Count -= 1;
+            _context.CouponRepository.Update(Coupon);
             return true;
         }
 

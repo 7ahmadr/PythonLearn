@@ -1,0 +1,26 @@
+﻿
+
+<div style="margin-top: 80px" class="d-inline-flex">
+    <div class="container">
+        <h5 class="d-inline mr-2">تعداد  کاربران آنلاین: <span class="online-count font-weight-bolder"></span> نفر </h5>
+        <br />
+        <div class="mt-3">
+            <h5 class="d-inline mr-2 text-primary">تعداد  کاربران عضو آنلاین: <span class="online-signed-count font-weight-bolder"></span> نفر </h5>
+        </div>
+
+        <ul id="onlineUsers" class="list-group mt-3">
+        </ul>
+    </div>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        $("#pyFooter").hide()
+    })
+    onlineCount = document.querySelector('span.online-count');
+    onlineSignedCount = document.querySelector('span.online-signed-count');
+    onlineUsersList = document.getElementById("onlineUsers");
+
+</script>

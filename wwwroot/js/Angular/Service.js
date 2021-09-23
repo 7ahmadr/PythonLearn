@@ -143,6 +143,15 @@ appCourse.service("PyCourseService", function ($http) {
     };
 
 
+    this.UpdateUserStudy = function (EMail, CID, LNumber) {
+        return $http({
+            url: '/Course/UpdateUserStudy/',
+            method: 'GET',
+            params: { EMail: EMail, CID: CID, LNumber: LNumber}
+        });
+    };
+
+
     this.GetOutput = function (submissionId) {
         //var xmlHttp = new XMLHttpRequest();
         //xmlHttp.open("GET", 'https://681f2cb5.compilers.sphere-engine.com/api/v4/submissions/' + submissionId + '/output?access_token=d6cd6e3cd57540d0cc16a8fe42bb6a7f', false); // false for synchronous request

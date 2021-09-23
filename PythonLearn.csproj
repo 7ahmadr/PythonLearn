@@ -853,6 +853,7 @@
     <ProjectReference Include="..\PythonLearn.Compiler\PythonLearn.Compiler.csproj" />
     <ProjectReference Include="..\PythonLearn.GenerateRandom\PythonLearn.GenerateRandom.csproj" />
     <ProjectReference Include="..\PythonLearn.MailKit\PythonLearn.MailKit.csproj" />
+    <ProjectReference Include="..\PythonLearn.RealTime\PythonLearn.RealTime.csproj" />
   </ItemGroup>
 
 </Project>

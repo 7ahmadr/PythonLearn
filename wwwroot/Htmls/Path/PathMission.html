@@ -7,13 +7,27 @@
                 <div class="pyPM_SubMiniTitle text-center">
                     <label class="pyPM_PName text-white" ng-bind="Course.name"></label>
                     <br />
-                    <label class="pyPM_PNameDesc text-white">این درسنامه قسمتی از دوره <b class="text-success">{{Season.name}}</b> می باشد</label>
+                    <label class="pyPM_PNameDesc text-white">این درسنامه قسمتی از دوره <b class="text-success">{{Path.name}}</b> می باشد</label>
                 </div>
             </div>
         </div>
 
         <div class="col-lg-6  d-flex justify-content-center pyPM_HeaderLeft">
             <div class="pyPM_SubMiniHeader shadow">
+                <div class="pyPM_SubMiniInternal text-center">
+
+                    <br>
+                    <span class="pyPM_CurPath mt-2">برای دیدن دروس این مرحله، باید دوره </span>
+                    <span class="pyPM_CurPath pyPM_Highlight mt-2">
+                        {{Path.name}}
+                    </span>
+                    <span class="pyPM_CurPath mt-2"> را تهیه فرمایید </span>
+                    <br>
+                    <label class="pyPM_CurPathTitle">جهت خرید این دوره، بر روی دکمه زیر کلیک کنید.</label>
+                    <button class="btn pyH_MenuItemBtn btn-success mt-2" onclick="IsLogin == true ? window.open('/Payment/Index','_self') : window.open('/User/LoginForm', '_self')" >خرید دوره</button>
+                </div>
+            </div>
+            <!--<div class="pyPM_SubMiniHeader shadow">
                 <div class="pyPM_SubMiniInternal text-center">
                     <i class="zmdi zmdi-lock zmdi-hc-4x text-secondary"></i>
                     <br />
@@ -22,7 +36,7 @@
                     <label class="pyPM_CurPathTitle">با تهیه اشتراک می توانید از محتوای تمامی درسنامه های کاربردی این دوره استفاده نمایید</label>
                     <button onclick="IsLogin == true ? window.open('/Payment/Index','_self') : window.open('/User/LoginForm', '_self')" class="btn pyH_MenuItemBtn btn-success mt-3">استفاده از درسنامه</button>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 

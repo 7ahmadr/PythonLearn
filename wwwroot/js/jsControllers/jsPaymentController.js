@@ -51,6 +51,7 @@
                 return coupons[i].desc;
             }
         }
+        $scope.UserCouponCost = 0;
         return null;
     };
 
@@ -62,12 +63,12 @@
         }
         let Cost = Number($scope.Pricings[priceIndex].cost - $scope.Pricings[priceIndex].off - $scope.UserCouponCost);
         let Month = Number($scope.Pricings[priceIndex].month);
-        GoToPaymentPage($scope.PathIndex, Cost, Month);
+        GoToPaymentPage($scope.PathIndex, Cost, Month, $scope.UserCoupon, $scope.UserCouponCost);
     };
 });
 
 
-function GoToPaymentPage(PathID, Cost, Month) {
+function GoToPaymentPage(PathID, Cost, Month, UserCoupon, CouponCost) {
     let EMail = localStorage.getItem('email');
-    window.open(`/api/payment/PayForLesson/${PathID}/${EMail}/${Cost}/${Month}`, '_self');
+    window.open(`/api/payment/PayForLesson/${PathID}/${EMail}/${Cost}/${Month}/${UserCoupon}/${CouponCost}`, '_self');
 }

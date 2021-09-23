@@ -39,6 +39,8 @@
     <script src="~/js/jsControllers/jsPaymentController.js"></script>
     <script src="~/js/pyPublicJS.js"></script>
 
+    <script src="~/js/Signalr/signalr.js"></script>
+    <script src="~/js/Signalr/jsOnlineUsers.js"></script>
 
 
     @******************************  PyCSS ************************************@
@@ -59,6 +61,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>*@
             <div class="navbar-nav pyCH_NavbarNav">
+                <a class="nav-item nav-link pyCH_Icon" onclick="window.open('/Home/Index', '_self')" href="#">خانه</a>
                 <a class="nav-item nav-link pyCH_Icon" ng-href="/Course/Index" href="#">داشبورد</a>
                 <a id="btn_Login" class="nav-item nav-link pyCH_Icon" onclick="window.open('/User/LoginForm', '_self')" href="#">ورود</a>
                 <a id="btn_changePass" class="nav-item nav-link pyCH_Icon" data-toggle="modal" data-target="#ChangePassModal" href="#">تغییر رمز</a>

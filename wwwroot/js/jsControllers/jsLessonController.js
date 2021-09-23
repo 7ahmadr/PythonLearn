@@ -15,6 +15,7 @@ appCourse.controller("jsLessonController", function ($scope, $location, PyCourse
     $scope.ShowAnswer = false;
     $scope.ShowNextScreen = false;
     $scope.ShowResetDiv = false;
+
     $("#btn_changePass").hide();
     loadAll($scope.CourseID);
 
@@ -26,11 +27,11 @@ appCourse.controller("jsLessonController", function ($scope, $location, PyCourse
                     $scope.Lessons = cs.data.data;
                     $scope.SID = cs.data.sid;
                     $scope.CID = CID;
+                    $scope.UserStudy = cs.data.userStudy;
                     $scope.GetAnswer(0);
                     $scope.pyConsoleAll = " >>> ";
                     $scope.pyConsoleCode = "";
                     $scope.ShowConsole = 0;
-
 
                     if (localStorage.getItem("fullname") !== null && localStorage.getItem("fullname") !== '') {
                         $('#btn_Login').hide();
@@ -42,7 +43,7 @@ appCourse.controller("jsLessonController", function ($scope, $location, PyCourse
                 else {
                     $scope.ShowMainDiv = false;
                     alert(cs.data.data);
-                    window.open('/course/Index', '_self');
+                    window.open('/Path/IndexPathMission/' + CID, '_self');
                 }
             },
             function (error) {
@@ -222,20 +223,20 @@ appCourse.controller("jsLessonController", function ($scope, $location, PyCourse
 
     $scope.CheckAnswer = function () {
         if ($scope.pyResult.toString().trim() === $scope.lesAnswer.toString().trim()) {
-            //$scope.ClearCompiler();
             if ($scope.curLesson >= $scope.Lessons.length - 1) {
                 AlertSuccess('تبریک! این دوره آموزشی به پایان رسید... بریم برای دوره بعدی؟');
                 $scope.GetNextCourseID();
             }
             else {
-                //AlertPrimary('احسنت! پاسخ شما درست بود. بریم مرحله بعد؟...');
-                //$scope.changePage('+');
+                PlaySound('/Downloads/chimes.mp3');
                 $scope.ShowNextScreen = true;
             }
+
+            if (localStorage.getItem("email") !== null)
+                PyCourseService.UpdateUserStudy(localStorage.getItem("email"), $scope.CourseID, $scope.LessonID);
         }
-        else {
+        else
             AlertFail('متاسفیم! پاسخ شما اشتباه بود. دوباره تلاش کنید...');
-        }
     };
 
 
@@ -287,91 +288,7 @@ appCourse.controller("jsLessonController", function ($scope, $location, PyCourse
 
     $scope.ParseLesson = function (content) {
         if (content === null) return;
-        content = content.replace(/<!#/g, "<img class='lesImage' src='/LessonPics/");
-        content = content.replace(/#!>/g, "' style='max-width:100%;' />");
-		
-		content = content.replace(/<!!!/g, "<img class='lesImage' src='/LessonPics/");
-        content = content.replace(/!!!>/g, "' style='max-width:70%;' />");
-
-
-        content = content.replace(/<span cm-text="">&#8203;<\/span>/g, "<span>&nbsp;</span>");
-        content = content.replace(/<span cm-text="">\u200b<\/span>/g, "<span>&nbsp;</span>");
-		content = content.replace(/<span cm-text="">\​<\/span>/g, "<span>&nbsp;</span>");
-		content = content.replace(/<span cm-text="">&ZeroWidthSpace;<\/span>/g, "<span>&nbsp;</span>");
-
-		
-        content = content.replace(/!تایتل/g, "<span class='pyTitle' >");
-        content = content.replace(/!title/g, "<span class='pyTitle' >");
-        content = content.replace(/!هایلایت/g, "<span class='pyHighlight' >");
-        content = content.replace(/!سبز/g, "<span class='pyHighlightGreen' >");
-
-
-        content = content.replace(/!پی/g, "<p>");
-        content = content.replace(/پی!/g, "</p>");
-
-        content = content.replace(/!هلو/g, "<span class='pyHighlight inline' >");
-        content = content.replace(/هلو!/g, "</span>");
-
-
-        content = content.replace(/!highlight/g, "<span class='pyHighlight' >");
-        content = content.replace(/!بولد/g, "<span class='pyBold' >");
-        content = content.replace(/!bold/g, "<span class='pyBold' >");
-        content = content.replace(/!چپچین/g, "<span class='pyLtr' >");
-        content = content.replace(/!chap/g, "<span class='pyLtr' >");
-
-        content = content.replace(/!دیوقرمز/g, "<div class='pyDivRed' >");
-        content = content.replace(/!divred/g, "<div class='pyDivRed pyLeftAlign' >");
-        content = content.replace(/!دیوابی/g, "<div class='pyDivBlue' >");
-        content = content.replace(/!divblue/g, "<div class='pyDivBlue pyLeftAlign' >");
-        content = content.replace(/!گریندیو/g, "<div class='pyDivGreen' >");
-
-        content = content.replace(/!رنگ/g, '<span style="color:#');
-        content = content.replace(/!color/g, '<span style="color:#');
-        content = content.replace(/!backcolor/g, '<span style="background-color:#');
-        content = content.replace(/!لینک/g, '<a target="_blank" href="');
-        content = content.replace(/!link/g, '<a target="_blank" href="');
-        content = content.replace(/!زمینه/g, '<span style="background-color:#');
-        content = content.replace(/!سایز/g, '<span style="font-size:');
-        content = content.replace(/!size/g, '<span style="font-size:');
-        content = content.replace(/!اینستراکت/g, "<span class='pyInstruct' >");
-        content = content.replace(/اینستراکت!/g, "</span>");
-        content = content.replace(/#!/g, '">');
-
-        content = content.replace(/تایتل!/g, "</span>");
-        content = content.replace(/title!/g, "</span>");
-        content = content.replace(/هایلایت!/g, "</span>");
-        content = content.replace(/سبز!/g, "</span>");
-        content = content.replace(/highlight!/g, "</span>");
-        content = content.replace(/بولد!/g, "</span>");
-        content = content.replace(/bold!/g, "</span>");
-        content = content.replace(/چپچین!/g, "</span>");
-        content = content.replace(/chap!/g, "</span>");
-        content = content.replace(/رنگ!/g, "</span>");
-        content = content.replace(/color!/g, "</span>");
-        content = content.replace(/backcolor!/g, "</span>");
-        content = content.replace(/زمینه!/g, "</span>");
-        content = content.replace(/لینک!/g, "</a>");
-        content = content.replace(/link!/g, "</a>");
-        content = content.replace(/سایز!/g, "</span>");
-        content = content.replace(/size!/g, "</span>");
-
-        content = content.replace(/دیوابی!/g, "</div>");
-        content = content.replace(/گریندیو!/g, "</div>");
-        content = content.replace(/divblue!/g, "</div>");
-        content = content.replace(/دیوقرمز!/g, "</div>");
-        content = content.replace(/divred!/g, "</div>");
-
-        content = content.replace(/!دیوچپ/g, "<div class='pyDivLtr' >");
-        content = content.replace(/دیوچپ!/g, "</div>");
-
-		content = content.replace(/!هلپدیو/g, "<div class='pyDivHelp' >");
-		content = content.replace(/هلپدیو!/g, "</div>");
-
-
-
-        content = content.replace(/!بیرونبرتی/g, "<p class='birunbarTitle' >");
-        content = content.replace(/بیرونبرتی!/g, "</p>");
-        return $sce.trustAsHtml(content);
+        return $sce.trustAsHtml(FilterContent(content));
     };
 
 
@@ -381,6 +298,7 @@ appCourse.controller("jsLessonController", function ($scope, $location, PyCourse
 
 
     $scope.SetNextLines = function (content) {
+        if (content === undefined) return '';
         return content.replace(/\n/g, "<br/>");
     };
 
@@ -483,6 +401,19 @@ appCourse.controller("jsLessonController", function ($scope, $location, PyCourse
         let name = $scope.CourseID + "/" + $scope.LessonID;
         localStorage.setItem(name, $scope.pyCode);
     };
+
+
+    $scope.HasUserStudy = function (LID) {
+        let find = false;
+        $scope.UserStudy.forEach((les) => {
+            if (les === LID) {
+                find = true;
+                return;
+            }
+        })
+        return find;
+    }
+
 
     function SetUI() {
         $("[id=csNav]").hide();

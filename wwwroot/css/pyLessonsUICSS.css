@@ -267,12 +267,12 @@ pyLS_btnNew:hover {
     padding: 30px 0px 40px 0px;
     background-color: #222b49 !important;
     height: calc(100vh - 55px) !important;
-    width: 23vw;
+    width: 25vw;
     display: none;
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 2;
+    z-index: 2999999999999;
     margin-top: 55px;
     direction: ltr;
     font-family: IRANSans;
@@ -285,6 +285,7 @@ pyLS_btnNew:hover {
     border-radius: 0px !important;
     border: none;
     direction: rtl;
+    padding-right: 1rem
 }
 
     .pyLS_SidebarItem:hover {
@@ -292,10 +293,19 @@ pyLS_btnNew:hover {
         font-family: IRANSans;
     }
 
+.pyLS_oneCheck {
+    color: #8f96a3
+}
+
+.pyLS_dblCheck {
+    color: #34b080;
+}
+
 .pyLS_SidebarTitle {
     color: white;
     font-size: 20px;
     margin-right: 10px;
+    direction: rtl;
 }
 
 .pyLS_SidebarLine {
